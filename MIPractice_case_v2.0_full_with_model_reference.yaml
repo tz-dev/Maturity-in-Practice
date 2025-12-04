@@ -8,9 +8,11 @@
 #     - A–C–R–P–D profile
 #     - A- and M-band
 #     - IA box (T–J–TB–R)
-#     - trajectory
+#     - trajectory (incl. responsibility–viability range)
 #     - optional D module (B.11)
 #     - optional submodule profile (full 2.4 parameter matrix)
+#     - frame_vs_variability block (frame vs. movable elements)
+#     - ia_protection & transmission_check blocks (Schutz- & Reifeprüfung der Anwendung)
 #
 # ONE-PAGE MENTAL MODEL (for humans & AI):
 #   1. We never judge persons, only enactments in roles and structures.
@@ -18,33 +20,54 @@
 #   3. The IA-box is a structural check (T/J/TB/R), not a moral verdict.
 #   4. The D module is OPTIONAL and SCENIC; default = OFF.
 #   5. Trajectories > labels: we care more about movement than about types.
+#   6. Application zones (green/yellow/red) define where the model may be used, only with caution, or not at all.
 #
 # DO:
 #   - Make roles, norms, information basis and bias risks explicit.
 #   - Prefer "here, in this role, at this time" over "is always".
 #   - Use D to protect dignity, not to sanction or shame.
+#   - Separate frame elements (hard constraints, protected goods) from variable elements (processes, communication).
+#   - Document IA-protection measures (transparency, time-boundedness, reversibility, participation).
 #
 # DO NOT:
 #   - Use scores as character labels or as HR-/selection weapon.
 #   - Mix clinical diagnoses into the maturity reading.
 #   - Publish individual D-readings in public media spaces.
+#   - Use the model in red zones (clinical diagnostics, forensics, individual HR-decisions, child diagnostics, public pillory).
 #
 # TYPICAL MISUSE PATTERNS TO AVOID:
 #   - Turning A/M into static personality labels ("she is a 3/10").
 #   - Using D findings for public shaming, scapegoating or power games.
 #   - Forcing every situation into the A–C–R–P–D grid even when it does not fit.
 #   - Ignoring structural co-causes (system axiom) and blaming individuals only.
+#   - Treating structural frame elements as if actors could have foreseen/changed them (unfairly high M).
 #
 # CORE RULES FOR THE MODEL:
 #   - Always analyse ENACTMENTS, ROLES and STRUCTURES – NEVER the ontological value of persons.
 #   - Ontological dignity (D0) is NEVER rated, withdrawn or compared.
 #   - A- and M-scores must always be given as BANDS (ranges) with short justifications.
+#   - In cases of extreme structural asymmetry (no foreseeability, no real alternatives),
+#     individual M remains low; co-responsibility lies primarily with institutions/designers.
 #   - The D module (B.11) is OPTIONAL and DEFAULT = OFF. It may only be activated if guardrails are met.
 #   - D findings must stay SCENIC and CONTEXT-BOUND, never global labels about a person.
 #   - Trauma / heavy clinical states: D is NOT used as a maturity indicator, at most as a strain signal.
 #   - Misuse of the model (e.g. for shaming, scapegoating, power games) counts as its own IA/D finding.
 #   - Biases, context modulators, and publicity levels must be made explicit to avoid distortions.
 #   - Trajectories (e.g. ascending, descending, zigzag, plateau) matter more than fixed labels.
+#
+# APPLICATION ZONES (GREEN / YELLOW / RED):
+#   - Green: recommended – structures, historical/fictional cases, self-application; no direkte Individual-Sanktionen.
+#   - Yellow: caution – cases with Betroffenen, nur eingebettet in Supervision/Moderation, ohne direkte personal decisions.
+#   - Red: forbidden – clinical diagnostics, forensics, individual HR, child diagnostics, public pillory/ranking.
+#
+# FRAME VS. VARIABILITY:
+#   - Always distinguish frame elements (laws, protected goods, hard constraints) from variable elements (roles, processes,
+#     communication, timing).
+#   - Mark zones where high M would be unfair, and where "system" is misused as excuse to avoid responsibility.
+#
+# IA-PROTECTION & TRANSMISSION:
+#   - IA_protection documents what is done to make the asymmetry transparent, time-bound, reversible and participatory.
+#   - transmission_check flags whether a reading is ripe for structural decision-making or must remain purely reflective.
 #
 # TOOLBOX, NOT WORLDVIEW:
 # - Treat the model as a toolbox and lens, not as a total worldview.
@@ -82,9 +105,11 @@
 #     Do NOT alter these definitions; use them as the conceptual grid for all case readings.
 #   - Fill `information_basis` from the given input (primary text/materials, other documents)
 #     and your own explicit assumptions/inferences.
-#   - Then fill all other fields based ONLY on that documented basis and the model logic.
-#   - Use `acrpd_profile` for a compact parameter profile and `acrpd_submodules_profile`
-#     for a detailed reading along the 2.4 submodule matrix when needed.
+#   - Set `meta.application_zone` and check that the planned use is in green or (carefully) yellow; never operate in red.
+#   - Use `frame_vs_variability` to separate structural frame from changeable elements and to locate unfair M-attributions.
+#   - Document IA-protection in `ia_protection` (transparency, time-boundedness, reversibility, participation).
+#   - Use `scores_and_ia`, `acrpd_profile` and `acrpd_submodules_profile` for structured readings; keep bands and text together.
+#   - Use `transmission_check` to decide whether a reading is only reflective or can inform structural decisions.
 #   - If important information is missing or uncertain, mark it under `open_questions_and_blind_spots`.
 #   - Generate `uniform_report` ONLY from the structured fields (B.10 / B.11), not from new hidden assumptions.
 
@@ -104,6 +129,30 @@ schema_meta:
     - "public_shaming"
     - "clinical_diagnosis"
     - "hiring_decisions_without_human_supervision"
+    - "forensics_or_criminal_justice_diagnostics"
+    - "child_and_youth_diagnostics"
+    - "public_pillory_or_ranking_formats"
+  application_zones:
+    green:
+      description: "recommended usage (structures, cases at a distance, self-application)"
+      typical_uses:
+        - "analysis_of_structures"
+        - "historical_or_fictional_cases"
+        - "self_application_reflection"
+    yellow:
+      description: "use only with special care (involving affected persons, but without direct individual sanctions or HR decisions)"
+      conditions:
+        - "embedded_in_supervision_or_moderated_process"
+        - "no_direct_basis_for_sanctions_or_hr_decisions"
+        - "D_used_as_protection_signal_not_moral_label"
+    red:
+      description: "usage forbidden (structurally high IA and D-risk)"
+      includes:
+        - "clinical_diagnostics"
+        - "hr_decisions_about_individuals"
+        - "forensics_and_criminal_justice"
+        - "child_and_youth_diagnostics"
+        - "public_pillory_or_ranking"
 
 model_reference:
   parameters:
@@ -331,6 +380,7 @@ model_reference:
         - "alternatives"
         - "integration_attempt"
       ceiling_rule: "if predictability≈0 or alternatives≈0 then M<=4"
+      asymmetry_ceiling_rule: "in cases of extreme structural asymmetry (no foreseeability, no real alternatives), individual M must remain low; co-responsibility is primarily assigned to institutions and designers."
     IA_box:
       description: "Inadult Asymmetry criteria: T (transparent), J (justified), TB (time-bound), R (reversible)"
     responsibility_points:
@@ -396,7 +446,7 @@ model_reference:
         - "translate_intuition_into_clear_hypotheses"
         - "test_hypotheses_against_observable_enactments"
         - "check_for_contradicting_evidence"
-        - "only_keep_elements_that_survive_contact_with_A–C–R–P–D_and_guardrails"
+        - "only_keep_elements_that_survive_contact_WITH_A–C–R–P–D_and_guardrails"
 
   norm_change:   # 9.3 Norm change: a moving target
     aspects:
@@ -539,6 +589,7 @@ case:
     language: ""                    # e.g. "de", "en"
     confidentiality_level: ""       # e.g. "internal", "confidential", "anonymised_public"
     analysis_mode: "full"           # e.g. "ultra_short", "short", "full"
+    application_zone: ""            # "green" | "yellow" | "red_forbidden"
 
   guardrails:                       # Framework of use (Chapter 3 + D guardrails)
     focus_on_structures_not_persons: true        # Profile ≠ person; no character ontology
@@ -598,6 +649,12 @@ case:
       description: ""
       power_position_reflection: ""
     publicity_degree: ""             # "private", "semi_public", "institutional", "public", "media_amplified"
+
+  frame_vs_variability:              # Frame vs. variability (Case Lens Step 2)
+    frame_elements: ""               # laws, hard constraints, protected goods
+    variable_elements: ""            # roles, processes, communication, timing, etc.
+    unfair_high_M_zones: ""          # where high M attribution would be unfair
+    misuse_of_system_as_excuse: ""   # where "system" is used as an excuse to avoid responsibility
 
   acrpd_profile:                     # A–C–R–P–D practice profile (B.3 / 2.1–2.4)
     awareness:      # A
@@ -715,6 +772,14 @@ case:
         justification: ""
       ia_summary_label: ""           # e.g. "functional_asymmetry", "IA_risk", "inadulte_asymmetry"
 
+  ia_protection:                     # IA protection measures (for scoring, model use, etc.)
+    transparency_measures: ""        # what was made explicit (criteria, logic, limits)
+    time_bound_measures: ""          # pilots, review dates, sunset clauses
+    reversibility_measures: ""       # complaint paths, correction processes, withdrawal options
+    participation_of_affected:
+      level: ""                      # "none", "informed", "consulted", "co_deciding"
+      examples: ""                   # concrete forms of participation and feedback
+
   trajectory:                        # Course over time (B.6, 5.2)
     key_timepoints:
       - label: "t0"
@@ -730,6 +795,7 @@ case:
         A_band_at_t: ""
         M_band_at_t: ""
     course_in_words: ""              # 2–5 sentences: movement, tipping points, structural changes
+    responsibility_viability_range: ""  # optional note on Responsibility–Viability–Range over time
 
   d_module_optional:                 # D module (B.11 + 2.7 + 3.5–3.7)
     D_activated: false               # global switch; default: false
@@ -796,6 +862,10 @@ case:
   analyst_reflection:               # Self-implication (3.4, 9.4)
     self_implication_notes: ""      # how the analyst’s own role, power, biography, D-practice shows up here
     possible_next_steps: ""         # optional: structural or practical recommendations
+
+  transmission_check:               # Readiness for transmission/decision-use
+    ready_for_structural_decisions: false
+    reasons_if_not: ""              # why not ready (e.g. guardrails not met, zone mismatch, red flags)
 
   uniform_report:                   # Standardised text output (based on B.10/B.11, if D is active)
     title: ""                       # Convention:
