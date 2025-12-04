@@ -10,7 +10,7 @@
 ## 📘 Overview
 
 This repository contains the **official specification** for  
-**Maturity in Practice / IA (inadulte asymmetry)** — a praxeological framework for analysing
+**Maturity in Practice / IA (inadult asymmetry)** — a praxeological framework for analysing
 enactments, maturity, responsibility, structural asymmetry and dignity in practice.
 
 It includes:
