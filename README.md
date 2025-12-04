@@ -1,7 +1,7 @@
 # Maturity in Practice – IA (Inadult Asymmetry) Model Specification  
 ### A praxeological framework for maturity, responsibility, asymmetry & dignity in practice
 
-**Version:** 1.0  
+**Version:** 2.0  
 **Author:** T. Zöller  
 **Status:** Public model specification  
 **Project website:** https://www.maturity-in-practice.com/
@@ -258,7 +258,8 @@ MIT-licensed tooling around it.
 ## 🤝 Contributing
 
 Contributions (issues, fixes, example tooling, integrations) are welcome —
-as long as they respect the **CC BY-NC-SA** restrictions for model content.
+as long as they respect the **CC BY-NC-SA** restrictions for model content 
+(e.g., no commercial forks, no altered model sold as proprietary framework).
 
 Before submitting changes, please open an issue to:
 
