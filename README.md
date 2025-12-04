@@ -222,5 +222,5 @@ Current schema version:
 
 For permissions, academic collaboration or commercial licensing:
 
-**Email:** [info@maturity-in-practice.com](mailto:info@maturity-in-practice.com)
-**Website:** [https://www.maturity-in-practice.com](https://www.maturity-in-practice.com)
+* **Email:** [info@maturity-in-practice.com](mailto:info@maturity-in-practice.com)
+* **Website:** [https://www.maturity-in-practice.com](https://www.maturity-in-practice.com)
