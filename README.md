@@ -164,7 +164,7 @@ Current schema version:
 
 For permissions, academic collaboration or commercial licensing inquiries:
 
-**Email:** info@maturity-in-practice.com
-**Website:** https://www.maturity-in-practice.com
+* **Email:** info@maturity-in-practice.com
+* **Website:** https://www.maturity-in-practice.com
 
 ---
