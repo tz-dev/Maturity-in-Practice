@@ -63,9 +63,9 @@
       }
 
       h2 {
-        margin-top: 28px;
-        margin-bottom: 6px;
-        font-size: 1.25rem;
+        margin-top: 25px;
+        margin-bottom: 4px;
+        font-size: 1.15rem;
         border-bottom: 1px solid var(--color-border);
         padding-bottom: 4px;
       }
@@ -133,6 +133,7 @@
         border-collapse: collapse;
         margin: 8px 0 12px;
         font-size: 0.77rem;
+        line-height: 1.3em;
       }
 
       .table th,
@@ -216,8 +217,11 @@
             optional D-module and a standardised narrative report.
           </li>
           <li>
-            It also reflects the new &quot;schema_meta&quot; block, which defines versioning, intended use profiles 
-            and restrictions for safe application.
+            It also reflects the new &quot;schema_meta&quot; block, which defines the schema version, status
+            and explicit governance constraints: <span class="code-inline">intended_use_profiles</span>
+            (<em>self_reflection, professional_supervision, organisational_audit, training_simulation</em>)
+            and <span class="code-inline">not_intended_for</span>
+            (<em>public_shaming, clinical_diagnosis, hiring_decisions_without_human_supervision</em>).
           </li>
         </ul>
         <p>
@@ -278,9 +282,13 @@
             <tr>
               <td><span class="code-inline">schema_meta</span></td>
               <td>
-                Contains versioning, status, intended-use profiles, and explicit
-                “not-intended-for” categories.  
-                Ensures stable governance, safety constraints and compatibility across implementations.
+                Contains versioning, status, and governance information for the schema.
+                In particular:
+                <span class="code-inline">intended_use_profiles</span>
+                (e.g. <em>self_reflection, professional_supervision, organisational_audit, training_simulation</em>)
+                and <span class="code-inline">not_intended_for</span>
+                (e.g. <em>public_shaming, clinical_diagnosis, hiring_decisions_without_human_supervision</em>).
+                This block constrains where the model may be used and documents safe default assumptions.
               </td>
               <td>
                 Versioning / governance / safety constraints
@@ -1081,7 +1089,9 @@
 
         <p>
           In the case schema, remaining bias risks are summarised under
-          <span class="code-inline">case.open_questions_and_blind_spots.distortion_risks</span>.
+          <span class="code-inline">case.open_questions_and_blind_spots.distortion_risks</span>,
+          while <span class="code-inline">case.biases_case_level</span> records the analyst’s initial intuition,
+          explicit bias risks and a structured counter-reading outline.
         </p>
 
         <h3>9.2 Intuition</h3>
@@ -1111,7 +1121,7 @@
           <li>keeping only those elements that survive contact with data and guardrails.</li>
         </ul>
 
-        <h3>9.3 Norm change</h3>
+        <h3 style="margin-top: 50px;">9.3 Norm change</h3>
         <p>
           Norms around maturity, responsibility and dignity are historically and culturally dynamic.
           The <span class="code-inline">model_reference.norm_change</span> block prevents the model from
@@ -1461,6 +1471,10 @@
           <li>the context (e.g. organisation, enforcement, team, self-reflection),</li>
           <li>the purpose of analysis (supervision, audit, training, reflection),</li>
           <li>intended readers and the expected communication space.</li>
+          <li>
+            an <span class="code-inline">analysis_mode</span> flag (e.g. <em>ultra_short, short, full</em>)
+            indicating the intended depth and level of detail of the application.
+          </li>
         </ul>
 
         <p><strong><span class="code-inline">case.guardrails</span></strong> ensures that:</p>
@@ -1690,9 +1704,10 @@
         </ul>
 
         <p>
-          The YAML schema also includes `biases_case_level`, which documents the analyst’s initial intuition, 
-          explicit bias risks and a mandatory counter-reading outline. This section supports transparency and 
-          prevents premature convergence in interpretation.
+          The YAML schema also includes <span class="code-inline">biases_case_level</span>, 
+          which documents the analyst’s initial intuition, explicit bias risks and a mandatory 
+          counter-reading outline. This section supports transparency and prevents premature 
+          convergence in interpretation.
         </p>
 
         <p>
