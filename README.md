@@ -177,7 +177,7 @@ Give enough context for the model to work with, then choose automatic or interac
 The AI generates a full MIPractice_case analysis or a guided reflective process.  
 The model intentionally surfaces missing information, ambiguities, tensions and alternative readings.
 
-**Optional Step 4 — Use the HTML Case Template for Clean Output**
+**Optional Step 4 — Use the HTML Case Template for Clean output**  
 You can produce a **polished, presentation-ready rendering** of your analysis using the HTML template:
 
 ```
