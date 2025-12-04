@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MIPractice – Blurry responsibility after a decision</title>
+    <style>
+      :root {
+        --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --font-mono: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --color-bg: #f6f6f8;
+        --color-card: #ffffff;
+        --color-border: #dde0e6;
+        --color-muted: #666;
+        --color-strong: #111;
+        --color-tag: #eef0f5;
+        --radius: 10px;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        padding: 32px;
+        background: radial-gradient(circle at top left, #f0f4ff, #f7f7fa);
+        font-family: var(--font-body);
+        color: var(--color-strong);
+      }
+
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+      }
+
+      .logo-line {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--color-muted);
+        margin-bottom: 12px;
+      }
+
+      .card {
+        background: var(--color-card);
+        border-radius: 16px;
+        border: 1px solid var(--color-border);
+        box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+        padding: 22px 24px 20px;
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 10px;
+      }
+
+      .title-block h1 {
+        font-size: 20px;
+        margin: 0 0 4px;
+      }
+
+      .title-block .subtitle {
+        font-size: 13px;
+        color: var(--color-muted);
+      }
+
+      .meta {
+        font-size: 12px;
+        color: var(--color-muted);
+        text-align: right;
+        white-space: nowrap;
+      }
+
+      .meta div { margin-bottom: 2px; }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 12px 0 8px;
+      }
+
+      .pill {
+        padding: 3px 9px;
+        border-radius: 999px;
+        font-size: 11px;
+        border: 1px solid #e0e3ec;
+        background: #f8f9fc;
+      }
+
+      .pill strong {
+        font-weight: 600;
+      }
+
+      .section-row {
+        display: grid;
+        grid-template-columns: minmax(0, 2.3fr) minmax(0, 1.7fr);
+        gap: 20px;
+        margin-top: 10px;
+      }
+
+      .section {
+        border-radius: var(--radius);
+        border: 1px solid var(--color-border);
+        padding: 10px 12px;
+        background: #fbfbfd;
+      }
+
+      .section h2 {
+        margin: 0 0 6px;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.13em;
+        color: var(--color-muted);
+      }
+
+      .section p {
+        margin: 0 0 6px;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .section ul {
+        margin: 4px 0 0 16px;
+        padding: 0;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .section li {
+        margin-bottom: 3px;
+      }
+
+      .mono {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        background: #f3f4f8;
+        padding: 1px 5px;
+        border-radius: 4px;
+      }
+
+      .ia-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+        margin-top: 4px;
+      }
+
+      .ia-chip {
+        border-radius: 8px;
+        border: 1px solid #e1e4ee;
+        padding: 5px 7px;
+        background: #f9f9ff;
+        font-size: 11px;
+      }
+
+      .ia-chip strong {
+        display: block;
+        font-size: 11px;
+        margin-bottom: 1px;
+      }
+
+      .footer-row {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+        gap: 20px;
+        margin-top: 14px;
+      }
+
+      .findings-list {
+        margin: 4px 0 0 16px;
+        padding: 0;
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      .findings-list li {
+        margin-bottom: 3px;
+      }
+
+      .next-step-box {
+        border-radius: var(--radius);
+        border: 1px dashed #cbd0e2;
+        background: #f7f8ff;
+        padding: 8px 10px;
+        font-size: 13px;
+      }
+
+      .brand-line {
+        margin-top: 12px;
+        font-size: 11px;
+        color: var(--color-muted);
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .brand-line a {
+        color: var(--color-muted);
+        text-decoration: none;
+        border-bottom: 1px dotted rgba(148, 163, 184, 0.6);
+      }
+
+      @media (max-width: 720px) {
+        body { padding: 16px; }
+        .card-header { flex-direction: column; align-items: flex-start; }
+        .meta { text-align: left; }
+        .section-row, .footer-row {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .meta { white-space: normal; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="logo-line">
+        MATURITY IN PRACTICE / IA · DEMO CASE
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="title-block">
+            <h1>Blurry responsibility after a decision</h1>
+            <div class="subtitle">
+              Ultra-short MIPractice_case reading (<span class="mono">demo_001</span>)
+            </div>
+          </div>
+          <div class="meta">
+            <div><strong>Date:</strong> 2025-12-04</div>
+            <div><strong>Context:</strong> Organisational / team</div>
+            <div><strong>Purpose:</strong> 2-minute live demo</div>
+          </div>
+        </div>
+
+        <div class="pill-row">
+          <div class="pill"><strong>A-band</strong> ≈ 4–6 · Mixed maturity</div>
+          <div class="pill"><strong>M-band (leadership)</strong> ≈ 5–7 · High structural responsibility</div>
+          <div class="pill"><strong>IA-Box</strong> → <span class="mono">IA_risk</span></div>
+          <div class="pill"><strong>D-module</strong> off · dignity strain local, not extreme</div>
+        </div>
+
+        <div class="section">
+          <h2>Case snapshot</h2>
+          <p>
+            A decision has been taken in a team/organisation, but who is responsible for what
+            and how it has been communicated remains unclear. This produces friction and
+            irritation among those affected.
+          </p>
+          <p><strong>Guiding question:</strong><br/>
+            How mature is the handling of responsibility and communication in this decision
+            process, and does the resulting asymmetry count as functional or inadult?
+          </p>
+          <p><strong>Actors (roles only):</strong></p>
+          <ul>
+            <li><strong>Decision-maker</strong> – formal leadership / project owner</li>
+            <li><strong>Team / affected staff</strong> – implementers, people impacted</li>
+          </ul>
+        </div>
+
+        <div class="section-row">
+          <div class="section">
+            <h2>ACRPD – structural reading</h2>
+            <p><strong>A – Awareness</strong><br/>
+              Decision-maker knows a decision is needed, but underestimates how unclear
+              responsibility and communication affect the team. The team senses that
+              something is expected, but roles and expectations remain vague.
+            </p>
+            <p><strong>C – Coherence</strong><br/>
+              Formal act: “decision taken”. Missing: clear translation into
+              who does what, by when, with which mandate. Words and deeds only
+              partially aligned.
+            </p>
+            <p><strong>R – Responsibility</strong><br/>
+              Responsibility is blurred: the decision is centralised, but practical
+              burden and unclear follow-up are pushed onto the team without explicit
+              allocation or support.
+            </p>
+            <p><strong>P – Power / agency</strong><br/>
+              Leadership uses formal power to decide but not to structure responsibilities.
+              The team has limited safe agency and no clear channel for questions or feedback.
+            </p>
+            <p><strong>D – Dignity in practice (short)</strong><br/>
+              No direct humiliation, but low D₁/D₂ quality: people are left in uncertainty,
+              which undercuts self-respect and relational respect by not taking their need
+              for clarity seriously.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>IA-Box – asymmetry check</h2>
+            <div class="ia-grid">
+              <div class="ia-chip">
+                <strong>T · Transparency</strong>
+                unclear – decision known, but reasoning, responsibilities and expected
+                actions remain foggy.
+              </div>
+              <div class="ia-chip">
+                <strong>J · Justification</strong>
+                partial – decision itself may be justified; handling of responsibility
+                and communication is not.
+              </div>
+              <div class="ia-chip">
+                <strong>TB · Time-bound</strong>
+                unclear – no explicit timeline or review point; the unclear state may persist.
+              </div>
+              <div class="ia-chip">
+                <strong>R · Reversibility</strong>
+                partial – clarification is possible, but no structured path for appeal
+                or revision is visible yet.
+              </div>
+            </div>
+            <p style="margin-top:8px;">
+              <strong>IA summary:</strong><br/>
+              At this point, the situation shows a clear <strong>IA_risk</strong>:
+              power takes the decision but does not take full responsibility for clarity
+              and follow-through. With timely clarification, it can still be steered back
+              into a functional asymmetry.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-row">
+          <div class="section">
+            <h2>Key findings</h2>
+            <ul class="findings-list">
+              <li><strong>Strength:</strong> a decision was made instead of endless postponement.</li>
+              <li><strong>Weakness:</strong> responsibility and communication were not translated into concrete roles and tasks.</li>
+              <li><strong>A-band 4–6:</strong> mixed maturity under real conditions.</li>
+              <li><strong>M-band 5–7:</strong> leadership carries substantial structural responsibility for the friction.</li>
+              <li><strong>IA-Box:</strong> <span class="mono">IA_risk</span> due to partial transparency, weak time-bounding and only partial reversibility.</li>
+            </ul>
+          </div>
+
+          <div class="next-step-box">
+            <strong>Conclusion for practice</strong><br/>
+            The quickest maturity gain lies in explicitly taking responsibility for
+            the follow-through: clarify who owns which tasks, by when, with which
+            mandate, and create a short feedback loop so that friction can be named
+            and resolved.
+            <br/><br/>
+            <strong>Trajectory hint:</strong> without a clarification loop, low-maturity
+            practice stabilises; with one joint clarification step, the pattern can
+            shift back to functional asymmetry.
+          </div>
+        </div>
+
+        <div class="brand-line">
+          <span>MIPractice_case · demo_001 · ACRPD / IA reading</span>
+          <span>Model &amp; schema: <a href="https://www.maturity-in-practice.com" target="_blank">maturity-in-practice.com</a></span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

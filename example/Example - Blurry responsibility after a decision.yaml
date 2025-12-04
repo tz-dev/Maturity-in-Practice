@@ -1,0 +1,230 @@
+case:
+  meta:
+    case_id: "demo_001"
+    title: "Blurry responsibility after a decision"
+    documentation_date: "2025-12-04"
+    analysts:
+      - name: "Demo analyst"
+        role: "observer"
+    context: "Organisational / team setting"
+    purpose_of_analysis: "Quick demonstration of MIPractice_case schema"
+    intended_readers:
+      - "HR / leadership demo audience"
+    communication_space: "aggregated_public"
+
+  guardrails:
+    focus_on_structures_not_persons: true
+    minimal_adulthood_entry_condition_met: true
+    analyst_self_implication_acknowledged: true
+    information_basis_clearly_separated: true
+    tragedy_clause_considered: true
+    dignity_D0_untouched_and_not_rated: true
+    language_hygiene_confirmed: true
+    D_module_activation_allowed: false   # stays off in this ultra-short demo
+
+  information_basis:
+    primary_material:
+      - "One-sentence description by an involved observer: 'A decision was made, but responsibility and communication are blurry, causing friction.'"
+    secondary_material:
+      - "Generic knowledge about team decisions in organisations (no specific documents)."
+    assumptions_and_inferences:
+      - "At least two actors/roles are involved (e.g. decision-maker and team)."
+      - "Implementation details and follow-up responsibilities are not clearly allocated."
+      - "Friction shows up as confusion, irritation or passive resistance."
+
+  snapshot:
+    short_case_description: >
+      A decision has been taken in a team/organisation, but who is responsible
+      for what and how it has been communicated remains unclear, which leads
+      to friction and irritation among those affected.
+    actors_and_roles:
+      - label: "Decision-maker"
+        role: "Formal leadership / project owner"
+      - label: "Team / affected staff"
+        role: "Implementers / people impacted by the decision"
+    guiding_question: >
+      How mature is the handling of responsibility and communication in this
+      decision process, and does the resulting asymmetry count as functional
+      or inadult?
+
+  acrpd_profile:
+    A_awareness: >
+      Decision-maker appears aware that a decision is needed, but has limited
+      awareness of how unclear responsibility and communication affect the team.
+      Team is partially aware that something is expected, but not of precise roles
+      and expectations.
+    C_coherence: >
+      There is a gap between the formal act of "decision taken" and the concrete
+      follow-through (who does what, by when, with which mandate). Words and
+      deeds are only partially aligned.
+    R_responsibility: >
+      Responsibility is blurred: the decision is centralised, but practical burden
+      and unclear follow-up are pushed onto the team without explicit allocation
+      or support.
+    P_power_agency: >
+      The decision-maker holds formal power, but uses it only to announce the
+      decision, not to structure responsibilities. The team has limited agency:
+      unclear room for initiative and no clear channel for questions or feedback.
+    D_dignity_in_practice: >
+      No direct humiliation, but low D1/D2 quality: people are left in uncertainty,
+      which undercuts self-respect and relational respect (D-I/D-R) by not taking
+      their need for clarity and fair responsibility-sharing seriously.
+
+  acrpd_submodules_profile:
+    A:
+      A-I_inner_awareness: "Not assessed in detail in this short demo."
+      A-R_role_awareness: >
+        Decision-maker only partially reflects their role to give structure and
+        clarity, not just decisions. Team role boundaries remain fuzzy.
+      A-IM_impact_awareness: >
+        Limited: the friction suggests the impact of unclear responsibility was
+        underestimated.
+      A-P_public_awareness: "Local/internal only; no wider public dimension considered."
+    C:
+      C-N_narrative_coherence: >
+        Official story: 'Decision has been taken.' Missing: 'who, how, why, with
+        which responsibilities.'
+      C-S_social_coherence: >
+        Team talk and leadership talk diverge: people experience confusion while
+        leadership may perceive things as "settled."
+    R:
+      R-I_individual_responsibility: >
+        Individual responsibilities are not clearly named; risk of implicit
+        blame later.
+      R-S_social_responsibility: >
+        Burden is distributed diffusely over the team, which undermines fairness.
+    P:
+      P-I_inner_agency: >
+        Some team members may still act proactively, but without a clear mandate
+        this carries personal risk.
+      P-S_social_agency: >
+        Limited structured space for questions, negotiation or joint clarification.
+    D:
+      D-I_self_dignity_practice: >
+        People may feel not properly taken seriously as responsible adults because
+        they are left in the fog.
+      D-R_relational_dignity: >
+        Relationship strain: 'They decide, but we have to guess what they want.'
+      D-P_public_symbolic_dignity: "No explicit public exposure; dignity strain is local and internal."
+
+  scores_and_ia:
+    A_band:
+      approx_range_0_to_10: [4, 6]
+      justification_points:
+        - "Some adult elements: decision was taken, not endlessly postponed."
+        - "Inadult zones: no clear translation into roles and tasks."
+        - "Mixed coherence: the formal act exists, but practical follow-through is blurry."
+    M_band:
+      approx_range_0_to_10: [5, 7]
+      justification_points:
+        - "Decision-maker had clear power and alternatives: could have structured responsibilities."
+        - "Predictability of friction was medium to high: unclear communication predictably creates confusion."
+        - "No visible strong attempts at integration/repair yet (e.g. joint clarifying meeting)."
+    IA_box:
+      transparency:
+        value: "unclear"
+        justification: >
+          People know that a decision exists, but do not clearly see the reasoning,
+          responsibilities or expected actions.
+      justification:
+        value: "partial"
+        justification: >
+          The decision itself may be justified (e.g. necessary organisational step),
+          but the way responsibility and communication are handled is not clearly justified.
+      time_bound:
+        value: "unclear"
+        justification: >
+          No explicit timeline or review point is mentioned; the unclear state might persist.
+      reversibility:
+        value: "partial"
+        justification: >
+          In principle, clarification is possible (meetings, mails), but no structured path
+          for appeal or revision is visible yet.
+      ia_summary_label: "IA_risk"
+      ia_summary_comment: >
+        At this point, the situation shows a clear risk of inadult asymmetry: power takes
+        the decision, but does not take full responsibility for clarity and follow-through.
+        With timely clarification, it can still be steered back into a functional asymmetry.
+
+  trajectory:
+    key_timepoints:
+      - id: "t0"
+        description: "Decision is taken and briefly communicated."
+        A_band: [5, 7]
+        M_band: [6, 8]
+      - id: "t1"
+        description: >
+          After some time, friction and confusion appear because nobody is sure who owns
+          which tasks or risks.
+        A_band: [4, 6]
+        M_band: [5, 7]
+    course_in_words: >
+      The course moves from a formally clear but structurally incomplete decision (t0)
+      towards increasing friction and role confusion (t1). If no clarification loop is
+      opened, A may drift further down and IA_risk stabilises; if leadership uses the
+      irritation as feedback and clarifies roles and communication, the trajectory can
+      turn ascending.
+
+  d_module_optional:
+    activated: false
+    activation_reason: null
+    communication_space_for_D: null
+    D_quick_grid: null
+    D_profile: null
+    red_zone_flags:
+      acute_trauma_present: false
+      extreme_dependency: false
+      strong_public_exposure: false
+
+  open_questions_and_blind_spots:
+    open_questions:
+      - "Was the decision content itself contested, or only the process?"
+      - "How many concrete people are affected, and with which formal roles?"
+      - "Did anyone explicitly request clarification, and how was this handled?"
+    missing_data:
+      - "Exact wording and channel of the original communication."
+      - "Any written follow-up (emails, minutes, task lists)."
+    distortion_risks:
+      - "Observer perspective may sympathise more with the team than with leadership."
+      - "Lack of concrete organisational context (size, culture, constraints)."
+
+  analyst_reflection:
+    self_implication: >
+      As an analyst, I intuitively side with the wish for clarity and may
+      underestimate structural constraints or time pressure on leadership.
+      I also read the situation through a general scepticism towards 'decision by
+      announcement' practices.
+    possible_next_steps:
+      - "Invite decision-maker and team to a short joint clarification session."
+      - "Make responsibilities, timelines and decision-space explicit in writing."
+      - "Agree on a review point to check whether friction decreases."
+
+  uniform_report:
+    summary_sentences:
+      - >
+        A decision has been taken, but responsibility and communication remain blurry,
+        which predictably creates friction in the team.
+      - >
+        The A-score lies in a mixed band (4–6): some adult structure is present, but
+        inadult elements dominate in the follow-through.
+      - >
+        The M-score for leadership lies in a medium-high band (5–7), as real power,
+        alternatives and predictability existed but were not fully used for clarity.
+      - >
+        The IA-Box indicates an IA_risk: the asymmetry of decision power is not yet
+        accompanied by matching responsibility for transparent communication and
+        role allocation.
+    key_findings:
+      - "Strength: a decision was made instead of endless postponement."
+      - "Weakness: responsibility and communication were not translated into concrete roles and tasks."
+      - "A-band 4–6: mixed maturity under real conditions."
+      - "M-band 5–7: leadership carries substantial structural responsibility for the friction."
+      - "IA_box label: IA_risk due to partial transparency, weak time-bounding and only partial reversibility."
+    trajectory_summary: >
+      Without corrective steps, the pattern may solidify into a stable low-maturity
+      practice; with a simple clarification loop, it can be shifted back towards
+      functional asymmetry and higher maturity.
+    conclusion_for_practice: >
+      The quickest maturity gain lies in explicitly taking responsibility for the
+      follow-through: clarify who owns which tasks, by when, with which mandate,
+      and create a short feedback loop so that friction can be named and resolved.
