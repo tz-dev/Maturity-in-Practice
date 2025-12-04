@@ -658,7 +658,7 @@ case:
       reversible:
         fulfilled: null
         justification: ""
-      ia_summary_label: ""           # e.g. "functional_asymmetry", "IA_risk", "inadulte_asymmetry"
+      ia_summary_label: ""           # e.g. "functional_asymmetry", "IA_risk", "inadult_asymmetry"
 
   trajectory:                        # Course over time (B.6, 5.2)
     key_timepoints:
@@ -762,3 +762,4 @@ case:
 
     conclusion: ""                  # 2–4 sentences conclusion, derived from the model findings:
                                     # "In sum, the model suggests that ... For practice, this implies ..."
+
