@@ -12,6 +12,29 @@
 #     - optional D module (B.11)
 #     - optional submodule profile (full 2.4 parameter matrix)
 #
+# ONE-PAGE MENTAL MODEL (for humans & AI):
+#   1. We never judge persons, only enactments in roles and structures.
+#   2. A & M are always BANDS plus text, never hard truth.
+#   3. The IA-box is a structural check (T/J/TB/R), not a moral verdict.
+#   4. The D module is OPTIONAL and SCENIC; default = OFF.
+#   5. Trajectories > labels: we care more about movement than about types.
+#
+# DO:
+#   - Make roles, norms, information basis and bias risks explicit.
+#   - Prefer "here, in this role, at this time" over "is always".
+#   - Use D to protect dignity, not to sanction or shame.
+#
+# DO NOT:
+#   - Use scores as character labels or as HR-/selection weapon.
+#   - Mix clinical diagnoses into the maturity reading.
+#   - Publish individual D-readings in public media spaces.
+#
+# TYPICAL MISUSE PATTERNS TO AVOID:
+#   - Turning A/M into static personality labels ("she is a 3/10").
+#   - Using D findings for public shaming, scapegoating or power games.
+#   - Forcing every situation into the A–C–R–P–D grid even when it does not fit.
+#   - Ignoring structural co-causes (system axiom) and blaming individuals only.
+#
 # CORE RULES FOR THE MODEL:
 #   - Always analyse ENACTMENTS, ROLES and STRUCTURES – NEVER the ontological value of persons.
 #   - Ontological dignity (D0) is NEVER rated, withdrawn or compared.
@@ -66,6 +89,21 @@
 #   - Generate `uniform_report` ONLY from the structured fields (B.10 / B.11), not from new hidden assumptions.
 
 schema_version: "MIPractice_case_v2.0_full_with_model_reference"
+
+schema_meta:
+  canonical_name: "MIPractice_case"
+  version: "v2.0_full_with_model_reference"
+  status: "stable"                # stable | beta | experimental
+  last_update: "2025-12-04"
+  intended_use_profiles:
+    - "self_reflection"
+    - "professional_supervision"
+    - "organisational_audit"
+    - "training_simulation"
+  not_intended_for:
+    - "public_shaming"
+    - "clinical_diagnosis"
+    - "hiring_decisions_without_human_supervision"
 
 model_reference:
   parameters:
@@ -372,7 +410,7 @@ model_reference:
       - "Have these norms changed recently or are they contested?"
       - "Which actors benefit from the current norm interpretation, which are disadvantaged?"
     implications_for_model:
-      - "A- and M-readings must state which norm frame they rely on."
+      - "A- and M-readings_must_state_which_norm_frame_they_rely_on."
       - "IA_findings_must_distinguish_between_clear_violations_and_contested_norms."
       - "D_readings_must_be_extra_cautious_where_norms_are_in_flux."
 
@@ -409,6 +447,15 @@ model_reference:
         - "willingness_to_be_corrected_by_new_information"
         - "awareness_of_own_power_and_interests_in_the_case"
         - "preference_for_trajectories_over_labels"
+
+  language_templates:
+    dignity_preserving_phrases:
+      for_enactments:
+        - "In this role and situation, X acts in a way that …"
+        - "Here, the practice tends to undermine dignity by …"
+      for_limits:
+        - "This reading does not question the person's inherent dignity (D0)."
+        - "These findings are provisional and context-bound, not a character verdict."
 
   axiomatic_core:       # Appendix E.1–E.2 – condensed axioms
     purpose_and_scope: "Provide explicit structural assumptions behind praxeological anthropology so that applications remain transparent, critique-ready and extensible."
@@ -489,6 +536,9 @@ case:
     context_setting: ""             # e.g. "enforcement", "youth_welfare", "organisation", "team", "coaching", "self"
     purpose: ""                     # e.g. "internal_reflection", "supervision", "audit", "training", "case_discussion"
     intended_readers: ""            # who will see this, in which form
+    language: ""                    # e.g. "de", "en"
+    confidentiality_level: ""       # e.g. "internal", "confidential", "anonymised_public"
+    analysis_mode: "full"           # e.g. "ultra_short", "short", "full"
 
   guardrails:                       # Framework of use (Chapter 3 + D guardrails)
     focus_on_structures_not_persons: true        # Profile ≠ person; no character ontology
@@ -523,6 +573,11 @@ case:
     primary_material: ""             # e.g. "original statement / thesis / transcript / scene description"
     secondary_material: ""           # e.g. "policies, reports, laws, prior analyses"
     assumptions_and_inferences: ""   # what the analysis adds beyond explicit material
+    quality_and_limits:
+      coverage_estimate: ""          # "low" | "medium" | "high"
+      reliability_estimate: ""       # "low" | "medium" | "high"
+      known_gaps: []                 # list of missing pieces
+      main_bias_risks_here: []       # e.g. ["single_source", "loyalty_bias"]
 
   snapshot:                          # Quick start (B.2 / B.10)
     short_case_description: ""       # 1–5 sentences, no diagnostic labels, no moralising
@@ -658,7 +713,7 @@ case:
       reversible:
         fulfilled: null
         justification: ""
-      ia_summary_label: ""           # e.g. "functional_asymmetry", "IA_risk", "inadult_asymmetry"
+      ia_summary_label: ""           # e.g. "functional_asymmetry", "IA_risk", "inadulte_asymmetry"
 
   trajectory:                        # Course over time (B.6, 5.2)
     key_timepoints:
@@ -733,6 +788,11 @@ case:
     missing_data_or_perspectives: ""
     distortion_risks: ""            # own emotions, loyalties, institutional interests, bias
 
+  biases_case_level:
+    initial_intuition: ""           # 2–3 sentences: what the "gut" says at the start
+    named_bias_risks: []            # e.g. ["confirmation_bias", "loyalty_bias"]
+    counter_reading_outline: ""     # short outline of a serious counter-reading
+
   analyst_reflection:               # Self-implication (3.4, 9.4)
     self_implication_notes: ""      # how the analyst’s own role, power, biography, D-practice shows up here
     possible_next_steps: ""         # optional: structural or practical recommendations
@@ -762,4 +822,3 @@ case:
 
     conclusion: ""                  # 2–4 sentences conclusion, derived from the model findings:
                                     # "In sum, the model suggests that ... For practice, this implies ..."
-
