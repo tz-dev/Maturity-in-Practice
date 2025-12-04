@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>MIPractice – Case Analysis Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
       :root {
         --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -236,6 +237,7 @@
             <div><strong>Date:</strong> {{DOCUMENTATION_DATE}}</div>
             <div><strong>Context:</strong> {{CONTEXT}}</div>
             <div><strong>Purpose:</strong> {{PURPOSE_OF_ANALYSIS}}</div>
+            <div><strong>Communication space:</strong> {{COMMUNICATION_SPACE}}</div>
           </div>
         </div>
 
@@ -353,7 +355,9 @@
             MIPractice_case · {{CASE_ID}} · ACRPD / IA reading
           </span>
           <span>
-            Model &amp; schema:
+            Schema: {{SCHEMA_VERSION}} · {{SCHEMA_STATUS}}
+            <!-- z.B. "v2.0 · stable" -->
+            · Model &amp; schema:
             <a href="https://www.maturity-in-practice.com" target="_blank">
               maturity-in-practice.com
             </a>
