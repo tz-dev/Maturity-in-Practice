@@ -1,4 +1,4 @@
-# Maturity in Practice – IA (inadult asymmetry) Model Specification  
+# Maturity in Practice – IA (Inadult Asymmetry) Model Specification  
 ### A praxeological framework for maturity, responsibility, asymmetry & dignity in practice
 
 **Version:** 1.0  
