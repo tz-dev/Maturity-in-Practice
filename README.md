@@ -4,7 +4,6 @@
 **Version:** 2.0  
 **Author:** T. Zöller  
 **Status:** Public model specification  
-**Project website:** https://www.maturity-in-practice.com/
 
 ---
 
