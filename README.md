@@ -1,5 +1,6 @@
-# Maturity in Practice – IA Model Specification  
-### A praxeological framework for maturity, responsibility, asymmetry & dignity in practice  
+# Maturity in Practice – IA (inadult asymmetry) Model Specification  
+### A praxeological framework for maturity, responsibility, asymmetry & dignity in practice
+
 **Version:** 1.0  
 **Author:** T. Zöller  
 **Status:** Public model specification
@@ -8,98 +9,85 @@
 
 ## 📘 Overview
 
-This repository contains the **official model specification** for  
-**Maturity in Practice / IA (inadulte asymmetry)** — a praxeological framework
-for analysing enactments, responsibility, asymmetry and dignity in practice.
+This repository contains the **official specification** for  
+**Maturity in Practice / IA (inadulte asymmetry)** — a praxeological framework for analysing
+enactments, maturity, responsibility, structural asymmetry and dignity in practice.
 
 It includes:
 
 - **Maturity in Practice – Model Specification.html**  
-  Human-readable specification of the ACRPD model, IA-box, dignity framework,  
-  bias/intuition/norm-change modules, axioms, formal notation and the case schema.
+  Human-readable specification of the full ACRPD model.
 
 - **Maturity in Practice – Model Specification.pdf**  
-  Print- and citation-ready version of the model specification.
+  Print- and citation-ready version.
 
 - **MIPractice_case_v2.0_full_with_model_reference.yaml**  
-  The *canonical* machine-readable description of the model.  
-  This YAML file contains:
-  - the complete normative model (`model_reference`)
-  - the full case schema (`case`)
-  - guardrails, axioms, scoring rules, submodule matrix (2.4), IA-box logic,
-    bias/intuition/norm-change modules, trajectory patterns, formal notation.
+  The *canonical*, machine-readable source of the model:
+  - complete normative definition (`model_reference`)
+  - structured case schema (`case`)
+  - guardrails, scoring rules, IA-box logic
+  - submodule matrix, dignity framework
+  - bias/intuition/norm-change modules
+  - trajectory patterns and formal notation
 
-Together, these files define the authoritative public specification of the IA / ACRPD model.
-
----
-
-## 🧩 What this repository provides
-
-- A complete and citable **model definition**  
-  (parameters A–C–R–P–D, submodules, IA-box, dignity framework, axioms)
-
-- A **uniform case schema** for conducting structured analyses  
-  with guardrails, A/M bands, IA evaluation, trajectory, and optional D-module
-
-- A **machine-interpretable YAML schema** serving as a  
-  *single source of truth* for implementations, training pipelines, audits and research tools
-
-- A **formal notation layer** allowing interoperability with  
-  governance systems, psychology/sociology tools, and AI reasoning engines
+Together, these files form the authoritative public definition of the IA / ACRPD model.
 
 ---
 
-## 📦 Repository Contents
+## 🧩 Repository Contents
+
 ```
+
+├── LICENSE                          # MIT License (for code only)
+├── LICENSE-CC-BY-NC-SA              # Non-commercial license for model content
 ├── Maturity in Practice - Model Specification.html
 ├── Maturity in Practice - Model Specification.pdf
 └── MIPractice_case_v2.0_full_with_model_reference.yaml
+
 ```
 
-- `*.html` – main documentation, ideal for reading in browser  
-- `*.pdf` – citation-ready spec  
-- `*.yaml` – canonical model schema used for programmatic integration
+- `*.html` – interactive documentation  
+- `*.pdf` – for citation & offline reading  
+- `*.yaml` – single source of truth for implementations  
+- `LICENSE` – MIT (software only)  
+- `LICENSE-CC-BY-NC-SA` – CC BY-NC-SA 4.0 (model content)
 
 ---
 
-## 🧠 Purpose
+## 🧠 Purpose of This Repository
 
-This repository aims to:
+This repository provides:
 
-1. Provide a stable **reference architecture** for praxeological analysis  
-   (maturity, asymmetry, responsibility, dignity in practice)
-
-2. Ensure transparent, ethical and critique-ready use of the model  
-   in coaching, organisations, teams, public institutions, and research
-
-3. Enable reproducible, safe integration into **AI systems**  
-   as a governance and reasoning layer
-
-4. Offer a fully documented structure for **teaching and academic work**
+- A stable, citable **reference architecture** for praxeological analysis  
+- A transparent, guardrail-based methodology for analysing enactments  
+- A **uniform case schema** for structured, reversible and dignity-preserving evaluation  
+- A machine-interpretable **YAML schema** for research, audits, and AI systems  
+- A minimal **formal notation** enabling tool integration and governance layers  
+- A foundation for teaching, further research and cross-disciplinary dialogue
 
 ---
 
-## 🚀 Using the YAML specification
+## 🚀 Using the YAML Specification
 
 The YAML file  
 **`MIPractice_case_v2.0_full_with_model_reference.yaml`**  
-is the *single source of truth* and should be consumed directly.
+is the **canonical source** and should be consumed directly.
 
-Typical use cases:
+Use cases include:
 
 - Schema validation of case analyses  
-- Automated generation of ACRPD profiles or uniform reports  
-- Integration into LLM reasoning chains  
-- Training, audit and supervision workflows  
-- Research requiring structured evaluation frameworks
+- Automated generation of ACRPD profiles & uniform reports  
+- Integration into LLM/AI reasoning pipelines  
+- Decision-support systems requiring transparent structural logic  
+- Research and training contexts needing reproducible frameworks  
 
-Do **not** rewrite or partially replicate the YAML; instead, import it.
+Do **not** replicate the YAML manually — import it as-is.
 
 ---
 
 ## 📚 Citation
 
-If you reference this model, please cite both the book and this specification:
+If you reference the model, cite both the book and this specification:
 
 **Primary reference:**  
 T. Zöller (2025). *Maturity in Practice – A Praxeological Anthropology.*
@@ -112,59 +100,60 @@ YAML Specification and Case Framework.
 
 ## 📝 License
 
-This repository uses a **dual-license structure**:
+This repository uses a **dual-license model**:
 
-### 1. **Code (if any)**  
-Licensed under the **MIT License**.  
-See the `LICENSE` file.
+### **1. Code**  
+Licensed under the **MIT License**  
+(see `LICENSE`).
 
-### 2. **All model contents and documentation**  
-(including the YAML schema, the model specification, parameter definitions, submodule matrix, IA-box,  
-dignity framework, axioms, explanatory text, and PDFs)  
-are licensed under:
+### **2. Model content & documentation**  
+Licensed under **Creative Commons Attribution–NonCommercial–ShareAlike 4.0**  
+(see `LICENSE-CC-BY-NC-SA`).
 
-**Creative Commons Attribution–NonCommercial–ShareAlike 4.0 (CC BY-NC-SA 4.0).**
+This includes:
 
-© 2025 T. Zöller
+- YAML schema  
+- Model specification (HTML, PDF)  
+- All conceptual definitions, descriptions, diagrams and explanatory text  
 
-#### Summary:
-- ✔ Free for personal, educational & research use  
-- ✔ Derivatives allowed if attributed and shared under the same license  
-- ✖ Commercial use requires explicit permission  
+**© 2025 T. Zöller**
+
+#### Summary
+- ✔ Free for non-commercial, educational and research use  
+- ✔ Derivatives allowed with attribution & same license (SA)  
+- ✖ No commercial use without written permission  
 - ✖ No proprietary forks of the model content  
 
-The dual-license setup keeps the theoretical model protected while enabling  
-developers to work with scripts or tools under MIT terms.
+This protects the theoretical model while allowing open collaboration and MIT-licensed tooling.
 
 ---
 
 ## 🤝 Contributing
 
-Contributions (issues, improvements, additional tooling) are welcome —  
-as long as they respect the CC BY-NC-SA restrictions for the model content.
+Contributions (issues, fixes, tooling) are welcome —  
+provided they respect the CC BY-NC-SA restrictions on model content.
 
-Before submitting changes, please open an issue to discuss scope and fit.
+Before submitting changes, please open an issue to coordinate scope and alignment.
 
 ---
 
 ## 🧭 Versioning
 
-This repository follows semantic versioning for the YAML schema:
+This project follows semantic versioning for the YAML schema:
 
-- `model_reference` and `case` structure must remain backward-compatible within minor versions  
-- Breaking changes will increment the major version  
-- Documentation will always reference the YAML version it corresponds to
+- Minor versions keep structural compatibility  
+- Major versions introduce breaking changes  
+- Documentation always references its corresponding YAML version
 
-Current schema version:
+Current version:  
 **`MIPractice_case_v2.0_full_with_model_reference`**
 
 ---
 
 ## 📬 Contact
 
-For permissions, academic collaboration or commercial licensing inquiries:
+For permissions, academic collaboration or commercial licensing:
 
-* **Email:** info@maturity-in-practice.com
-* **Website:** https://www.maturity-in-practice.com
-
----
+**Email:** info@maturity-in-practice.com  
+**Website:** https://www.maturity-in-practice.com
+```
