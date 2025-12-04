@@ -3,17 +3,23 @@
 
 **Version:** 1.0  
 **Author:** T. Zöller  
-**Status:** Public model specification
+**Status:** Public model specification  
+**Project website:** https://www.maturity-in-practice.com/
 
 ---
 
 ## 📘 Overview
 
 This repository contains the **official specification** for  
-**Maturity in Practice / IA (inadult asymmetry)** — a praxeological framework for analysing
+**Maturity in Practice / IA (inadulte asymmetry)** — a praxeological framework for analysing
 enactments, maturity, responsibility, structural asymmetry and dignity in practice.
 
-It includes:
+The conceptual foundation of this model is presented in the book:
+
+> **T. Zöller (2025): _Maturity in Practice – A Praxeological Anthropology_**  
+> More information: https://www.maturity-in-practice.com/
+
+This repository includes the full technical and machine-readable specification:
 
 - **Maturity in Practice – Model Specification.html**  
   Human-readable specification of the full ACRPD model.
