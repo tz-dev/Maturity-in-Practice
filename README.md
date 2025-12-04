@@ -177,6 +177,28 @@ Give enough context for the model to work with, then choose automatic or interac
 The AI generates a full MIPractice_case analysis or a guided reflective process.  
 The model intentionally surfaces missing information, ambiguities, tensions and alternative readings.
 
+**Optional Step 4 — Use the HTML Case Template for Clean Output**
+
+You can produce a **polished, presentation-ready rendering** of your analysis using the HTML template:
+
+```
+example/Case Analysis Template.html
+```
+
+Ask the AI:
+
+> “Take the MIPractice_case analysis you just generated and insert the content into the HTML template from `example/Case Analysis Template.html`.
+> Replace all placeholder fields (snapshot, ACRPD, IA-Box, A/M-band, findings, trajectory, conclusion).
+> Return the completed HTML file.”
+
+The template ensures:
+
+* a **uniform professional layout**
+* consistent structure across analyses
+* ideal formatting for **workshops, leadership sessions, publications or screenshots**
+
+It is fully optional — but highly recommended when sharing or presenting results.
+
 ---
 
 ## 📚 Citation
