@@ -50,11 +50,11 @@ Together, these files define the authoritative public specification of the IA / 
 ---
 
 ## 📦 Repository Contents
-
+```
 ├── Maturity in Practice - Model Specification.html
 ├── Maturity in Practice - Model Specification.pdf
 └── MIPractice_case_v2.0_full_with_model_reference.yaml
-
+```
 
 - `*.html` – main documentation, ideal for reading in browser  
 - `*.pdf` – citation-ready spec  
