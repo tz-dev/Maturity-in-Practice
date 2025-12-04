@@ -32,7 +32,7 @@ Together, these files form the authoritative public definition of the IA / ACRPD
 
 ## 🧩 Repository Contents
 
-```text
+````text
 ├── MIPractice_case_v2.0_full_with_model_reference.yaml        # Canonical YAML model + case schema
 ├── model specification/
 │   ├── Maturity in Practice - Model Specification.html        # Human-readable spec
@@ -134,6 +134,48 @@ It contains:
   as a reference or test case.
 
 Do **not** manually rewrite the YAML — always import it directly to avoid drift.
+
+---
+
+## 🧪 Quick Start: How to use the MIPractice model with an AI system
+
+There are **two ways to work with the model** once the YAML file is loaded into an AI system:
+
+### **1. Automatic Analysis**
+The AI produces a complete **MIPractice_case** analysis of your thesis or scenario  
+(A–C–R–P–D, IA-Box, A/M-band, trajectory, optional D-module).
+
+Example:
+> “Analyse the following thesis using the MIPractice_case template:  
+> *‘In public institutions, symbolic actions often replace real responsibility.’*”
+
+### **2. Interactive Reflection Mode**
+The AI guides you **step by step**, asking targeted questions for each section.  
+Your answers become part of the final analysis.
+
+Example:
+> “Use the MIPractice_case template in interactive mode.  
+> Ask me the necessary questions for A–C–R–P–D, IA-Box, A/M-band and trajectory.”
+
+---
+
+### **How to start (3 simple steps)**
+
+**Step 1 — Load the YAML**  
+Upload the file  
+`MIPractice_case_v2.0_full_with_model_reference.yaml`  
+and instruct the AI:
+
+> “Internalise this YAML exactly as it is, without modification.”
+
+This loads the full model (parameters, guardrails, IA-Box, scoring, case schema, etc.).
+
+**Step 2 — Provide a thesis or scenario**  
+Give enough context for the model to work with, then choose automatic or interactive mode.
+
+**Step 3 — Read the structured output**  
+The AI generates a full MIPractice_case analysis or a guided reflective process.  
+The model intentionally surfaces missing information, ambiguities, tensions and alternative readings.
 
 ---
 
