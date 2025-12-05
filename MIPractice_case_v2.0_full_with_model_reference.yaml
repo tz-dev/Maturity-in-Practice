@@ -2,8 +2,8 @@
 #
 # PURPOSE:
 #   Combined case template (MIPractice_case) and model reference (model_reference) for praxeological maturity analysis.
-#   - `model_reference` defines the normative IA model: parameters (A, C, R, P, D), 2.4 submodule matrix,
-#     guardrails, modulators, biases, scoring logic, etc.
+#   - `model_reference` defines the normative IA model: parameters (A, C, R, P, D), submodule matrix, guardrails, 
+#     modulators, biases, scoring logic, etc.
 #   - `case` is the structured template to document a FULL analysis with the IA model:
 #     - A–C–R–P–D profile
 #     - A- and M-band
@@ -923,3 +923,4 @@ case:
 
     conclusion: ""                  # 2–4 sentences conclusion, derived from the model findings:
                                     # "In sum, the model suggests that ... For practice, this implies ..."
+
