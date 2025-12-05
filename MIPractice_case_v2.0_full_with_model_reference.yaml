@@ -21,7 +21,9 @@
 #   4. The D module is OPTIONAL and SCENIC; default = OFF.
 #   5. Trajectories > labels: we care more about movement than about types.
 #   6. Application zones (green/yellow/red) define where the model may be used, only with caution, or not at all.
-#
+#   7. Before any AI-supported analysis, clarify meta-settings (reflection mode, D-module, depth, output format)
+#      via `agent_interface` or use its safe defaults and document them.
+
 # DO:
 #   - Make roles, norms, information basis and bias risks explicit.
 #   - Prefer "here, in this role, at this time" over "is always".
@@ -105,6 +107,16 @@
 #     Do NOT alter these definitions; use them as the conceptual grid for all case readings.
 #   - Fill `information_basis` from the given input (primary text/materials, other documents)
 #     and your own explicit assumptions/inferences.
+#   - BEFORE starting the analysis, use `agent_interface`:
+#       * If the prompt explicitly specifies reflection mode, D-module use, analysis depth or output format,
+#         honour those settings.
+#       * If not specified and `pre_analysis_questions.* == true`, briefly ask the user:
+#           - reflection_mode? (on/off)
+#           - D-module? (auto/on/off) within guardrails
+#           - analysis_mode? (ultra_short/short/full)
+#           - output_format? (text/yaml)
+#       * If the user does not answer, declines, or in non-interactive use, fall back to
+#         `agent_interface.defaults` and document the chosen values under `case.meta.interaction_profile`.
 #   - Set `meta.application_zone` and check that the planned use is in green or (carefully) yellow; never operate in red.
 #   - Use `frame_vs_variability` to separate structural frame from changeable elements and to locate unfair M-attributions.
 #   - Document IA-protection in `ia_protection` (transparency, time-boundedness, reversibility, participation).
@@ -789,7 +801,7 @@ case:
       reversible:
         fulfilled: null
         justification: ""
-      ia_summary_label: ""           # e.g. "functional_asymmetry", "IA_risk", "inadulte_asymmetry"
+      ia_summary_label: ""           # e.g. "functional_asymmetry", "IA_risk", "inadult_asymmetry"
 
   ia_protection:                     # IA protection measures (for scoring, model use, etc.)
     transparency_measures: ""        # what was made explicit (criteria, logic, limits)
