@@ -104,6 +104,7 @@
         padding: 8px 10px;
         background: #fcfcfc;
         margin: 8px 0 12px;
+        line-height: 1.05em;
       }
 
       .box-title {
@@ -221,7 +222,10 @@
             and explicit governance constraints: <span class="code-inline">intended_use_profiles</span>
             (<em>self_reflection, professional_supervision, organisational_audit, training_simulation</em>)
             and <span class="code-inline">not_intended_for</span>
-            (<em>public_shaming, clinical_diagnosis, hiring_decisions_without_human_supervision</em>).
+            (<em>public_shaming, clinical_diagnosis, hiring_decisions_without_human_supervision</em>),
+            as well as the <span class="code-inline">agent_interface</span> block, which defines
+            pre-analysis questions and default settings for AI-assisted use
+            (reflection mode, D-module preference, analysis mode, output format).
           </li>
         </ul>
         <p>
@@ -307,6 +311,18 @@
               <td>
                 Normative model: parameters, axioms, guardrails, scoring, notation
               </td>
+            </tr>
+
+            <tr>
+              <td><span class="code-inline">agent_interface</span></td>
+              <td>
+                Defines how interactive agents (e.g. AI systems) should behave before running an analysis.
+                It specifies:
+                <span class="code-inline">pre_analysis_questions</span> (whether to ask for reflection mode,
+                D-module preference, analysis depth and output format) and
+                <span class="code-inline">defaults</span> (used when such parameters are not explicitly set).
+              </td>
+              <td>Interaction &amp; governance layer for agent behaviour</td>
             </tr>
 
             <tr>
@@ -1466,14 +1482,26 @@
 
         <p><strong><span class="code-inline">case.meta</span></strong> records:</p>
         <ul>
-          <li>case ID, title and documentation date,</li>
-          <li>names and roles of analysts,</li>
-          <li>the context (e.g. organisation, enforcement, team, self-reflection),</li>
-          <li>the purpose of analysis (supervision, audit, training, reflection),</li>
-          <li>intended readers and the expected communication space.</li>
+          <li>a unique <strong>case ID</strong> and a descriptive <strong>case title</strong>,</li>
+          <li>the <strong>documentation date</strong> (ISO 8601),</li>
+          <li><strong>analysts</strong> and their roles,</li>
+          <li>the <strong>language</strong> of the case (e.g. DE, EN),</li>
+          <li>the chosen <strong>confidentiality_level</strong> (e.g. internal, confidential, anonymised_public),</li>
           <li>
             an <span class="code-inline">analysis_mode</span> flag (e.g. <em>ultra_short, short, full</em>)
-            indicating the intended depth and level of detail of the application.
+            indicating the intended depth and level of detail of the application,
+          </li>
+          <li>
+            an <span class="code-inline">interaction_profile</span> for this analysis run, specifying:
+            <ul>
+              <li><strong>reflection_mode</strong> (on/off) — whether the agent should ask reflective questions,</li>
+              <li><strong>d_module_preference</strong> (auto/on/off) — D-module usage preference within the guardrails,</li>
+              <li><strong>output_format</strong> (text/yaml) — preferred output format for this analysis.</li>
+            </ul>
+          </li>
+          <li>
+            the <strong>application_zone</strong> (<em>green, yellow, red_forbidden</em>),
+            documenting whether the planned use is recommended, cautionary or prohibited.
           </li>
         </ul>
 
