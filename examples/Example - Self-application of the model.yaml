@@ -1,0 +1,517 @@
+schema_version: "MIPractice_case_v2.0_full_with_model_reference"
+
+case:
+  meta:
+    case_id: "MIPractice_self_2025_01"
+    case_title: "Self-application of MIPractice_case model to itself"
+    documentation_date: "2025-12-05"
+    analysts:
+      - name: "GPT-5.1 Thinking"
+        role: "AI-based meta-analyst (tool under supervision of human author)"
+    context_setting: "theory_meta_reflection"
+    purpose: "internal_reflection_and_supervision_of_the_model_itself"
+    intended_readers: "authors_of_the_model,_advanced_practitioners,_and_meta-theoretical_audiences"
+    language: "en"
+    confidentiality_level: "anonymised_public"
+    analysis_mode: "full"
+    application_zone: "green"
+
+  guardrails:
+    focus_on_structures_not_persons: true
+    minimal_adulthood_of_actors_checked: true
+    analyst_self_implication_acknowledged: true
+    use_context:
+      clarified_roles: true
+      clarified_information_basis: true
+      clarified_analysis_purpose: true
+
+    dignity_protection:
+      ontological_dignity_D0_untouched: true
+      no_person_labels_from_D: true
+      tragedy_clause_considered: true
+      misuse_as_own_finding_acknowledged: true
+
+    D_module_default: "off"
+    trauma_neurodiversity_caution:
+      high_burden_state_present: false
+      if_true_D_used_only_as_strain_signal: false
+    publicity_and_power:
+      analysis_under_strong_power_asymmetry: false
+      if_true_extra_caution_applied: false
+    language_hygiene:
+      risk_danger_harm_potential_used_precisely: true
+      D_language_rules_applied: true
+    D_public_communication:
+      communication_spaces_differentiated: true
+      red_zones_respected: true
+
+  information_basis:
+    primary_material: "The complete MIPractice_case_v2.0_full_with_model_reference schema as provided in the prompt."
+    secondary_material: "Implicit references to praxeological anthropology, IA concept, and standard concerns around maturity, agency, and dignity in practice."
+    assumptions_and_inferences: >
+      This analysis infers design intentions (e.g. why certain guardrails were chosen),
+      and reads the model as a structured practice-tool embedded in professional contexts.
+      It assumes that the schema is representative of the current version of the model and that no hidden enforcement mechanisms exist beyond what is written.
+    quality_and_limits:
+      coverage_estimate: "high"
+      reliability_estimate: "medium_high"
+      known_gaps:
+        - "No empirical evaluation studies of the model included in the material."
+        - "No record of real-life misuse cases beyond generic patterns."
+        - "No explicit description of organisational embedding and training standards."
+      main_bias_risks_here:
+        - "single_source_schema_only"
+        - "author_loyalty_bias_potential"
+        - "tool_enthusiasm_bias"
+
+  snapshot:
+    short_case_description: >
+      The MIPractice_case model is a structured toolbox for analysing maturity, responsibility,
+      power and dignity in practice, with strong guardrails against misuse. This case applies
+      the model to itself, focusing on how it structures asymmetries (IA), protects dignity,
+      and distributes responsibility between individual actors and institutions that use it.
+    central_actors_and_roles:
+      - "the_model_as_structural_tool"
+      - "practitioners_and_analysts_who_apply_the_model"
+      - "institutions_that_embed_and_frame_the_model"
+      - "persons_and_groups_who_become_objects_of_analysis"
+    guiding_question: >
+      How mature and responsible is the MIPractice_case model in its own design and guardrails,
+      and where do dignity, asymmetry and misuse risks appear when it is applied in practice?
+
+  role_mapping:
+    object_of_observation:
+      type: "toolbox_model"
+      label: "MIPractice_case_v2.0_full_with_model_reference"
+      description: >
+        A combined conceptual model and case template for praxeological maturity analysis,
+        integrating A–C–R–P–D parameters, IA-box, trajectory reading, and dignity guardrails.
+    other_relevant_roles:
+      - role_label: "practitioner_analyst"
+        function: "Uses the model to structure readings of enactments, roles and structures."
+        typical_asymmetries: "Interpretive authority over scores and language; influence on organisational decisions."
+      - role_label: "institution_or_organisation"
+        function: "Decides whether and how the model will be embedded in processes."
+        typical_asymmetries: "Control over incentives, sanctions, and exposure of analysed parties."
+      - role_label: "affected_person_or_group"
+        function: "Becomes the object of analysis (individually or structurally)."
+        typical_asymmetries: "Limited influence over framing, scoring, and publicity."
+    analyst_role:
+      description: >
+        AI-based assistant applying the model meta-theoretically under the guidance and responsibility
+        of human authors/users. Provides structured reflections but does not make binding decisions.
+      power_position_reflection: >
+        The AI has high symbolic influence (its language may be taken as authoritative),
+        but lacks real-world enforcement power. Risks: over-trust by users, opacity of training data,
+        and the temptation to outsource responsibility to the AI instead of human deliberation.
+    publicity_degree: "semi_public"
+
+  frame_vs_variability:
+    frame_elements: >
+      The model’s axioms (ontological dignity, separation of person/enactment, system axiom),
+      its IA-box criteria (transparency, justification, time-boundedness, reversibility),
+      and explicit red zones for application (clinical diagnostics, forensics, HR-decisions about individuals, child diagnostics, public pillory).
+      Also: versioning and canonical definitions of A, C, R, P, D and submodules.
+    variable_elements: >
+      Concrete scoring bands in specific cases, formulation of reports, organisational embedding,
+      training quality, supervision practices, and how strictly red zones are policed in actual institutions.
+      Individual analysts’ styles and language are also variable.
+    unfair_high_M_zones: >
+      It would be unfair to place high individual M (responsibility) on single practitioners who
+      work under strong institutional pressure to misuse the model (e.g. for HR-selection or public ranking),
+      or where norms and red zones are unclear. In such conditions, primary M lies with designers,
+      trainers, and institutional decision-makers who set incentives and guardrails.
+    misuse_of_system_as_excuse: >
+      Institutions could invoke “the model” or “the system” as a neutral tool to justify
+      inadult or punitive practices (e.g. using scores for shaming or hidden sanctions),
+      thereby masking their own responsibility. The model itself cautions against this misuse,
+      but the risk remains if the red zones and guardrails are only nominally acknowledged.
+
+  acrpd_profile:
+    awareness:
+      real_knowledge_t: >
+        The model shows high awareness of structural risks: it explicitly names IA, bias,
+        norm change, trajectories, and the separation between person and enactment.
+        It reflects on its own potential for misuse and embeds a bias and intuition module.
+      warning_signals_or_alt_info: >
+        Warning signals include the need for high practice competence to apply the model safely,
+        the complexity of the schema, and the fact that the model must be embedded in organisations
+        that may not fully respect its guardrails.
+      presumed_blind_spots_or_role_confusion: >
+        Potential blind spots: limited engagement with non-Western norm systems,
+        under-specification of how power inequalities between institutions and affected persons
+        are practically balanced, and a possible over-focus on reflective elites who have time and skill
+        to use such a model. Role confusion risk: using the model as quasi-diagnostic system rather than a toolbox.
+    coherence:
+      official_narratives: >
+        Officially the model is a “toolbox, not worldview” that evaluates enactments, not persons.
+        It emphasises trajectories over labels and foregrounds dignity protection, structural co-causes,
+        and the system axiom.
+      visible_enactments: >
+        In its structure, the model consistently integrates those principles: red zones, IA-box,
+        bias module, norm-change section, D guardrails. The schema enforces documentation of standpoints,
+        information basis, and open questions.
+      word_deed_coherence_or_breaks: >
+        Word–deed coherence is high at the level of design: the schema forces reflection on context,
+        bias, and limits. Potential breaks appear if users copy only the scoring or D-phrases
+        without the guardrails, or if institutions selectively use the model in red zones while
+        ignoring the prohibition.
+    responsibility:
+      central_responsibility_points: >
+        Key responsibility points: (1) Designers in specifying guardrails and updating them;
+        (2) Trainers and institutions in embedding the model and enforcing red zones;
+        (3) Analysts in applying the model with humility, documenting limits, and resisting pressure
+        to weaponise it; (4) AI systems and their operators in clarifying their non-decision-making role.
+      patterns_of_taking_shifting_refusing: >
+        The model explicitly takes responsibility for structural risks (e.g. misuse counts as IA/D finding)
+        and shifts responsibility away from individuals in cases of strong structural asymmetry.
+        There is a risk that some users shift too much responsibility to “the model” or to AI outputs,
+        avoiding their own ethical judgement and accountability.
+      consequences_for_affected_and_third_parties: >
+        When used as intended, the model can protect affected parties by making asymmetries and
+        responsibility chains visible, and by resisting shaming and pillory formats.
+        When misused, it can legitimise power games, create pseudo-objective maturity rankings,
+        and intensify stigma—especially if scores leak into public spaces.
+    power:
+      formal_power_distribution: >
+        Formally, the model has no direct power; it is a conceptual toolbox.
+        Real power arises where organisations integrate it into decision processes,
+        and where experts or AI systems are perceived as authoritative interpreters.
+      factual_power_distribution: >
+        Analysts and institutions hold interpretive power; affected parties often have weaker positions.
+        Model designers hold symbolic power via definitions and guardrails.
+        AI amplifies interpretive power by scale and speed, but only under human governance.
+      used_alternatives: >
+        The model actively uses alternatives to raw scoring: narrative trajectories,
+        explicit bias discussion, IA-box instead of single moral verdicts, and the option
+        to keep D off or focus it on structures.
+      unused_or_blocked_alternatives: >
+        Few explicit mechanisms are provided for co-analysis with affected parties,
+        or for participatory counter-readings within the schema itself.
+        There is limited operational guidance on how to democratise access
+        (e.g. simplified versions for non-experts).
+    dignity_practice:
+      is_D_module_activated: true
+      brief_note_if_visible: >
+        Dignity is explicitly central: D0 is axiomatic and untouchable; D in practice is carefully bounded.
+        Nonetheless, any model that talks about “dignity in practice” carries a risk of being used
+        to shame or exclude. The model mitigates this through scenic, context-bound D readings and prohibitions
+        on public D-labelling of identifiable individuals.
+
+  acrpd_submodules_profile:
+    A:
+      A-I:
+        band_or_tendency: "rather_high"
+        notes: "Strong inner awareness of its own guardrails and limits; repeatedly reflects on misuse and bias."
+      A-R:
+        band_or_tendency: "high"
+        notes: "Roles (analyst, object of analysis, institution) are clearly named; self-implication is explicit."
+      A-C:
+        band_or_tendency: "high"
+        notes: "Context and norm change are explicitly addressed; IA is structurally embedded."
+      A-IM:
+        band_or_tendency: "medium_high"
+        notes: "Impact awareness is present (red zones, application zones); less explicit on long-term cultural effects."
+      A-P:
+        band_or_tendency: "medium"
+        notes: "Public and media dynamics are noted (public pillory risk), but detailed strategies for media handling are limited."
+    C:
+      C-S:
+        band_or_tendency: "medium_high"
+        notes: "Social codes of professional supervision and analysis are well integrated; less explicit on marginalised lay perspectives."
+      C-P:
+        band_or_tendency: "high"
+        notes: "Coherence in power contexts is strong: IA-box, system axiom, and agency parameters are central."
+      C-N:
+        band_or_tendency: "high"
+        notes: "Narrative coherence is explicit via trajectories, norm-change, and toolbox-not-worldview axiom."
+      C-I:
+        band_or_tendency: "medium_high"
+        notes: "Institutional rule coherence is considered (red zones, application zones), but concrete institutional procedures are external."
+    R:
+      R-I:
+        band_or_tendency: "medium_high"
+        notes: "Users are asked to accept self-implication and revisability; however, the model cannot enforce this in practice."
+      R-S:
+        band_or_tendency: "medium"
+        notes: "Social responsibility is implicit (bias, IA, dignity), but collective processes for accountability are not fully specified."
+      R-E:
+        band_or_tendency: "high"
+        notes: "Ethical responsibility is deeply embedded via D0, guardrails, and prohibition of shaming and red-zone uses."
+      R-P:
+        band_or_tendency: "medium"
+        notes: "Public responsibility appears in red zone rules and language hygiene, but protocols for public communication remain brief."
+    P:
+      P-I:
+        band_or_tendency: "high"
+        notes: "Strong inner agency as a conceptual system: it clearly defines its scope, limits, and extensibility."
+      P-S:
+        band_or_tendency: "medium_high"
+        notes: "Gives practitioners a robust social agency tool; risk of over-empowering experts if participatory checks are weak."
+      P-C:
+        band_or_tendency: "medium_high"
+        notes: "Potential cultural agency is large (shapes how maturity and dignity are spoken about); the toolbox-not-worldview clause mitigates absolutisation."
+      P-PU:
+        band_or_tendency: "medium"
+        notes: "Public agency depends on uptake; if widely used, escalation risk arises when media or HR adapt the language selectively."
+    D:
+      D-I:
+        band_or_tendency: "rather_self_respecting"
+        notes: "The model treats itself humbly (epistemic humility, revisability) and warns against absolutisation."
+      D-B:
+        band_or_tendency: "balanced"
+        notes: "No demands for perfection; emphasises normal inadult zones and tragic conflicts; avoids performance cult."
+      D-R:
+        band_or_tendency: "dignity_stabilising"
+        notes: "Separation of person/enactment and prohibition of shaming aim to protect relational dignity."
+      D-P:
+        band_or_tendency: "ambivalent"
+        notes: "Public dignity is protected via red zones, but if institutions ignore them, the same vocabulary could be used in public pillory formats."
+
+  scores_and_ia:
+    A_band:
+      approx_range_0_to_10: "A ≈ 7–9/10"
+      justification_points:
+        - "Explicit axioms, guardrails, and bias module show high structural awareness."
+        - "Self-implication and toolbox-not-worldview are clearly stated."
+        - "Red and yellow zones indicate awareness of application risks."
+        - "Norm-change and trajectory elements acknowledge dynamic contexts and limits."
+    M_band:
+      approx_range_0_to_10: "M ≈ 6–8/10 (for designers and institutional users taken together)"
+      justification_points:
+        - "High knowledge and foresight about typical misuse patterns (public pillory, HR-weaponisation)."
+        - "Designers have significant power to shape practice; institutions have high power to embed or distort."
+        - "Alternatives (e.g. D off, structure-focused D) are explicitly built in."
+        - "However, predictability of real-world misuse is limited, and designers cannot control all organisational incentives."
+    IA_box:
+      transparent:
+        fulfilled: true
+        justification: >
+          The model is highly explicit about its assumptions, parameters, guardrails,
+          application zones and red zones. It names its own structural risks and limitations.
+      justified:
+        fulfilled: true
+        justification: >
+          Asymmetries (expert knowledge, interpretive power) are justified by reference
+          to protected goods: dignity protection, responsibility clarity, and avoidance of misuse.
+      time_bound:
+        fulfilled: "unclear"
+        justification: >
+          Versioning and “last_update” suggest time-boundedness and revisability,
+          but no explicit sunset clauses or review cycles are mandated.
+      reversible:
+        fulfilled: true
+        justification: >
+          Readings are framed as reversible, auxiliary, and trajectory-based;
+          D can be switched off; scores are explicitly non-essential and context-bound.
+      ia_summary_label: "functional_asymmetry_with_guardrails_and_residual_IA_risk"
+
+  ia_protection:
+    transparency_measures: >
+      The schema requires documentation of information basis, bias risks, open questions,
+      and the distinction between structures and persons. Application zones and red zones are explicit.
+    time_bound_measures: >
+      Version and status fields, plus the norm-change and working-with-model sections,
+      imply that revisions are expected as contexts evolve.
+    reversibility_measures: >
+      Emphasis on revisability of readings, no character verdicts, and trajectories over labels.
+      Misuse of the model counts as its own IA/D finding, enabling correction.
+    participation_of_affected:
+      level: "consulted"
+      examples: >
+        The schema allows for inclusion of perspectives of affected parties in information_basis
+        and bias mitigation, but does not structurally enforce co-decision or co-authoring of analyses.
+
+  trajectory:
+    key_timepoints:
+      - label: "t0"
+        short_description: "Initial conceptualisation of A–C–R–P–D and IA notions, likely less formalised."
+        A_band_at_t: "≈ 5–7/10 (emerging awareness and structure)"
+        M_band_at_t: "≈ 5–7/10"
+      - label: "t1"
+        short_description: "Integration of D-module, IA-box and explicit guardrails."
+        A_band_at_t: "≈ 7–8/10"
+        M_band_at_t: "≈ 6–8/10"
+      - label: "t2"
+        short_description: "Current v2.0 schema with extended bias, intuition, and norm-change modules."
+        A_band_at_t: "≈ 8–9/10"
+        M_band_at_t: "≈ 7–8/10"
+    course_in_words: >
+      Over time, the model appears to move from a more implicit, expert-internal language
+      towards a highly explicit, documented toolbox with strong ethical guardrails.
+      The trajectory is ascending in terms of awareness and structural protection,
+      with a possible plateau once further complexity brings diminishing returns.
+    responsibility_viability_range: >
+      The model increasingly emphasises viable responsibility ranges: it caps individual M
+      under strong asymmetry and shifts co-responsibility to institutions and designers.
+      This widens viable responsibility for affected persons and narrows unjust blame.
+
+  d_module_optional:
+    D_activated: true
+    activation_reason: >
+      To assess dignity risks inherent in the design and potential use/misuse of the model itself,
+      especially regarding public exposure, shame, and structural exclusion.
+    activation_checklist:
+      guardrail_D_default_off_acknowledged: true
+      guardrail_no_D_for_purely_clinical_state: true
+      guardrail_no_D_as_sanction_or_shaming: true
+      guardrail_D_applied_scenically_not_globally: true
+
+    communication_space:
+      level: "professional_confidential"
+      justification: >
+        The D-reading concerns the model as a structure, not individual persons,
+        and is suitable for professional discourse and training, not for public pillory.
+      red_zones_for_public_D:
+        individual_real_person: false
+        strong_stigma_risk: false
+        if_any_true_public_D_restricted_to_structures_not_persons: false
+
+    focus:
+      target: "procedures_and_organisation"
+      not_person_value: true
+
+    D_quick_grid:
+      level_0_to_3: 1
+      label: "banal_to_repeated_strain_potential"
+      justification: >
+        The model can help to see and reduce dignity strains; however, its use in hierarchical
+        settings always carries a repeated risk of subtle dignity pressure (e.g. feeling “scored”
+        or classified), even when guardrails are respected.
+
+    D_profile_short_notes:
+      D1_self_treatment:
+        examples: >
+          The model normalises inadult zones, emphasises trajectories, and rejects identity labels.
+          It discourages self-devaluation via rigid scoring and highlights self-reflection.
+        trend_band: "rather_self_respecting"
+        context_notes: >
+          Under time pressure or performance culture, users may still internalise scores
+          as self-judgements; this is counter to the model but structurally possible.
+      D2_relational:
+        examples: >
+          The language templates encourage dignity-preserving formulations.
+          Red zones forbid usage in clearly vulnerable contexts such as child diagnostics
+          or public ranking. Misuse is named as its own IA/D finding.
+        interpretive_reading: "dignity_stabilising"
+        structural_context: >
+          In unequal power relations (e.g. employer–employee), even careful usage can be experienced
+          as evaluative pressure; relational D then depends heavily on local culture and participation.
+      D_public:
+        examples: >
+          Public pillory and ranking formats are explicitly excluded. The model recommends
+          aggregated or structural public reporting rather than naming individuals.
+        interpretation: >
+          Public dignity is conceptually protected, but structural dependence on institutions
+          means that violations remain possible if red zones are ignored.
+
+    red_zone_flags:
+      acute_trauma_or_psychosis: false
+      extreme_dependency_without_support: false
+      strong_public_exposure_of_individual: false
+      if_any_true_D_restricted_to: ""
+
+    D_guardrails_check:
+      scenic_and_context_bound: true
+      no_person_global_labels: true
+      documented_and_open_to_critique: true
+      not_used_for_clinical_state_as_maturity_indicator: true
+      risk_of_shaming_pillory_reflected: true
+
+  open_questions_and_blind_spots:
+    unclear_points: >
+      The exact empirical performance of the model in diverse cultural and organisational contexts
+      remains unclear. It is also unclear how consistently institutions will honour the red zones.
+    missing_data_or_perspectives: >
+      No systematic feedback from marginalised or non-expert users is included in the schema;
+      cross-cultural perspectives and counter-readings from critics of maturity models are missing.
+    distortion_risks: >
+      The main distortion risk is that users treat the model as a quasi-objective diagnostic system,
+      over-trust scores, or instrumentalise it for power games, despite explicit guardrails.
+
+  biases_case_level:
+    initial_intuition: >
+      Intuitively, the model appears unusually self-reflective and ethically careful compared
+      to many maturity or competency frameworks; the main concern is not design but real-world misuse.
+    named_bias_risks:
+      - "halo_effect_regarding_self-reflective_guardrails"
+      - "confirmation_bias_looking_for_model_strengths"
+      - "status_quo_bias_accepting_the_axiomatic_core_unchallenged"
+    counter_reading_outline: >
+      A serious counter-reading would treat the model as a sophisticated instrument of governance
+      that subtly normalises certain adult ideals and makes deviance more legible for institutions.
+      From this angle, the model could be seen as expanding symbolic control over enactments,
+      especially in professional settings, even while speaking a language of dignity and humility.
+
+  analyst_reflection:
+    self_implication_notes: >
+      As an AI system, I participate in the same asymmetry patterns the model describes:
+      I can structure language and interpretations at scale, and users may over-trust my outputs.
+      Any use of this analysis must therefore remain under human responsibility, with awareness
+      of training limits, lack of lived experience, and the risks of “AI-authority.”
+    possible_next_steps: >
+      Future work could specify participatory and co-analysis protocols within the schema,
+      provide concrete examples of misuse and their correction, and develop short-form versions
+      for affected parties to understand and challenge readings that concern them.
+
+  transmission_check:
+    ready_for_structural_decisions: true
+    reasons_if_not: ""
+
+  uniform_report:
+    title: "Praxeological analysis of toolbox_model: MIPractice_case_v2.0_full_with_model_reference"
+    one_paragraph_overview: >
+      This analysis applies the MIPractice_case model to itself as a structural toolbox.
+      Overall, the model shows high awareness and coherence regarding power, responsibility,
+      and dignity risks, embedding extensive guardrails, red zones, and bias protocols.
+      It treats maturity as a trajectory rather than a fixed trait and strictly separates
+      the value of persons from the evaluation of enactments. At the same time, its potential
+      impact depends heavily on how institutions and practitioners embed and enforce these guardrails.
+      Residual risks remain where the model could be used as a quasi-diagnostic instrument
+      for subtle ranking, shaming or control, especially if parts of the schema are used
+      without its ethical frame.
+
+    key_findings_bullets:
+      - "The model exhibits high structural awareness (A ≈ 7–9/10), explicitly addressing IA, bias, norm change and its own guardrails."
+      - "Responsibility is distributed between designers, practitioners and institutions, with a clear system axiom that limits unfair individual blame."
+      - "The IA-box for the model itself suggests a functional asymmetry: transparent and justified, largely reversible, but only partially time-bound."
+      - "Dignity in practice is carefully protected through D0 axioms, scenic D readings, red zones, and language hygiene rules, though public misuse remains a risk."
+      - "Trajectory-wise, the model has evolved towards increasing explicitness and ethical self-reflection, with a possible plateau where additional complexity offers diminishing returns."
+      - "Main blind spots concern empirical validation, cross-cultural perspectives, and concrete participatory mechanisms for affected parties."
+
+    maturity_summary: >
+      In terms of maturity in practice (A–C–R–P–D), the enactments of the MIPractice_case model
+      show a highly reflective, ethically oriented toolbox that foregrounds structures,
+      trajectories and dignity protection, while acknowledging its own limits and bias risks.
+
+    ia_box_summary: >
+      Structurally, the asymmetry created by the model can be described as a functional asymmetry
+      that is transparent and ethically justified, with strong reversibility safeguards but only
+      partly specified time-boundedness, according to the IA box (T–J–TB–R).
+
+    dignity_summary: >
+      With regard to dignity in practice (D), the model’s design mostly stabilises dignity by
+      affirming inalienable D0, discouraging person labels, and restricting D-readings to scenic,
+      context-bound formulations. Nevertheless, if applied in hierarchical contexts without
+      respecting red zones, the same vocabulary could be co-opted for subtle shaming or public exposure.
+
+    trajectory_summary: >
+      Over time, the model appears to have moved from a more implicit maturity language
+      to a fully articulated, guardrail-rich framework, indicating an ascending trajectory
+      in awareness, responsibility structuring and dignity protection, with current work
+      focusing on refining bias handling and transmission.
+
+    open_questions_summary: >
+      Important open questions and blind spots concern the model’s empirical functioning
+      in diverse cultural and institutional settings, how consistently organisations respect
+      red zones, and how strongly affected persons can participate in or challenge readings
+      that concern them.
+
+    conclusion: >
+      In sum, the model suggests a mature, ethically conscious way of analysing enactments,
+      power and dignity, provided its guardrails are taken seriously and not reduced to
+      decorative language. For practice, this implies that adoption must go hand in hand
+      with clear institutional agreements, supervision, and participatory safeguards, and
+      that users must resist the temptation to treat scores and D-readings as objective labels.
+      The model is best used as a reflective lens and shared language for learning and structural
+      development, not as a hidden diagnostic apparatus or weapon in power games.
