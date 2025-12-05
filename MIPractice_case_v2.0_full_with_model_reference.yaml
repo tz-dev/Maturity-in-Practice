@@ -115,6 +115,21 @@
 
 schema_version: "MIPractice_case_v2.0_full_with_model_reference"
 
+agent_interface:
+  # ask if not specified in prompt
+  pre_analysis_questions:
+    ask_reflection_mode_if_unspecified: true   # ask: reflection mode on/off?
+    ask_d_module_if_unspecified: true          # ask: D-module on/off/auto?
+    ask_analysis_mode_if_unspecified: true     # ask: short/medium/full?
+    ask_output_format_if_unspecified: true     # ask: yaml/text?
+
+  # default values if no reflection
+  defaults:
+    reflection_mode: "off"        # "on" | "off"
+    d_module_preference: "auto"   # "auto" | "on" | "off"
+    analysis_mode: "full"         # "short" | "medium" | "full"
+    output_format: "text"         # "text" | "yaml"
+
 schema_meta:
   canonical_name: "MIPractice_case"
   version: "v2.0_full_with_model_reference"
@@ -583,12 +598,16 @@ case:
     analysts:
       - name: ""
         role: ""
-    context_setting: ""             # e.g. "enforcement", "youth_welfare", "organisation", "team", "coaching", "self"
-    purpose: ""                     # e.g. "internal_reflection", "supervision", "audit", "training", "case_discussion"
-    intended_readers: ""            # who will see this, in which form
     language: ""                    # e.g. "de", "en"
     confidentiality_level: ""       # e.g. "internal", "confidential", "anonymised_public"
-    analysis_mode: "full"           # e.g. "ultra_short", "short", "full"
+    analysis_mode: "full"           # "ultra_short" | "short" | "full"
+
+    # NEW: interaction profile for this specific analysis run
+    interaction_profile:
+      reflection_mode: "off"        # "on" | "off"  – should the agent ask reflective questions during the analysis?
+      d_module_preference: "auto"   # "auto" | "on" | "off" – guardrail-aware default vs. explicit on/off
+      output_format: "text"         # "text" | "yaml"
+
     application_zone: ""            # "green" | "yellow" | "red_forbidden"
 
   guardrails:                       # Framework of use (Chapter 3 + D guardrails)
