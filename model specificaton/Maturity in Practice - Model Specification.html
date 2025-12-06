@@ -210,7 +210,8 @@
           <li>
             the <strong>normative model</strong> (<span class="code-inline">model_reference</span>):
             parameters A–C–R–P–D, submodule matrix, dignity levels (D₀/D₁/D₂), IA-box, scoring logic,
-            bias / intuition / norm-change module, axioms and minimal formal notation;
+            bias / intuition / norm-change module, axioms, minimal formal notation and
+            <strong>discipline_profiles</strong> for domain-specific activation.
           </li>
           <li>
             the <strong>case schema</strong> (<span class="code-inline">case</span>): a uniform template
@@ -389,37 +390,36 @@
               that results remain structured, reviewable and dignity-preserving.
             </p>
           </div>
-
-          <h3>2.3 Discipline profiles</h3>
-          <p>
-            The YAML model supports <strong>domain-specific profiling</strong> of the same axiomatic core
-            (D₀, A–C–R–P, IA-box, dignity dimensions) via
-            <span class="code-inline">model_reference.discipline_profiles</span>.
-            Each discipline profile defines a characteristic <em>function mode</em> and activation set.
-          </p>
-
-          <p>
-            A discipline profile typically specifies:
-          </p>
-          <ul>
-            <li><strong>primary_mode</strong> — e.g. description, diagnosis, normative, intervention, axiomatic;</li>
-            <li><strong>secondary_modes</strong> — additional uses that are legitimate but not primary;</li>
-            <li><strong>activated_modules</strong> — which parts of the model are foregrounded
-              (e.g. D-R/D-P + IA-box for political science; D₀ + responsibility + reversibility for law;
-              D-I/D-B + trajectories + modulators for psychology);</li>
-            <li><strong>typical_questions</strong> — guiding questions for that field
-              (e.g. &quot;How do digital pillories work?&quot; for media studies).
-            </li>
-          </ul>
-
-          <p>
-            The concrete analysis run selects a profile via
-            <span class="code-inline">case.meta.interaction_profile.discipline_profile</span>.
-            If no explicit choice is made, <span class="code-inline">agent_interface.defaults.discipline_profile</span>
-            applies (e.g. <span class="code-inline">"generic"</span>).
-            This keeps the axioms stable while adapting the lens, depth and activated modules to the respective field.
-          </p>
         </div>
+        <h3>2.3 Discipline profiles</h3>
+        <p>
+          The YAML model supports <strong>domain-specific profiling</strong> of the same axiomatic core
+          (D₀, A–C–R–P, IA-box, dignity dimensions) via
+          <span class="code-inline">model_reference.discipline_profiles</span>.
+          Each discipline profile defines a characteristic <em>function mode</em> and activation set.
+        </p>
+
+        <p>
+          A discipline profile typically specifies:
+        </p>
+        <ul>
+          <li><strong>primary_mode</strong> — e.g. description, diagnosis, normative, intervention, axiomatic;</li>
+          <li><strong>secondary_modes</strong> — additional uses that are legitimate but not primary;</li>
+          <li><strong>activated_modules</strong> — which parts of the model are foregrounded
+            (e.g. D-R/D-P + IA-box for political science; D₀ + responsibility + reversibility for law;
+            D-I/D-B + trajectories + modulators for psychology);</li>
+          <li><strong>typical_questions</strong> — guiding questions for that field
+            (e.g. &quot;How do digital pillories work?&quot; for media studies).
+          </li>
+        </ul>
+
+        <p>
+          The concrete analysis run selects a profile via
+          <span class="code-inline">case.meta.interaction_profile.discipline_profile</span>.
+          If no explicit choice is made, <span class="code-inline">agent_interface.defaults.discipline_profile</span>
+          applies (e.g. <span class="code-inline">"generic"</span>).
+          This keeps the axioms stable while adapting the lens, depth and activated modules to the respective field.
+        </p>
       </section>
       <div class="pagebreak"></div>
       <!-- 3. Core rules & guardrails -->
@@ -1170,7 +1170,7 @@
           <li>keeping only those elements that survive contact with data and guardrails.</li>
         </ul>
 
-        <h3 style="margin-top: 50px;">9.3 Norm change</h3>
+        <h3>9.3 Norm change</h3>
         <p>
           Norms around maturity, responsibility and dignity are historically and culturally dynamic.
           The <span class="code-inline">model_reference.norm_change</span> block prevents the model from
