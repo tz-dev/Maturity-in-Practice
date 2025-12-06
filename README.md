@@ -144,36 +144,58 @@ It contains three main blocks:
 
 * `agent_interface`
 
+  * `welcome_message`
+
+    * a pre-defined welcome / onboarding text that should be displayed once the YAML has been loaded and parsed
+    * used to explain possible actions (case description, discipline profiles, analysis depth, D-module usage, examples)
+
   * `pre_analysis_questions` – switchboard for AI behaviour:
 
     * ask about reflection mode?
     * ask about D-module?
     * ask about analysis depth?
     * ask about output format?
+    * ask about **discipline_profile** (e.g. sociology, law, psychology, media studies, AI governance, etc.)?
+
   * `defaults` – what an AI should do **if the user does not specify**:
 
     * `reflection_mode: "off"`
     * `d_module_preference: "auto"` (guardrail-aware activation)
     * `analysis_mode: "full"`
     * `output_format: "text"`
+    * `discipline_profile: "generic"`
 
-This allows you to plug the model into AI systems in a consistent way.
+  * `discipline_profiles`
+
+    * a set of domain-specific profiles (e.g. sociology, political_science, law, ethics, psychology, therapy_coaching, pedagogy, organisation_leadership, corporate_culture, media_studies, public_communication, ai_governance, philosophy_anthropology)
+    * each profile defines primary/secondary modes, activated modules and typical guiding questions.
+
+This allows you to plug the model into AI systems in a consistent way and to adapt it to different disciplines without changing the axioms.
 
 ### 2. `model_reference` – Normative model
 
 Defines the full IA / ACRPD framework:
 
 * parameters A–C–R–P–D and the **submodule matrix**
+
 * guardrails and ethics of use (focus on enactments, D₀ untouchable, system axiom, etc.)
+
 * IA-box (T–J–TB–R) for asymmetry evaluation
+
 * dignity framework (D₀ / D₁ / D₂; D-I/D-B/D-R/D-P)
+
 * scoring rules for:
 
   * `A(H)` – maturity in practice of an enactment (always a **band**, 0–10)
   * `M(A)` – shared responsibility of an actor (also a **band**, 0–10)
+
 * bias, intuition and norm-change modules
+
 * trajectory patterns (ascending, descending, zigzag, plateau)
+
 * axiomatic core & minimal formal notation (action tuple H, joint notation H ⇒ (A(H), M(A)))
+
+* `discipline_profiles` for field-specific activation of modules and questions.
 
 ### 3. `case` – Uniform case schema (`MIPractice_case`)
 
@@ -183,7 +205,7 @@ Defines the structured template for any full analysis:
 
   * case ID, title, date, analysts, confidentiality level
   * application zone (green / yellow / red_forbidden)
-  * interaction profile for AI use (reflection mode, D-module preference, output format)
+  * interaction profile for AI use (reflection mode, D-module preference, output format, discipline_profile)
   * guardrails: focus on structures, minimal adulthood, dignity protection, tragedy clause, language hygiene
 
 * `information_basis` & `snapshot`
@@ -242,6 +264,26 @@ Defines the structured template for any full analysis:
 
 The YAML is designed to be used **directly** with AI systems.
 
+### 0. Initialisation: loading the YAML
+
+When integrating this model into an AI / LLM setup, a typical **loader instruction** could be:
+
+**English:**
+
+```text
+Load the YAML file, parse it, and activate the agent_interface.
+Then output exactly the text stored in agent_interface.welcome_message.message_text.
+Afterwards, use all defaults, guardrails, and pre-analysis logic defined in the YAML.
+```
+
+**Deutsch:**
+
+```text
+Lade die YAML-Datei vollständig, parse sie und aktiviere den agent_interface.
+Gib anschließend exakt den vollständigen Text aus agent_interface.welcome_message.message_text explizit auf deutsch aus.
+Danach gelten alle Defaults, Guardrails und pre_analysis-Logiken aus der YAML.
+```
+
 ### 1. Respect the `agent_interface`
 
 When an AI loads the YAML, it should:
@@ -252,6 +294,7 @@ When an AI loads the YAML, it should:
    * D-module preference (`auto` / `on` / `off`)
    * analysis mode (`ultra_short` / `short` / `full`)
    * output format (`text` / `yaml`)
+   * discipline_profile (e.g. `sociology`, `law`, `psychology`, `media_studies`, `ai_governance`, …)
 
 2. If the user **does not specify**, use `agent_interface.defaults`:
 
@@ -259,10 +302,11 @@ When an AI loads the YAML, it should:
    * `d_module_preference: "auto"`
    * `analysis_mode: "full"`
    * `output_format: "text"`
+   * `discipline_profile: "generic"`
 
 You can also override this explicitly, e.g.:
 
-> “No reflection mode, activate D if it makes sense, full analysis, YAML output.”
+> “No reflection mode, activate D if it makes sense, full analysis, YAML output, discipline profile: psychology.”
 
 ### 2. Two main usage modes
 
@@ -272,7 +316,8 @@ Once the YAML is loaded, there are two typical patterns:
 
 You provide a thesis or scenario; the AI returns a full `case` block:
 
-> “Analyse the following scenario using the MIPractice_case template (automatic mode, full analysis, YAML output):
+> “Analyse the following scenario using the MIPractice_case template
+> (automatic mode, full analysis, YAML output, discipline_profile: organisation_leadership):
 > *‘A decision has been taken in a team, but responsibility and communication are blurry…’*”
 
 The AI then fills:
@@ -286,7 +331,8 @@ The AI then fills:
 The AI uses the schema as a conversation protocol, e.g.:
 
 > “Use the MIPractice_case in interactive mode.
-> Ask me step by step about snapshot, information_basis, A–C–R–P–D, A/M-bands, IA-box and trajectory.”
+> Ask me step by step about snapshot, information_basis, A–C–R–P–D, A/M-bands, IA-box and trajectory.
+> Use discipline_profile: psychology, reflection_mode: on.”
 
 This is useful for self-reflection, supervision, workshops or training.
 
@@ -420,4 +466,3 @@ For permissions, academic collaboration or commercial licensing:
 
 * **Email:** [info@maturity-in-practice.com](mailto:info@maturity-in-practice.com)
 * **Website:** [https://www.maturity-in-practice.com](https://www.maturity-in-practice.com)
-
