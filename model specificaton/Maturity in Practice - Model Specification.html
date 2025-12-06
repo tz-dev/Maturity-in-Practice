@@ -225,7 +225,8 @@
             (<em>public_shaming, clinical_diagnosis, hiring_decisions_without_human_supervision</em>),
             as well as the <span class="code-inline">agent_interface</span> block, which defines
             pre-analysis questions and default settings for AI-assisted use
-            (reflection mode, D-module preference, analysis mode, output format).
+            (reflection mode, D-module preference, analysis mode, output format,
+            <strong>discipline_profile</strong> for domain-specific activation).
           </li>
         </ul>
         <p>
@@ -306,10 +307,14 @@
                 parameters (A–C–R–P–D), submodule matrix, guardrails, modulators,
                 bias / intuition / norm-change logic, dignity levels (D₀/D₁/D₂),
                 IA-box definition, scoring rules, axioms and the minimal formal notation.
-                It functions as the authoritative, machine-readable description of the model.
+                It also defines <span class="code-inline">discipline_profiles</span>, which specify
+                how the same axiomatic core is profiled for different fields (e.g. sociology,
+                psychology, law, AI governance) by foregrounding specific modules, function modes
+                and typical questions.
               </td>
               <td>
-                Normative model: parameters, axioms, guardrails, scoring, notation
+                Normative model: parameters, axioms, guardrails, scoring, notation,
+                <strong>domain-specific discipline profiles</strong>
               </td>
             </tr>
 
@@ -319,7 +324,7 @@
                 Defines how interactive agents (e.g. AI systems) should behave before running an analysis.
                 It specifies:
                 <span class="code-inline">pre_analysis_questions</span> (whether to ask for reflection mode,
-                D-module preference, analysis depth and output format) and
+                D-module preference, analysis depth, output format and <strong>discipline_profile</strong>) and
                 <span class="code-inline">defaults</span> (used when such parameters are not explicitly set).
               </td>
               <td>Interaction &amp; governance layer for agent behaviour</td>
@@ -385,6 +390,35 @@
             </p>
           </div>
 
+          <h3>2.3 Discipline profiles</h3>
+          <p>
+            The YAML model supports <strong>domain-specific profiling</strong> of the same axiomatic core
+            (D₀, A–C–R–P, IA-box, dignity dimensions) via
+            <span class="code-inline">model_reference.discipline_profiles</span>.
+            Each discipline profile defines a characteristic <em>function mode</em> and activation set.
+          </p>
+
+          <p>
+            A discipline profile typically specifies:
+          </p>
+          <ul>
+            <li><strong>primary_mode</strong> — e.g. description, diagnosis, normative, intervention, axiomatic;</li>
+            <li><strong>secondary_modes</strong> — additional uses that are legitimate but not primary;</li>
+            <li><strong>activated_modules</strong> — which parts of the model are foregrounded
+              (e.g. D-R/D-P + IA-box for political science; D₀ + responsibility + reversibility for law;
+              D-I/D-B + trajectories + modulators for psychology);</li>
+            <li><strong>typical_questions</strong> — guiding questions for that field
+              (e.g. &quot;How do digital pillories work?&quot; for media studies).
+            </li>
+          </ul>
+
+          <p>
+            The concrete analysis run selects a profile via
+            <span class="code-inline">case.meta.interaction_profile.discipline_profile</span>.
+            If no explicit choice is made, <span class="code-inline">agent_interface.defaults.discipline_profile</span>
+            applies (e.g. <span class="code-inline">"generic"</span>).
+            This keeps the axioms stable while adapting the lens, depth and activated modules to the respective field.
+          </p>
         </div>
       </section>
       <div class="pagebreak"></div>
@@ -1475,7 +1509,11 @@
             <ul>
               <li><strong>reflection_mode</strong> (on/off) — whether the agent should ask reflective questions,</li>
               <li><strong>d_module_preference</strong> (auto/on/off) — D-module usage preference within the guardrails,</li>
-              <li><strong>output_format</strong> (text/yaml) — preferred output format for this analysis.</li>
+              <li><strong>output_format</strong> (text/yaml) — preferred output format for this analysis,</li>
+              <li><strong>discipline_profile</strong> — the active domain profile
+                (e.g. <span class="code-inline">"psychology"</span>, <span class="code-inline">"law"</span>,
+                <span class="code-inline">"media_studies"</span> or <span class="code-inline">"generic"</span>),
+                which controls which modules are foregrounded in this case.</li>
             </ul>
           </li>
           <li>
@@ -1761,6 +1799,13 @@
           Because the YAML separates <strong>model definition</strong> from
           <strong>case application</strong>, it can be versioned, extended or tested
           independently of individual analyses.
+        </p>
+
+        <p>
+          Via <span class="code-inline">model_reference.discipline_profiles</span> and
+          <span class="code-inline">case.meta.interaction_profile.discipline_profile</span>,
+          the same core model can be profiled for different fields (e.g. psychology, law, AI governance)
+          without changing the axioms, only the activated modules and guiding questions.
         </p>
 
         <h3>13.2 Citation and license</h3>
