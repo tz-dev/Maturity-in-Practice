@@ -25,6 +25,7 @@ This repository includes:
 - several **worked example cases** (HTML, PDF, YAML)  
 - a **generic case analysis HTML template**  
 - the **license files** for code and model content
+- an optional **AI agent** that can load and apply the model interactively (see below)
 
 Together, these files form the authoritative public definition of the IA / ACRPD model.
 
@@ -261,6 +262,13 @@ Defines the structured template for any full analysis:
 ---
 
 ## 🤖 Working with AI Agents (LLMs, tools, etc.)
+
+You can either integrate the YAML into your own LLM setup (see below),  
+or use a ready-made **MIPractice / IA agent** in ChatGPT:
+
+> **Start the MIPractice / IA agent in ChatGPT**  
+> 👉 [Open the “Maturity in Action – A Praxeological Anthropology” agent](https://chat.openai.com/g/g-693460d3def48191ad08647301645a2e-maturity-in-action-a-praxeological-anthropology)  
+> *(Requires a ChatGPT account with access to custom GPTs.)*
 
 The YAML is designed to be used **directly** with AI systems.
 
