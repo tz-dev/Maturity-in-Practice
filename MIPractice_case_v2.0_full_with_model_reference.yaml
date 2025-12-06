@@ -2,8 +2,8 @@
 #
 # PURPOSE:
 #   Combined case template (MIPractice_case) and model reference (model_reference) for praxeological maturity analysis.
-#   - `model_reference` defines the normative IA model: parameters (A, C, R, P, D), submodule matrix, guardrails, 
-#     modulators, biases, scoring logic, etc.
+#   - `model_reference` defines the normative IA model: parameters (A, C, R, P, D), 2.4 submodule matrix,
+#     guardrails, modulators, biases, scoring logic, etc.
 #   - `case` is the structured template to document a FULL analysis with the IA model:
 #     - A–C–R–P–D profile
 #     - A- and M-band
@@ -56,6 +56,13 @@
 #   - Misuse of the model (e.g. for shaming, scapegoating, power games) counts as its own IA/D finding.
 #   - Biases, context modulators, and publicity levels must be made explicit to avoid distortions.
 #   - Trajectories (e.g. ascending, descending, zigzag, plateau) matter more than fixed labels.
+#
+# ANTHROPOLOGICAL PREMISE (non-axiomatic):
+#   - Praxeological dignity (D1/D2) presupposes human cognitive and social capacities
+#     (self-relation, role distinction, anticipation of effects, norm-sensitivity).
+#   - Ontological dignity (D0) remains unconditional and independent of performance:
+#     D0 is not derived from D1/D2, but becomes practically relevant in beings capable
+#     of praxeological dignity.
 #
 # APPLICATION ZONES (GREEN / YELLOW / RED):
 #   - Green: recommended – structures, historical/fictional cases, self-application; no direkte Individual-Sanktionen.
@@ -534,45 +541,59 @@ model_reference:
         - "This reading does not question the person's inherent dignity (D0)."
         - "These findings are provisional and context-bound, not a character verdict."
 
-  axiomatic_core:       # Appendix E.1–E.2 – condensed axioms
+  axiomatic_core:
     purpose_and_scope: "Provide explicit structural assumptions behind praxeological anthropology so that applications remain transparent, critique-ready and extensible."
+
     axioms:
       - id: 1
         title: "Ontological dignity (D0) is inalienable"
-        statement: "Every human possesses ontological dignity (D0) which is incomparable, immeasurable, non-increasable and non-losable."
+        statement: "Every human possesses ontological dignity (D0), which is incomparable, immeasurable, non-increasable and non-losable."
         implication_for_use: "No A-, M- or D-finding may ever be interpreted as a statement about D0."
+
       - id: 2
         title: "Strict separation of person and enactment"
         statement: "The model evaluates actions, role enactments and practices – never the worth of persons."
-        implication_for_use: "Formulations like 'acts without dignity here' are allowed; 'is without dignity' are excluded."
+        implication_for_use: "Formulations like 'acts without dignity here' are allowed; formulations like 'is without dignity' are excluded."
+
       - id: 3
-        title: "Action is always role- and context-bound"
-        statement: "Every enactment is tied to a role in a specific context and publicity level."
-        implication_for_use: "All readings must specify roles and context; generic person labels are invalid within the model."
+        title: "Four fundamental parameters of responsible action (A–C–P–R)"
+        statement: "Every relevant enactment in a social context can be described through four parameters: awareness (A), coherence (C), responsibility (R) and power-to-act (P)."
+        implication_for_use: "A-, C-, R- and P-readings jointly shape the observable dignity-in-practice (D)."
+
       - id: 4
-        title: "Praxeological focus on behaviour"
-        statement: "The model describes maturity and dignity in observable enactments, not inner states or diagnoses."
-        implication_for_use: "No clinical labels or speculative psychologising; psychological elements are inferred only via behaviour."
+        title: "Dignity in practice (D) is four-dimensional and gradual"
+        statement: "Dignity in practice appears in four dimensions (D1, D-B, D-R, D-P). Each is gradual, situational and reversible."
+        implication_for_use: "No permanent dignity status is assigned; only situational dignity profiles."
+
       - id: 5
-        title: "Maturity as trajectory, not fixed trait"
-        statement: "Maturity appears in practice and can change; there are only more or less mature enactments, not mature/immature types of persons."
-        implication_for_use: "Scores are snapshots and must be interpreted as part of trajectories, not as character verdicts."
+        title: "Role and context are indispensable"
+        statement: "No D- or maturity finding exists without explicit role and context clarification."
+        implication_for_use: "The same observable act may have different dignity implications depending on role and context."
+
       - id: 6
-        title: "System axiom: no enactment is isolated"
-        statement: "Every enactment is embedded in structures, rules, resources and other actors."
-        implication_for_use: "A- and M-scores must explicitly consider systemic conditions; purely individual attributions are model-inconsistent."
+        title: "Asymmetry is normal; IA requires justification"
+        statement: "Asymmetries are normal. They become problematic only when they violate the IA-box criteria (T–J–TB–R)."
+        implication_for_use: "Systematic violations of transparency, justification, time-boundedness or reversibility constitute IA."
+
       - id: 7
-        title: "Tragic residual conflicts"
-        statement: "Some conflicts involve irreducible clashes of goods even under high maturity."
-        implication_for_use: "Not every painful outcome is IA; analysis must separate unnecessary indignity from structural tragedy."
+        title: "Maturity is an enactment state, not a person type"
+        statement: "Maturity is observed in enactment, not as an essence of personality. There are no mature/immature persons – only enactments."
+        implication_for_use: "Scores describe enactments, not identities; trajectories must remain open."
+
       - id: 8
         title: "Intersubjective documentation"
-        statement: "Serious application requires minimal documentation of standpoint, norms, roles and information basis."
-        implication_for_use: "Analyses are always situated and must remain open to critique and correction."
+        statement: "Any serious application requires minimal documentation of standpoint, norms, roles and information basis."
+        implication_for_use: "Analysts are part of the picture; all findings must remain critique-ready and transparent."
+
       - id: 9
-        title: "Toolbox, not worldview"
-        statement: "The model offers a structured language for reading enactments but does not replace political, religious or philosophical positions."
-        implication_for_use: "It must not be absolutised as the only correct view of reality."
+        title: "Tragic residual conflicts"
+        statement: "Some conflicts express irreducible clashes of goods even under high maturity."
+        implication_for_use: "Analysis must distinguish unnecessary indignity (IA) from structural tragedy."
+
+      - id: 10
+        title: "System axiom: no enactment is isolated"
+        statement: "Every enactment is embedded in structures, rules, resources and other actors."
+        implication_for_use: "A- and M-scores must consider systemic conditions; purely individual attributions violate the model."
 
   formal_notation:      # Appendix E.3 – minimal formal layer
     action_tuple:
@@ -923,4 +944,3 @@ case:
 
     conclusion: ""                  # 2–4 sentences conclusion, derived from the model findings:
                                     # "In sum, the model suggests that ... For practice, this implies ..."
-
