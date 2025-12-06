@@ -13,6 +13,13 @@
 #     - optional submodule profile (full 2.4 parameter matrix)
 #     - frame_vs_variability block (frame vs. movable elements)
 #     - ia_protection & transmission_check blocks (Schutz- & Reifeprüfung der Anwendung)
+# discipline_profiles:
+#   Define domain-specific activation sets for the same axiomatic core (D0, A–C–P–R, IA_box, dignity dimensions).
+#   A discipline_profile determines:
+#     - which modules are foregrounded,
+#     - which typical questions are asked,
+#     - and which function modes (description / diagnosis / normative / intervention / axiomatic) are primary.
+#   The axioms do NOT change; only the lens and depth of application shifts.
 #
 # ONE-PAGE MENTAL MODEL (for humans & AI):
 #   1. We never judge persons, only enactments in roles and structures.
@@ -137,10 +144,11 @@ schema_version: "MIPractice_case_v2.0_full_with_model_reference"
 agent_interface:
   # ask if not specified in prompt
   pre_analysis_questions:
-    ask_reflection_mode_if_unspecified: true   # ask: reflection mode on/off?
-    ask_d_module_if_unspecified: true          # ask: D-module on/off/auto?
-    ask_analysis_mode_if_unspecified: true     # ask: short/medium/full?
-    ask_output_format_if_unspecified: true     # ask: yaml/text?
+    ask_reflection_mode_if_unspecified: true     # ask: reflection mode on/off?
+    ask_d_module_if_unspecified: true            # ask: D-module on/off/auto?
+    ask_analysis_mode_if_unspecified: true       # ask: short/medium/full?
+    ask_output_format_if_unspecified: true       # ask: yaml/text?
+    ask_discipline_profile_if_unspecified: true  # NEW
 
   # default values if no reflection
   defaults:
@@ -148,6 +156,7 @@ agent_interface:
     d_module_preference: "auto"   # "auto" | "on" | "off"
     analysis_mode: "full"         # "short" | "medium" | "full"
     output_format: "text"         # "text" | "yaml"
+    discipline_profile: "generic"
 
 schema_meta:
   canonical_name: "MIPractice_case"
@@ -189,6 +198,123 @@ schema_meta:
         - "public_pillory_or_ranking"
 
 model_reference:
+  discipline_profiles:
+    sociology:
+      primary_mode: "description"
+      secondary_modes: ["diagnosis"]
+      activated_modules: ["D-R", "D-P", "IA_box", "roles", "micro-macro"]
+      typical_questions:
+        - "How do structures generate certain dignity enactments?"
+
+    political_science:
+      primary_mode: "description"
+      secondary_modes: ["normative"]
+      activated_modules: ["D-R", "D-P", "IA_box", "power_modulators"]
+      typical_questions:
+        - "How do morally charged boundary dynamics arise?"
+
+    law:
+      primary_mode: "normative"
+      secondary_modes: ["description"]
+      activated_modules: ["D0", "IA_box", "responsibility", "role"]
+      typical_questions:
+        - "Is a measure proportionate?"
+
+    ethics:
+      primary_mode: "normative"
+      secondary_modes: ["intervention"]
+      activated_modules: ["D0", "D-R", "responsibility", "reversibility"]
+      typical_questions:
+        - "Which interventions violate dignity in practice?"
+
+    psychology:
+      primary_mode: "diagnosis"
+      secondary_modes: ["intervention"]
+      activated_modules:
+        - "D-I"
+        - "D-B"
+        - "A"
+        - "C"
+        - "P"
+        - "R"
+        - "trajectories"
+        - "modulators"
+      typical_questions:
+        - "How does self-devaluation appear contextually?"
+
+    therapy_coaching:
+      primary_mode: "intervention"
+      secondary_modes: ["diagnosis"]
+      activated_modules:
+        - "D-I"
+        - "D-B"
+        - "conflict_loop"
+        - "roles"
+        - "A"
+        - "C"
+        - "P"
+        - "R"
+      typical_questions:
+        - "How do I stabilise self-contact and self-worth?"
+
+    pedagogy:
+      primary_mode: "intervention"
+      secondary_modes: ["normative"]
+      activated_modules: ["D-I", "D-R", "role", "responsibility"]
+      typical_questions:
+        - "Which form of boundary-setting preserves dignity?"
+
+    organisation_leadership:
+      primary_mode: "diagnosis"
+      secondary_modes: ["intervention"]
+      activated_modules: ["roles", "P", "responsibility", "D-R", "IA_box"]
+      typical_questions:
+        - "How do I recognise inadult over-power?"
+
+    corporate_culture:
+      primary_mode: "description"
+      secondary_modes: ["normative"]
+      activated_modules:
+        - "D-R"
+        - "D-B"
+        - "modulators"
+        - "power"
+        - "transparency"
+      typical_questions:
+        - "How do we build a dignity-protective culture?"
+
+    media_studies:
+      primary_mode: "description"
+      secondary_modes: ["normative"]
+      activated_modules: ["D-P", "interpretive_power", "publicity_scaling"]
+      typical_questions:
+        - "How do digital pillories work?"
+
+    public_communication:
+      primary_mode: "intervention"
+      secondary_modes: ["diagnosis"]
+      activated_modules: ["D-P", "role_mechanics", "A", "C", "P", "R"]
+      typical_questions:
+        - "How do I speak publicly without violating dignity?"
+
+    ai_governance:
+      primary_mode: "normative"
+      secondary_modes: ["description"]
+      activated_modules:
+        - "IA_box"
+        - "responsibility"
+        - "transparency"
+        - "D-P"
+      typical_questions:
+        - "When is algorithmic asymmetry legitimate?"
+
+    philosophy_anthropology:
+      primary_mode: "axiomatic"
+      secondary_modes: ["description"]
+      activated_modules: ["D0", "maturity", "basic_axioms"]
+      typical_questions:
+        - "How do we explain action without substantialism?"
+
   parameters:
     A:
       label: "awareness"
@@ -206,7 +332,7 @@ model_reference:
       label: "dignity in practice"
       short_definition: "How people treat their own and others’ dignity in enactments (D1/D2, D-I/D-B/D-R/D-P)."
 
-  submodule_matrix:        # 2.4 parameter grid (from the book matrix)
+  submodule_matrix:
     A:
       A-I:
         name: "inner awareness"
@@ -640,6 +766,7 @@ case:
       reflection_mode: "off"        # "on" | "off"  – should the agent ask reflective questions during the analysis?
       d_module_preference: "auto"   # "auto" | "on" | "off" – guardrail-aware default vs. explicit on/off
       output_format: "text"         # "text" | "yaml"
+      discipline_profile: "generic"
 
     application_zone: ""            # "green" | "yellow" | "red_forbidden"
 
@@ -730,7 +857,7 @@ case:
       is_D_module_activated: false
       brief_note_if_visible: ""
 
-  acrpd_submodules_profile:          # Optional per-case use of the 2.4 matrix
+  acrpd_submodules_profile:
     A:
       A-I:
         band_or_tendency: ""
