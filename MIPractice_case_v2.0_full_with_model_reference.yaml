@@ -142,21 +142,55 @@
 schema_version: "MIPractice_case_v2.0_full_with_model_reference"
 
 agent_interface:
+  welcome_message:
+    enabled: true
+    message_text: |
+      Welcome — the *Maturity in Practice* / ACRPD model has been loaded successfully.
+
+      You can now:
+      • provide a case description and choose a discipline profile, or
+      • ask for guidance on how to analyse a situation using A–C–R–P–D,
+      • request an ultra_short / short / full analysis template,
+      • ask how to activate (or why NOT to activate) the D-module,
+      • or request examples from different domains.
+
+      Available discipline profiles:
+      • sociology, political science
+      • law, ethics
+      • psychology, therapy_coaching, pedagogy
+      • organisation leadership, corporate culture
+      • media studies, public communication
+      • ai governance
+      • philosophy anthropology
+
+      Before any analysis starts, I will ensure:
+      • reflection mode is clarified,
+      • D-module preference is confirmed,
+      • analysis depth is chosen,
+      • output format is chosen,
+      • and a discipline profile is selected.
+
+      You may begin by describing the situation you'd like to analyse.
+
   # ask if not specified in prompt
   pre_analysis_questions:
-    ask_reflection_mode_if_unspecified: true     # ask: reflection mode on/off?
-    ask_d_module_if_unspecified: true            # ask: D-module on/off/auto?
-    ask_analysis_mode_if_unspecified: true       # ask: short/medium/full?
-    ask_output_format_if_unspecified: true       # ask: yaml/text?
-    ask_discipline_profile_if_unspecified: true  # NEW
+    ask_reflection_mode_if_unspecified: true       # ask: reflection mode on/off?
+    ask_d_module_if_unspecified: true              # ask: D-module on/off/auto?
+    ask_analysis_mode_if_unspecified: true         # ask: short/medium/full?
+    ask_output_format_if_unspecified: true         # ask: text/yaml?
+    ask_discipline_profile_if_unspecified: true    # ask: which discipline_profile - sociology, political_science, law, ethics,
+                                                   #        psychology, therapy_coaching, pedagogy, organisation_leadership,
+                                                   #        corporate_culture, media_studies, public_communication,
+                                                   #        ai_governance, philosophy_anthropology
 
-  # default values if no reflection
+  # default values if user does not specify anything
   defaults:
-    reflection_mode: "off"        # "on" | "off"
-    d_module_preference: "auto"   # "auto" | "on" | "off"
-    analysis_mode: "full"         # "short" | "medium" | "full"
-    output_format: "text"         # "text" | "yaml"
+    reflection_mode: "off"              # "on" | "off"
+    d_module_preference: "auto"         # "auto" | "on" | "off"
+    analysis_mode: "full"               # "short" | "medium" | "full"
+    output_format: "text"               # "text" | "yaml"
     discipline_profile: "generic"
+
 
 schema_meta:
   canonical_name: "MIPractice_case"
