@@ -32,6 +32,13 @@
         font-size: 14px;
       }
 
+      blockquote {
+        margin: 0 0 16px;
+        padding: 0 1em;
+        color: #57606a;
+        border-left: 0.25em solid #d0d7de;
+      }
+
       .page {
         max-width: 900px;
         margin: 0 auto;
@@ -63,7 +70,7 @@
       }
 
       h2 {
-        margin-top: 25px;
+        margin-top: 20px;
         margin-bottom: 4px;
         font-size: 1.15rem;
         border-bottom: 1px solid var(--color-border);
@@ -134,7 +141,7 @@
         border-collapse: collapse;
         margin: 8px 0 12px;
         font-size: 0.77rem;
-        line-height: 1.3em;
+        line-height: 1.2em;
       }
 
       .table th,
@@ -228,6 +235,9 @@
             pre-analysis questions and default settings for AI-assisted use
             (reflection mode, D-module preference, analysis mode, output format,
             <strong>discipline_profile</strong> for domain-specific activation).
+          </li>
+          <li>
+            It also exposes a <span class="code-inline">welcome_message</span> block that can be used by interactive agents to present a standardised onboarding text after loading the YAML, and a <span class="code-inline">pre_analysis_questions</span> block that specifies which parameters must be clarified before any analysis run.
           </li>
         </ul>
         <p>
@@ -1808,6 +1818,25 @@
           without changing the axioms, only the activated modules and guiding questions.
         </p>
 
+        <h4>13.1.1 Recommended bootstrap for LLM-based agents (non-normative)</h4>
+
+<p>
+  Implementations that use large language models SHOULD, after uploading the YAML, run a short system prompt that<br>
+  (a) loads and parses the YAML,<br>
+  (b) activates the agent_interface,<br>
+  (c) outputs the welcome_message, and<br>
+  (d) subsequently applies all defaults, guardrails and pre-analysis logic defined in the YAML.
+
+</p>
+
+<p>
+A recommended formulation is:<br>
+<blockquote>
+Load the YAML file, parse it, and activate the agent_interface.
+Then output exactly the text stored in agent_interface.welcome_message.message_text.
+Afterwards, use all defaults, guardrails, and pre-analysis logic defined in the YAML.
+</blockquote>
+</p>
         <h3>13.2 Citation and license</h3>
         <p>
           When referencing this model, please cite both the book and this specification:
