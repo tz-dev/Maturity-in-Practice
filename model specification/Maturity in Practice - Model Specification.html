@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Maturity in Practice – Model Specification (ACRPD / IA)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      :root {
+        --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --font-mono: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --color-text: #111;
+        --color-muted: #555;
+        --color-accent: #333;
+        --color-border: #ddd;
+        --color-bg: #fafafa;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: var(--font-body);
+        color: var(--color-text);
+        background: white;
+        line-height: 1.5;
+        font-size: 14px;
+      }
+
+      blockquote {
+        margin: 0 0 16px;
+        padding: 0 1em;
+        color: #57606a;
+        border-left: 0.25em solid #d0d7de;
+      }
+
+      .page {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 32px 24px 64px;
+        background: white;
+      }
+
+      header {
+        border-bottom: 1px solid var(--color-border);
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+      }
+
+      header h1 {
+        font-size: 1.9rem;
+        margin: 0 0 8px;
+        letter-spacing: 0.02em;
+      }
+
+      header .subtitle {
+        font-size: 0.95rem;
+        color: var(--color-muted);
+        margin-bottom: 8px;
+      }
+
+      header .meta {
+        font-size: 0.8rem;
+        color: var(--color-muted);
+      }
+
+      h2 {
+        margin-top: 20px;
+        margin-bottom: 4px;
+        font-size: 1.15rem;
+        border-bottom: 1px solid var(--color-border);
+        padding-bottom: 4px;
+      }
+
+      h3 {
+        margin-top: 18px;
+        margin-bottom: 4px;
+        font-size: 1rem;
+        color: var(--color-accent);
+      }
+
+      p {
+        margin: 4px 0 8px;
+      }
+
+      ul {
+        margin: 4px 0 10px 1.2rem;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 3px;
+      }
+
+      .code-inline {
+        font-family: var(--font-mono);
+        font-size: 0.9em;
+        background: #f5f5f5;
+        padding: 1px 4px;
+        border-radius: 3px;
+      }
+
+      .box {
+        border: 1px solid var(--color-border);
+        border-radius: 4px;
+        padding: 8px 10px;
+        background: #fcfcfc;
+        margin: 8px 0 12px;
+        line-height: 1.05em;
+      }
+
+      .box-title {
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 4px;
+      }
+
+      .small {
+        font-size: 0.85rem;
+        color: var(--color-muted);
+      }
+
+      .two-column {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .two-column > div {
+        flex: 1 1 260px;
+        min-width: 0;
+      }
+
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 8px 0 12px;
+        font-size: 0.77rem;
+        line-height: 1.2em;
+      }
+
+      .table th,
+      .table td {
+        border: 1px solid var(--color-border);
+        padding: 4px 6px;
+        vertical-align: top;
+      }
+
+      .table th {
+        background: #f5f5f5;
+        font-weight: 600;
+      }
+
+      .tag {
+        display: inline-block;
+        border-radius: 999px;
+        border: 1px solid var(--color-border);
+        padding: 1px 8px;
+        font-size: 0.75rem;
+        margin-right: 4px;
+        margin-bottom: 3px;
+      }
+
+      .placeholder {
+        font-style: italic;
+        color: var(--color-muted);
+      }
+
+      .pagebreak{
+        page-break-before:always
+      }
+
+      @media print {
+        body {
+          background: white;
+        }
+        .page {
+          box-shadow: none;
+          padding: 24px 18px;
+        }
+        a[href]:after {
+          content: "";
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <h1>Maturity in Practice – Model Specification (ACRPD / IA)</h1>
+        <div class="subtitle">
+          A praxeological framework for maturity, responsibility, asymmetry & dignity in practice
+        </div>
+        <div class="meta">
+          Version: 2.0 &middot;
+          Spec basis: <span class="code-inline">MIPractice_case_v2.0_full_with_model_reference.yaml</span><br />
+          Author: T. Zöller &middot; Language: EN &middot; Status: Public model spec (aligned with schema_meta.status = "stable")
+        </div>
+      </header>
+
+      <!-- 1. Purpose & Scope -->
+      <section id="purpose-scope">
+        <h2>1. Purpose and scope of this specification</h2>
+        <p>
+          This document specifies the <em>Maturity in Practice</em> / IA (inadult asymmetry) model in a 
+          concise, technical form. It is based on the YAML file
+          <span class="code-inline">MIPractice_case_v2.0_full_with_model_reference.yaml</span> and makes
+          its structure, concepts and guardrails transparent for human readers and software systems.
+          The specification covers:
+        </p>
+        <ul>
+          <li>
+            the <strong>normative model</strong> (<span class="code-inline">model_reference</span>):
+            parameters A–C–R–P–D, submodule matrix, dignity levels (D₀/D₁/D₂), IA-box, scoring logic,
+            bias / intuition / norm-change module, axioms, minimal formal notation and
+            <strong>discipline_profiles</strong> for domain-specific activation.
+          </li>
+          <li>
+            the <strong>case schema</strong> (<span class="code-inline">case</span>): a uniform template
+            for documenting concrete analyses, including A/M bands, IA-box evaluation, trajectory,
+            optional D-module and a standardised narrative report.
+          </li>
+          <li>
+            It also reflects the new &quot;schema_meta&quot; block, which defines the schema version, status
+            and explicit governance constraints: <span class="code-inline">intended_use_profiles</span>
+            (<em>self_reflection, professional_supervision, organisational_audit, training_simulation</em>)
+            and <span class="code-inline">not_intended_for</span>
+            (<em>public_shaming, clinical_diagnosis, hiring_decisions_without_human_supervision</em>),
+            as well as the <span class="code-inline">agent_interface</span> block, which defines
+            pre-analysis questions and default settings for AI-assisted use
+            (reflection mode, D-module preference, analysis mode, output format,
+            <strong>discipline_profile</strong> for domain-specific activation).
+          </li>
+          <li>
+            It also exposes a <span class="code-inline">welcome_message</span> block that can be used by interactive agents to present a standardised onboarding text after loading the YAML, and a <span class="code-inline">pre_analysis_questions</span> block that specifies which parameters must be clarified before any analysis run.
+          </li>
+        </ul>
+        <p>
+          The intended use of this specification is threefold:
+        </p>
+        <ul>
+          <li>
+            as a <strong>reference for practitioners</strong> (coaching, organisations, public
+            institutions) who want to apply the model in a structured, dignity-preserving way;
+          </li>
+          <li>
+            as a <strong>research and teaching artefact</strong> for philosophy, social sciences,
+            psychology and ethics, where the model can be cited, critiqued and extended;
+          </li>
+          <li>
+            as a <strong>governance layer for software and AI systems</strong>, where the YAML file
+            can be treated as a single source of truth for responsible analysis of enactments, roles,
+            asymmetries and dignity in practice.
+          </li>
+        </ul>
+
+        <div class="box">
+          <div class="box-title">Core idea</div>
+          <p class="small">
+            The YAML file defines both the normative model
+            (<span class="code-inline">model_reference</span>) and a structured case template
+            (<span class="code-inline">case</span>) for applying the model. This specification
+            makes that structure human-readable, internally consistent and citable as a model
+            definition.
+          </p>
+        </div>
+      </section>
+      <div class="pagebreak"></div>
+      <!-- 2. High-level structure -->
+      <section id="structure">
+        <h2>2. High-level structure of the YAML model</h2>
+        <h3>2.1 Top-level keys</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Description</th>
+              <th>Role in the model</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="code-inline">schema_version</span></td>
+              <td>
+                A version string identifying the release of the YAML schema
+                (<span class="code-inline">MIPractice_case_v2.0_full_with_model_reference</span>).
+                Ensures compatibility across updates and clarifies which model definition a case
+                or implementation refers to.
+              </td>
+              <td>Versioning / compatibility information</td>
+            </tr>
+
+            <tr>
+              <td><span class="code-inline">schema_meta</span></td>
+              <td>
+                Contains versioning, status, and governance information for the schema.
+                In particular:
+                <span class="code-inline">intended_use_profiles</span>
+                (e.g. <em>self_reflection, professional_supervision, organisational_audit, training_simulation</em>)
+                and <span class="code-inline">not_intended_for</span>
+                (e.g. <em>public_shaming, clinical_diagnosis, hiring_decisions_without_human_supervision</em>).
+                This block constrains where the model may be used and documents safe default assumptions.
+              </td>
+              <td>
+                Versioning / governance / safety constraints
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="code-inline">model_reference</span></td>
+              <td>
+                Contains the full normative definition of the IA / ACRPD model:
+                parameters (A–C–R–P–D), submodule matrix, guardrails, modulators,
+                bias / intuition / norm-change logic, dignity levels (D₀/D₁/D₂),
+                IA-box definition, scoring rules, axioms and the minimal formal notation.
+                It also defines <span class="code-inline">discipline_profiles</span>, which specify
+                how the same axiomatic core is profiled for different fields (e.g. sociology,
+                psychology, law, AI governance) by foregrounding specific modules, function modes
+                and typical questions.
+              </td>
+              <td>
+                Normative model: parameters, axioms, guardrails, scoring, notation,
+                <strong>domain-specific discipline profiles</strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="code-inline">agent_interface</span></td>
+              <td>
+                Defines how interactive agents (e.g. AI systems) should behave before running an analysis.
+                It specifies:
+                <span class="code-inline">pre_analysis_questions</span> (whether to ask for reflection mode,
+                D-module preference, analysis depth, output format and <strong>discipline_profile</strong>) and
+                <span class="code-inline">defaults</span> (used when such parameters are not explicitly set).
+              </td>
+              <td>Interaction &amp; governance layer for agent behaviour</td>
+            </tr>
+
+            <tr>
+              <td><span class="code-inline">case</span></td>
+              <td>
+                Defines the structured template for analysing concrete situations using the model:
+                meta-information, guardrails, information basis, ACRPD profile, submodules,
+                A/M-band scoring, IA-box evaluation, trajectory, optional D-module, open questions
+                and the uniform report.  
+                Every full application of the model is documented inside this schema.
+              </td>
+              <td>
+                Case template and analysis fields for concrete applications
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>2.2 Conceptual separation</h3>
+        <div class="two-column">
+
+          <div class="box">
+            <div class="box-title"><span class="code-inline">model_reference</span></div>
+            <p class="small">
+              The <span class="code-inline">model_reference</span> block contains the complete
+              normative and structural definition of the IA / ACRPD framework.  
+              It specifies:
+            </p>
+            <ul class="small">
+              <li>all parameters (A–C–R–P–D) and their submodules;</li>
+              <li>dignity levels (D₀/D₁/D₂) and their operationalisation (D-I/D-B/D-R/D-P);</li>
+              <li>guardrails and ethics of use, including D-protection and tragedy clause;</li>
+              <li>scoring rules for A and M, trajectory patterns and asymmetry classification;</li>
+              <li>bias, intuition and norm-change modules;</li>
+              <li>axioms and minimal formal notation for consistent implementation.</li>
+            </ul>
+            <p class="small">
+              In short: <strong>this block defines the model itself</strong> and serves as a
+              single source of truth for human and machine interpretation.
+            </p>
+          </div>
+
+          <div class="box">
+            <div class="box-title"><span class="code-inline">case</span></div>
+            <p class="small">
+              The <span class="code-inline">case</span> block provides a fully structured template
+              for applying the model to real situations.  
+              It contains:
+            </p>
+            <ul class="small">
+              <li>meta-information, guardrails and documentation of the information basis;</li>
+              <li>the ACRPD profile and optional submodule analysis;</li>
+              <li>A- and M-bands, IA-box (T–J–TB–R) and trajectory description;</li>
+              <li>the optional D-module with dignity profiles and red-zone flags;</li>
+              <li>open questions, analyst reflection and a uniform summary report.</li>
+            </ul>
+            <p class="small">
+              In short: this block defines <strong>how a full analysis is documented</strong> so
+              that results remain structured, reviewable and dignity-preserving.
+            </p>
+          </div>
+        </div>
+        <h3>2.3 Discipline profiles</h3>
+        <p>
+          The YAML model supports <strong>domain-specific profiling</strong> of the same axiomatic core
+          (D₀, A–C–R–P, IA-box, dignity dimensions) via
+          <span class="code-inline">model_reference.discipline_profiles</span>.
+          Each discipline profile defines a characteristic <em>function mode</em> and activation set.
+        </p>
+
+        <p>
+          A discipline profile typically specifies:
+        </p>
+        <ul>
+          <li><strong>primary_mode</strong> — e.g. description, diagnosis, normative, intervention, axiomatic;</li>
+          <li><strong>secondary_modes</strong> — additional uses that are legitimate but not primary;</li>
+          <li><strong>activated_modules</strong> — which parts of the model are foregrounded
+            (e.g. D-R/D-P + IA-box for political science; D₀ + responsibility + reversibility for law;
+            D-I/D-B + trajectories + modulators for psychology);</li>
+          <li><strong>typical_questions</strong> — guiding questions for that field
+            (e.g. &quot;How do digital pillories work?&quot; for media studies).
+          </li>
+        </ul>
+
+        <p>
+          The concrete analysis run selects a profile via
+          <span class="code-inline">case.meta.interaction_profile.discipline_profile</span>.
+          If no explicit choice is made, <span class="code-inline">agent_interface.defaults.discipline_profile</span>
+          applies (e.g. <span class="code-inline">"generic"</span>).
+          This keeps the axioms stable while adapting the lens, depth and activated modules to the respective field.
+        </p>
+      </section>
+      <div class="pagebreak"></div>
+      <!-- 3. Core rules & guardrails -->
+      <section id="core-rules">
+        <h2>3. Core rules and guardrails</h2>
+
+        <h3>3.1 Core rules (comment header)</h3>
+        <p>
+          The YAML header defines a set of non-negotiable principles that govern all applications
+          of the IA / ACRPD model. They ensure that the model reads <strong>enactments, not persons</strong>,
+          protects <strong>ontological dignity (D₀)</strong>, and prevents misuse.
+          These core rules include:
+        </p>
+
+        <ul>
+          <li>
+            The YAML header includes a condensed “One-page mental model” with DO/DO-NOT guidance and typical 
+            misuse patterns. These serve as orientation and guardrail reinforcement for both human users and AI systems.
+          </li>
+          <li>
+            <strong>Enactments, roles and structures—not persons—are analysed.</strong>
+            The model explicitly rejects character evaluations or essentialising person labels.
+          </li>
+          <li>
+            <strong>Toolbox, not worldview.</strong>
+            The model offers a structured language for reading enactments but does not replace political,
+            religious or philosophical positions; it must not be absolutised.
+          </li>
+          <li>
+            <strong>Ontological dignity (D₀) is untouchable.</strong>
+            D₀ can never be rated, withdrawn or compared. Only praxeological dignity
+            (D₁/D₂) may be described, and only in scenic, context-bound form.
+          </li>
+          <li>
+            <strong>A- and M-scores are always expressed as bands</strong> (ranges),
+            never as precise or person-defining values. They describe enactments under conditions,
+            not stable traits.
+          </li>
+          <li>
+            <strong>The D-module is optional and default-off.</strong>
+            It may only be activated after guardrail checks (trauma, power asymmetry,
+            red-zones, communication space).
+          </li>
+          <li>
+            <strong>Misuse is itself an IA/D-finding.</strong>
+            Using the model to shame, essentialise persons, or conduct power games
+            counts as an inadult asymmetry and dignity violation within the model logic.
+          </li>
+          <li>
+            <strong>Trajectories matter more than labels.</strong>
+            Maturity is expressed in development lines (ascending, descending, plateau, zigzag),
+            not in static categorisations.
+          </li>
+          <li>
+            <strong>Inadult zones are normal material, not defects.</strong>
+            The model assumes that people are never fully adult; praxeological maturity
+            consists in integrating and containing these zones responsibly.
+          </li>
+        </ul>
+
+        <h3>3.2 Guardrails in <span class="code-inline">model_reference.guardrails</span></h3>
+        <p>
+          These fields specify the minimal structural constraints that the model itself
+          must obey. They protect dignity, prevent moralisation and ensure structural reading.
+        </p>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Meaning</th>
+              <th>YAML location</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Focus on structures, not persons</td>
+              <td>
+                Analyses must avoid character judgements and instead describe
+                <strong>roles, enactments, contexts and distributions</strong>.
+                This enforces the model’s core principle:
+                <em>recognise the action, not the person.</em>
+              </td>
+              <td>
+                <span class="code-inline">model_reference</span><br>
+                &nbsp;&nbsp;&nbsp;<span class="code-inline">.guardrails</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-inline">.focus_on_structures_not_persons</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>D₀ untouchable</td>
+              <td>
+                Ontological dignity is an inalienable property of persons and cannot be
+                influenced by behaviour. Only praxeological dignity (D₁/D₂) is observable.
+                Ensures clean separation of value (D₀) and enactment (D₁/D₂).
+              </td>
+              <td>
+                <span class="code-inline">model_reference</span><br>
+                &nbsp;&nbsp;&nbsp;<span class="code-inline">.guardrails</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-inline">.dignity_D0_untouchable</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>D-module default off</td>
+              <td>
+                Prevents inflationary or careless use of dignity assessments.
+                The D-module may be activated only when guardrails (trauma, publicness,
+                power asymmetry, communication space) are explicitly checked.
+              </td>
+              <td>
+                <span class="code-inline">model_reference</span><br>
+                &nbsp;&nbsp;&nbsp;<span class="code-inline">.guardrails</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-inline">.D_module_default_off</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>System axiom</td>
+              <td>
+                No enactment is purely individual: behaviour always arises within
+                structures, institutions, roles, rules and dependencies.
+                Scoring and IA-readings must reflect this.
+              </td>
+              <td>
+                <span class="code-inline">model_reference</span><br>
+                &nbsp;&nbsp;&nbsp;<span class="code-inline">.guardrails</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-inline">.system_axiom</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <div class="pagebreak"></div>
+      <!-- 4. Parameter system A–C–R–P–D -->
+      <section id="parameters">
+        <h2>4. Parameter system A–C–R–P–D</h2>
+
+        <h3>4.1 Parameters</h3>
+        <p>
+          The IA / ACRPD model reads enactments along five core parameters.  
+          These parameters describe <strong>what is observable in practice</strong>:
+          awareness, coherence, responsibility, power/agency and dignity in practice.
+          They form the structural backbone of the model.
+        </p>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th align="center">Label</th>
+              <th>Short definition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="center">A</td>
+              <td>Awareness</td>
+              <td>
+                How clearly the actor perceives themselves, their role, the context,
+                relevant information and the impact of their actions.
+              </td>
+            </tr>
+
+            <tr>
+              <td align="center">C</td>
+              <td>Coherence</td>
+              <td>
+                The degree of alignment between what is claimed, what is done and what the
+                situational norms or roles require; includes narrative, social and institutional fit.
+              </td>
+            </tr>
+
+            <tr>
+              <td align="center">R</td>
+              <td>Responsibility</td>
+              <td>
+                How responsibility is taken, shared, carried or shifted; the actor’s
+                contribution to burden distribution, ethical stance and consequences for others.
+              </td>
+            </tr>
+
+            <tr>
+              <td align="center">P</td>
+              <td>Power / agency</td>
+              <td>
+                How real alternatives, influence and decision options are used, withheld or denied;
+                includes formal and factual power and the ability to act.
+              </td>
+            </tr>
+
+            <tr>
+              <td align="center">D</td>
+              <td>Dignity in practice</td>
+              <td>
+                How people treat their own and others’ dignity in enactments—operationalised through
+                <span class="code-inline">D-I</span> (inner self-treatment),
+                <span class="code-inline">D-B</span> (bodily/material self-care),
+                <span class="code-inline">D-R</span> (relational treatment of others) and
+                <span class="code-inline">D-P</span> (public/symbolic representation).
+                Ontological dignity (D₀) remains untouched and unmeasurable.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>4.2 Maturity & inadulthood</h3>
+        <p>
+          The model treats maturity as a <strong>praxeological achievement</strong>, not as a stable
+          character trait. People are never fully adult; they always act with a mixture of adult and
+          inadult zones. Inadult zones—impulse, vulnerability, rebellion, emotionality—are not defects
+          but <strong>raw material</strong> that can be integrated into mature enactments.
+        </p>
+
+        <p>
+          In this framework, maturity is expressed when actors:
+        </p>
+        <ul>
+          <li>create adult zones (clarity, responsibility, coherence),</li>
+          <li>hold and contain inadult zones without suppressing or denying them,</li>
+          <li>navigate real constraints and asymmetries with awareness and accountability.</li>
+        </ul>
+
+        <p>
+          Maturity does <em>not</em> mean purity, perfection or the absence of inadult tendencies.
+          What matters is <strong>how</strong> inadult material is handled—whether it is channelled into
+          responsible, role-consistent action or spills into inadult asymmetry (IA).  
+          Trajectories (ascending, descending, zigzag, plateau) show whether enactments stabilise,
+          deteriorate or change over time.
+        </p>
+      </section>
+      <div class="pagebreak"></div>
+      <!-- 5. Submodule matrix -->
+      <section id="submodules">
+        <h2>5. Submodule matrix</h2>
+
+        <p>
+          Each of the five parameters (A–C–R–P–D) is refined through a set of <strong>submodules</strong>
+          that describe different dimensions of enactment.  
+          Every submodule contains three expression ranges:
+        </p>
+
+        <ul>
+          <li><strong>mature expression</strong> — stable, role-consistent and self-aware enactment;</li>
+          <li><strong>inadult / incoherent expression</strong> — unclear, impulsive, avoidant or inconsistent enactment;</li>
+          <li><strong>excessive / distorted expression</strong> — overcompensating, rigid or strategically manipulated enactment.</li>
+        </ul>
+
+        <p>
+          The submodule matrix (<span class="code-inline">model_reference.submodule_matrix</span>)
+          functions as a diagnostic grid for fine-grained reading of behaviour without making
+          psychological or moral claims. It supports pattern recognition, IA detection and dignity-related readings.
+        </p>
+
+        <h3>5.1 Example: Awareness submodules</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th align="center">Code</th>
+              <th>Name</th>
+              <th>Mature expression</th>
+              <th>Inadult / incoherent</th>
+              <th>Excessive / distorted</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="center">A-I</td>
+              <td>Inner awareness</td>
+              <td>Reflective inner life; ability to self-regulate and recognise one's own impulses.</td>
+              <td>Little self-contact; impulsive actions without reflection.</td>
+              <td>Hyper-monitoring of oneself; rumination; excessive self-observation.</td>
+            </tr>
+
+            <tr>
+              <td align="center">A-R</td>
+              <td>Role awareness</td>
+              <td>Conscious switching and guidance of roles; clarity about one’s function.</td>
+              <td>Unclear or confused about which role one inhabits.</td>
+              <td>Rigid role-play; loss of authenticity; over-identification with a role.</td>
+            </tr>
+
+            <tr>
+              <td align="center">A-C</td>
+              <td>Context awareness</td>
+              <td>Reliable understanding of situational cues and environments.</td>
+              <td>Context blindness, misreading situations.</td>
+              <td>Overinterpretation or paranoia about context cues.</td>
+            </tr>
+
+            <tr>
+              <td align="center">A-IM</td>
+              <td>Impact awareness</td>
+              <td>Conscious perception of how one's behaviour affects others.</td>
+              <td>Naïve sense of being ineffectual; ignoring consequences.</td>
+              <td>Strategic manipulation; calculating others’ reactions.</td>
+            </tr>
+
+            <tr>
+              <td align="center">A-P</td>
+              <td>Public / media awareness</td>
+              <td>Professional handling of public visibility and impression management.</td>
+              <td>No sense of public or reputational impact.</td>
+              <td>Self-surveillance; over-censorship; identity shaped by imagined audiences.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>5.2 Dignity-related submodules (D-I / D-B / D-R / D-P)</h3>
+        <p>
+          Dignity in practice (D₁/D₂) is operationalised through four submodules that map directly
+          onto the two dignity domains:
+        </p>
+
+        <ul>
+          <li>
+            <strong>D-I — Inner self-treatment</strong>  
+            (part of D₁): inner tone, self-talk, realism and kindness towards oneself.
+          </li>
+
+          <li>
+            <strong>D-B — Bodily / material self-care</strong>  
+            (part of D₁): everyday care, boundary protection and physical integrity.
+          </li>
+
+          <li>
+            <strong>D-R — Relational dignity</strong>  
+            (part of D₂): treatment of others without degrading them; relational respect.
+          </li>
+
+          <li>
+            <strong>D-P — Public / symbolic dignity</strong>  
+            (part of D₂): self-representation, avoidance of self-degradation or objectification.
+          </li>
+        </ul>
+
+        <p>
+          Together, these submodules allow a <strong>D-profile</strong> to be constructed that describes
+          how dignity is enacted in observable behaviour. They do not measure dignity itself (D₀);
+          they describe how D₁/D₂ appear in practice under real conditions.
+        </p>
+      </section>
+      <div class="pagebreak"></div>
+      <!-- 6. Dignity framework -->
+      <section id="dignity">
+        <h2>6. Dignity framework (D₀ / D₁ / D₂)</h2>
+
+        <p>
+          The dignity framework distinguishes between <strong>ontological dignity (D₀)</strong>,
+          which is unconditional and cannot be influenced by behaviour, and
+          <strong>praxeological dignity (D₁/D₂)</strong>, which describes how dignity appears in
+          concrete enactments.  
+          This separation is essential to prevent moralisation, shaming or person-evaluation.
+        </p>
+
+        <h3>6.1 Levels of dignity</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Level</th>
+              <th align="center">Code</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Ontological dignity</td>
+              <td align="center">D₀</td>
+              <td>
+                The inalienable, non-comparable dignity of every person—grounded in human
+                vulnerability, self-relation, sociality and embodied existence.
+                D₀ cannot be measured, increased, decreased or withdrawn.  
+                It forms the <em>ethical boundary condition</em> of the model.
+              </td>
+            </tr>
+
+            <tr>
+              <td>Self-dignity in practice</td>
+              <td align="center">D₁</td>
+              <td>
+                How a person treats themselves in enactment, especially under cost or pressure.
+                Operationalised through:
+                <ul>
+                  <li><span class="code-inline">D-I</span> — inner self-treatment (tone, realism, self-respect);</li>
+                  <li><span class="code-inline">D-B</span> — bodily/material self-care (boundaries, stability, protection).</li>
+                </ul>
+                D₁ describes <em>visible practice</em>, not inner moral worth.
+              </td>
+            </tr>
+
+            <tr>
+              <td>Relational / public dignity in practice</td>
+              <td align="center">D₂</td>
+              <td>
+                How a person treats the dignity of others and represents themselves in public.
+                Operationalised through:
+                <ul>
+                  <li><span class="code-inline">D-R</span> — relational dignity (non-degradation of others, respect);</li>
+                  <li><span class="code-inline">D-P</span> — public/symbolic dignity (self-representation, avoidance of self-objectification).</li>
+                </ul>
+                Again, this concerns <em>enactment</em>, not person-value.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>6.2 D-module and guardrails</h3>
+        <p>
+          The D-module is <strong>optional</strong> and <strong>default-off</strong> to prevent inflationary
+          or inappropriate use of dignity-related analysis.  
+          It may only be activated when explicit guardrails are met, as defined in
+          <span class="code-inline">case.d_module_optional</span> and the model header.
+        </p>
+
+        <p><strong>Activation requires:</strong></p>
+        <ul>
+          <li>
+            acknowledgement of all D-guardrails (D₀ untouched, no person labelling,
+            scenic/context-bound interpretation only);
+          </li>
+          <li>
+            confirmation that no <strong>red zones</strong> apply:
+            acute trauma, psychosis, extreme dependency, or strong public exposure of identifiable individuals;
+          </li>
+          <li>
+            a clear <strong>communication space</strong>  
+            (self, professional-confidential, aggregated public, structural/public);
+          </li>
+          <li>
+            a specific <strong>reason why D is needed</strong> in addition to A/M/IA analysis
+            (e.g. visible self-degradation, unresolved dignity conflict, pattern trajectory).
+          </li>
+        </ul>
+
+        <p>
+          When active, the D-module produces:
+        </p>
+
+        <ul>
+          <li>a <strong>D quick grid</strong> (0–3) describing the intensity and reversibility of the dignity strain;</li>
+          <li>a <strong>D-profile</strong> (D-I, D-B, D-R, D-P) with contextual interpretation;</li>
+          <li>
+            explicit <strong>red-zone flags</strong> ensuring that dignity evaluations never target persons
+            and remain embedded in structure and enactment.
+          </li>
+        </ul>
+
+        <p>
+          This ensures that dignity-in-practice (D₁/D₂) can be analysed without compromising
+          ontological dignity (D₀) and without producing moralising or essentialising narratives.
+        </p>
+      </section>
+      <div class="pagebreak"></div>
+      <!-- 7. IA-Box & asymmetry -->
+      <section id="ia-box">
+        <h2>7. IA-Box and asymmetry evaluation</h2>
+
+        <p>
+          The IA-Box (T–J–TB–R) is the model’s central tool for distinguishing
+          <strong>functional asymmetries</strong> from <strong>inadulte asymmetries (IA)</strong>.
+          Instead of evaluating people, the IA-Box evaluates <em>structures of action</em>:
+          how power, responsibility, knowledge and options are distributed and enacted.
+        </p>
+
+        <h3>7.1 IA-Box (T–J–TB–R)</h3>
+        <p>
+          An asymmetry becomes <em>inadulte</em> when one or more of the four criteria fail in a way
+          that cannot be repaired or justified in context.  
+          Each criterion is evaluated in the YAML case schema under
+          <span class="code-inline">case.scores_and_ia.IA_box</span>.
+        </p>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Criterion</th>
+              <th align="center">Code</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td>Transparency</td>
+              <td align="center">T</td>
+              <td>
+                The asymmetry is <strong>visible and knowable</strong> to those affected.  
+                Hidden rules, invisible power, unpredictable consequences or covert agendas
+                indicate <em>non-transparent asymmetry</em> and raise IA risk.
+              </td>
+            </tr>
+
+            <tr>
+              <td>Justification</td>
+              <td align="center">J</td>
+              <td>
+                The asymmetry serves a <strong>recognisable, protected or necessary good</strong>
+                (e.g. safety, competence, responsibility chain).  
+                If no legitimate reason exists—or if justification is pretextual—IA becomes likely.
+              </td>
+            </tr>
+
+            <tr>
+              <td>Time-bound</td>
+              <td align="center">TB</td>
+              <td>
+                The asymmetry is <strong>limited in duration</strong> and does not become permanent
+                or entrenched.  
+                When time limits vanish, temporary authority turns into structural domination.
+              </td>
+            </tr>
+
+            <tr>
+              <td>Reversibility</td>
+              <td align="center">R</td>
+              <td>
+                The asymmetry can be <strong>undone, appealed, reviewed or exited</strong>.  
+                A non-reversible asymmetry (no exit, no appeal, no correction path) signals a
+                structural IA red flag.
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <h3>7.2 IA labels</h3>
+        <p>
+          After evaluating T–J–TB–R, the model generates an <strong>IA summary label</strong>
+          in <span class="code-inline">case.scores_and_ia.IA_box.ia_summary_label</span>.
+          This describes the structural quality of the asymmetry:
+        </p>
+
+        <ul>
+          <li>
+            <strong>functional_asymmetry</strong> —  
+            all or almost all T–J–TB–R criteria are fulfilled;  
+            the asymmetry is legitimate (e.g. teaching, law enforcement,
+            medical hierarchy, organisational leadership).
+          </li>
+
+          <li>
+            <strong>IA_risk</strong> —  
+            one or more criteria are <em>unclear</em> or partially violated;  
+            early warning signs, lack of justification, missing feedback loops.
+          </li>
+
+          <li>
+            <strong>inadulte_asymmetry</strong> —  
+            clear violation of T–J–TB–R;  
+            reversal not possible, justification missing, opacity high, permanence likely.  
+            This describes <em>structural immaturity</em>, not a person’s character.
+          </li>
+        </ul>
+
+        <p>
+          These labels summarise the <strong>structural maturity</strong> of the situation.  
+          They work together with A- and M-scores and with the D-module, if activated,
+          to provide a coherent picture of the enactment under real conditions.
+        </p>
+      </section>
+      <div class="pagebreak"></div>
+      <!-- 8. Scoring & trajectories -->
+      <section id="scoring">
+        <h2>8. Scoring (A-score, M-score) and trajectories</h2>
+
+        <h3>8.1 A-score</h3>
+        <p>
+          The A-score describes <strong>maturity in practice</strong> for a specific enactment
+          <span class="code-inline">H</span>, expressed as a <strong>band</strong> on a 0–10 scale.
+          In the YAML this is defined under
+          <span class="code-inline">model_reference.scoring.A_score</span> and applied in
+          <span class="code-inline">case.scores_and_ia.A_band</span>.
+          It is always an approximation and must be justified qualitatively.
+        </p>
+
+        <p>
+          Formally:
+        </p>
+        <ul>
+          <li><span class="code-inline">range_0_to_10: [0, 10]</span> — the possible score range;</li>
+          <li><span class="code-inline">mode: "band"</span> — scores are expressed as intervals (e.g. 4–6), not single points.</li>
+        </ul>
+
+        <p>
+          Calibration bands:
+        </p>
+        <ul>
+          <li><strong>0–1: collapse</strong> — breakdown, no effective adult stance observable;</li>
+          <li><strong>2–3: inadult</strong> — predominantly inadult enactment, low structural maturity;</li>
+          <li><strong>4–5: mixed</strong> — mixture of adult and inadult elements, unstable under stress;</li>
+          <li><strong>6–7: adult</strong> — robust adult enactment under real conditions;</li>
+          <li><strong>8–9: high</strong> — high maturity in practice, also under pressure;</li>
+          <li><strong>10: ideal</strong> — limit value; rarely used in real cases.</li>
+        </ul>
+
+        <p>
+          In the case schema, the A-score is documented as:
+          <span class="code-inline">case.scores_and_ia.A_band.approx_range_0_to_10</span> with
+          <span class="code-inline">justification_points</span> referencing concrete A–C–R–P–D observations.
+          A(H) is always a <strong>snapshot</strong>, never a character verdict.
+        </p>
+
+        <h3>8.2 M-score</h3>
+        <p>
+          The M-score describes the <strong>shared structural responsibility</strong> of an actor
+          <span class="code-inline">A</span> in a given constellation. It is also expressed as a band
+          on a 0–10 scale and defined under
+          <span class="code-inline">model_reference.scoring.M_score</span>, with application in
+          <span class="code-inline">case.scores_and_ia.M_band</span>.
+          It does <em>not</em> measure guilt or moral worth, but the extent to which an actor
+          could and should have acted differently.
+        </p>
+
+        <p><strong>Factors in the M-score:</strong></p>
+        <ul>
+          <li><strong>knowledge</strong> — what the actor knew or could realistically know;</li>
+          <li><strong>power</strong> — formal and factual ability to influence the situation;</li>
+          <li><strong>predictability</strong> — foreseeability of consequences;</li>
+          <li><strong>alternatives</strong> — real options to act differently, including exit;</li>
+          <li><strong>integration_attempt</strong> — visible efforts to correct, repair or integrate.</li>
+        </ul>
+
+        <p>
+          A central rule is the <strong>ceiling rule</strong>:
+          <span class="code-inline">"if predictability≈0 or alternatives≈0 then M&lt;=4"</span>.  
+          Where outcomes were not foreseeable or no real alternatives existed, responsibility cannot
+          be scored in the higher range, even if the outcome is severe. This protects against
+          <em>victim blaming</em> and superficial hindsight moralisation.
+        </p>
+
+        <p>
+          In the case schema, the M-score is documented as:
+          <span class="code-inline">case.scores_and_ia.M_band.approx_range_0_to_10</span> with
+          <span class="code-inline">justification_points</span> that explicitly reference these
+          five factors. M(A) is always interpreted together with A(H) and the IA-Box.
+        </p>
+
+        <h3>8.3 Trajectory patterns</h3>
+        <p>
+          The model treats maturity and responsibility as <strong>dynamic</strong>. Individual A- and
+          M-bands are snapshots; what matters is how they develop over time.  
+          Typical trajectory patterns are listed in
+          <span class="code-inline">model_reference.trajectory_patterns</span>:
+        </p>
+
+        <ul>
+          <li><strong>ascending</strong> — enactments become more mature or responsible over time;</li>
+          <li><strong>descending</strong> — structural quality deteriorates; warnings ignored;</li>
+          <li><strong>zigzag</strong> — unstable oscillation between mature and inadult enactments;</li>
+          <li><strong>plateau</strong> — relatively stable level (which may be low or high).</li>
+        </ul>
+
+        <p>
+          In the case schema, trajectories are documented under
+          <span class="code-inline">case.trajectory</span>:
+        </p>
+        <ul>
+          <li>
+            <span class="code-inline">key_timepoints</span> (e.g. t0, t1, t2) with A- and M-bands at
+            each point and short descriptions of the situation;
+          </li>
+          <li>
+            <span class="code-inline">course_in_words</span> — a short narrative summary
+            (2–5 sentences) of movement, tipping points and structural changes.
+          </li>
+        </ul>
+
+        <p>
+          This combination of <strong>A(H)</strong>, <strong>M(A)</strong>, IA-Box and trajectory patterns
+          makes the model inherently <strong>reversible and development-oriented</strong>:
+          findings are documented as provisional readings within a course, not as static labels.
+        </p>
+      </section>
+      <div class="pagebreak"></div>
+      <!-- 9. Bias, intuition, norm change -->
+      <section id="bias-intuition-norm">
+        <h2>9. Bias, intuition and norm change</h2>
+
+        <h3>9.1 Bias module</h3>
+        <p>
+          The model treats <strong>bias</strong> as an unavoidable structural feature of human
+          perception and judgement, not as a moral defect.  
+          In the YAML this is defined in <span class="code-inline">model_reference.bias_module</span>.
+        </p>
+
+        <p>
+          Bias is defined as:
+          <em>“unavoidable, partly unconscious distortions in perception, memory, interpretation and evaluation.”</em>
+          It limits certainty but does not automatically invalidate a reading.  
+          The key requirement is that bias is <strong>named and documented</strong>, not silently ignored.
+        </p>
+
+        <p><strong>Typical bias domains:</strong></p>
+        <ul>
+          <li>perception and memory (what is noticed, what is forgotten);</li>
+          <li>role and loyalty (institutional or group loyalties skewing perception);</li>
+          <li>institutional interest (pressures, incentives, “house view”);</li>
+          <li>ideological frame (political, religious, moral lenses).</li>
+        </ul>
+
+        <p>
+          The bias mitigation protocol specifies concrete steps (see
+          <span class="code-inline">bias_module.mitigation_protocol.steps</span>):
+        </p>
+        <ul>
+          <li>explicitly name relevant bias risks;</li>
+          <li>generate at least one counter-reading;</li>
+          <li>seek counterexamples to initial impressions;</li>
+          <li>separate observation/description from evaluation;</li>
+          <li>cross-check with at least one other person/perspective, if possible;</li>
+          <li>document which bias risks remain and how they limit the finding.</li>
+        </ul>
+
+        <p>
+          In the case schema, remaining bias risks are summarised under
+          <span class="code-inline">case.open_questions_and_blind_spots.distortion_risks</span>,
+          while <span class="code-inline">case.biases_case_level</span> records the analyst’s initial intuition,
+          explicit bias risks and a structured counter-reading outline.
+        </p>
+
+        <h3>9.2 Intuition</h3>
+        <p>
+          Intuition is treated as a <strong>potentially valuable sensor</strong>, not as a verdict.
+          In <span class="code-inline">model_reference.intuition</span> it is assigned three roles:
+        </p>
+        <ul>
+          <li><strong>sensor</strong> — early signal or pattern detection;</li>
+          <li><strong>trigger</strong> — starting point for analysis;</li>
+          <li><strong>not_judge</strong> — may never replace structured A–C–R–P–D reading.</li>
+        </ul>
+
+        <p>
+          The model assumes that intuition can carry compressed experience and pattern recognition,
+          but must be treated as <strong>hypothesis, not proof</strong>, especially where strong bias risks are present.
+        </p>
+
+        <p>
+          The integration protocol (<span class="code-inline">intuition.integration_protocol.steps</span>) requires:
+        </p>
+        <ul>
+          <li>noting the initial gut feeling explicitly in the documentation;</li>
+          <li>translating intuition into clear, testable hypotheses;</li>
+          <li>testing these hypotheses against observable enactments (A–C–R–P–D);</li>
+          <li>checking for contradicting evidence;</li>
+          <li>keeping only those elements that survive contact with data and guardrails.</li>
+        </ul>
+
+        <h3>9.3 Norm change</h3>
+        <p>
+          Norms around maturity, responsibility and dignity are historically and culturally dynamic.
+          The <span class="code-inline">model_reference.norm_change</span> block prevents the model from
+          smuggling in fixed or absolutised norms.
+        </p>
+
+        <p><strong>Aspects of norm change:</strong></p>
+        <ul>
+          <li><strong>dynamic_norms</strong> — norms shift over time;</li>
+          <li><strong>cultural_variation</strong> — different cultures and milieus apply different standards;</li>
+          <li><strong>historical_shift</strong> — what counted as “normal” or “mature” changes historically;</li>
+          <li><strong>field_specific_practices</strong> — professions, scenes, institutions have their own codes.</li>
+        </ul>
+
+        <p>
+          The guiding questions require each analysis to state explicitly:
+        </p>
+        <ul>
+          <li>which norms are taken as reference (legal, professional, cultural, subcultural);</li>
+          <li>whether these norms are contested or changing;</li>
+          <li>which actors benefit from the current interpretation, and which are disadvantaged.</li>
+        </ul>
+
+        <p>
+          Implications for the model (see <span class="code-inline">norm_change.implications_for_model</span>):
+        </p>
+        <ul>
+          <li>A- and M-readings must state which norm frame they rely on;</li>
+          <li>IA-findings must distinguish clear violations from contested norms;</li>
+          <li>D-readings must be extra cautious where norms are in flux.</li>
+        </ul>
+
+        <h3>9.4 Working with the model</h3>
+        <p>
+          The block <span class="code-inline">model_reference.working_with_model</span> describes both a
+          <strong>protocol</strong> and a <strong>meta-attitude</strong> for responsible use of the model.
+        </p>
+
+        <p><strong>Protocol steps</strong> (short form):</p>
+        <ul>
+          <li>clarify roles, context and purpose of the analysis;</li>
+          <li>document the information basis (primary and secondary material);</li>
+          <li>check guardrails and entry condition (minimal adulthood);</li>
+          <li>identify modulators and publicity level;</li>
+          <li>build the ACRPD profile from observable enactments;</li>
+          <li>estimate A- and M-bands and fill the IA-Box (T–J–TB–R);</li>
+          <li>decide deliberately whether to leave the D-module off or activate it;</li>
+          <li>describe the trajectory over time where possible;</li>
+          <li>note bias risks and intuitive elements explicitly;</li>
+          <li>
+            summarise findings in the uniform report in dignity-preserving language and record
+            open questions, blind spots and limits of validity.
+          </li>
+        </ul>
+
+        <p><strong>Meta-attitude</strong> (selected principles):</p>
+        <ul>
+          <li><strong>epistemic humility</strong> — findings are revisable, not final truth;</li>
+          <li><strong>reversibility of readings</strong> — formulations must allow correction and development;</li>
+          <li><strong>dignity-preserving language</strong> throughout;</li>
+          <li><strong>focus on structures, not persons</strong> as a constant;</li>
+          <li><strong>willingness to be corrected</strong> by new information;</li>
+          <li>awareness of one’s own power and interests in the case;</li>
+          <li>preference for trajectories instead of labels.</li>
+        </ul>
+
+        <p>
+          Together, the bias, intuition and norm-change modules ensure that the model is applied
+          in a way that is <strong>reflexive, transparent and critique-ready</strong>, rather than
+          as an invisible moral machine.
+        </p>
+      </section>
+      <div class="pagebreak"></div>
+      <!-- 10. Axiomatic core -->
+      <section id="axioms">
+        <h2>10. Axiomatic core</h2>
+
+        <p>
+          The IA / ACRPD model is grounded in an explicit set of <strong>axioms</strong> that define
+          its ethical, structural and epistemic foundations.  
+          These axioms ensure that applications remain transparent, critique-ready and compatible
+          across fields.  
+          In the YAML, they are defined under
+          <span class="code-inline">model_reference.axiomatic_core</span>.
+        </p>
+
+        <p>
+          The axioms clarify:
+        </p>
+        <ul>
+          <li>the <strong>ontological status of dignity (D₀)</strong>,</li>
+          <li>the <strong>strict separation of person and enactment</strong>,</li>
+          <li>the <strong>four fundamental parameters of responsible action (A–C–R–P)</strong>,</li>
+          <li>the <strong>structure of dignity in practice</strong> (D as four-dimensional and gradual),</li>
+          <li>the <strong>indispensability of role and context</strong>,</li>
+          <li>the <strong>normality of asymmetry</strong> and the need for IA justification (T–J–TB–R),</li>
+          <li>maturity as an <strong>enactment state, not a person type</strong>,</li>
+          <li>the role of <strong>tragic residual conflicts</strong>,</li>
+          <li>the need for <strong>intersubjective documentation</strong>, and</li>
+          <li>the <strong>system axiom</strong> (no enactment is isolated).</li>
+        </ul>
+
+        <p>
+          The following table summarises the axioms in condensed form:
+        </p>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Statement (short)</th>
+              <th>Implication for use (short)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Ontological dignity (D₀) is inalienable</td>
+              <td>Every human possesses D₀: incomparable, immeasurable, non-increasable and non-losable.</td>
+              <td>No A/M/D reading may be interpreted as a statement about a person’s ontological dignity.</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Strict separation of person and enactment</td>
+              <td>The model evaluates actions, role enactments and practices – never the worth of persons.</td>
+              <td>“Acts without dignity here” is allowed; “is without dignity” is excluded.</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Four fundamental parameters of responsible action (A–C–R–P)</td>
+              <td>Every relevant enactment in a social context can be described through awareness (A), coherence (C), responsibility (R) and power-to-act (P).</td>
+              <td>A-, C-, R- and P-readings jointly shape the observable dignity-in-practice (D).</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Dignity in practice (D) is four-dimensional and gradual</td>
+              <td>Dignity in practice appears in four subdimensions (D-I, D-B, D-R, D-P). Each is gradual, situational and reversible.</td>
+              <td>No permanent dignity status is assigned; only situational dignity profiles (D1/D2 via D-I/D-B/D-R/D-P) are described.</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Role and context are indispensable</td>
+              <td>No D- or maturity finding exists without explicit role and context clarification.</td>
+              <td>The same observable act may have different dignity implications depending on role and context.</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Asymmetry is normal; IA requires justification</td>
+              <td>Asymmetries are normal. They become problematic only when they violate the IA-box criteria (T–J–TB–R).</td>
+              <td>Systematic violations of transparency, justification, time-boundedness or reversibility constitute inadult asymmetry (IA).</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Maturity is an enactment state, not a person type</td>
+              <td>Maturity appears in practice and can change; there are only more or less mature enactments, not mature/immature kinds of persons.</td>
+              <td>Scores are snapshots of enactments; trajectories must remain open.</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Intersubjective documentation</td>
+              <td>Serious application requires minimal documentation of standpoint, norms, roles and information basis.</td>
+              <td>Analyses are situated and must remain open to critique and correction.</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Tragic residual conflicts</td>
+              <td>Some conflicts express irreducible clashes of goods even under high maturity.</td>
+              <td>Analysis must distinguish unnecessary indignity (IA) from structural tragedy.</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>System axiom: no enactment is isolated</td>
+              <td>Every enactment is embedded in structures, rules, resources and other actors.</td>
+              <td>A- and M-scores must consider systemic conditions; purely individual attributions violate the model.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <div class="pagebreak"></div>
+      <!-- 11. Formal notation -->
+      <section id="formal-notation">
+        <h2>11. Minimal formal notation</h2>
+
+        <p>
+          The model includes a deliberately minimal mathematical notation to ensure consistency,
+          interoperability and extensibility across domains (law, psychology, governance, AI systems).
+          The notation describes <strong>action enactments</strong>, their parameter profiles and
+          associated scores.
+        </p>
+
+        <h3>11.1 Action tuple</h3>
+        <p>
+          An enactment is represented by the symbol <span class="code-inline">H</span>, defined as a
+          <strong>tuple</strong> containing the structural components of action.  
+          In the YAML this appears under
+          <span class="code-inline">model_reference.formal_notation.action_tuple</span>.
+        </p>
+
+        <p><strong>Definition:</strong></p>
+        <div class="box small">
+          <span class="code-inline">H = (A, R, C, A_w, C_o, R_s, P, D?, IA)</span>
+        </div>
+
+        <p><strong>Components:</strong></p>
+        <ul>
+          <li><strong>A — actor</strong>: individual or organised actor;</li>
+          <li><strong>R — role</strong>: the role occupied in this context;</li>
+          <li><strong>C — context</strong>: setting, frame, publicity level;</li>
+          <li><strong>A_w — awareness profile</strong>: A parameter + submodules;</li>
+          <li><strong>C_o — coherence profile</strong>: C parameter + submodules;</li>
+          <li><strong>R_s — responsibility profile</strong>: R parameter + submodules;</li>
+          <li><strong>P — power/agency profile</strong>: P parameter + submodules;</li>
+          <li>
+            <strong>D? — dignity-in-practice profile (optional)</strong>:  
+            D₁/D₂ as expressed via <span class="code-inline">D-I</span>, 
+            <span class="code-inline">D-B</span>, 
+            <span class="code-inline">D-R</span>, 
+            <span class="code-inline">D-P</span>.  
+            Included only when the D-module is activated.
+          </li>
+          <li>
+            <strong>IA — IA evaluation</strong>: the IA-box (T–J–TB–R) as fulfilled / violated / unclear.
+          </li>
+        </ul>
+
+        <p>
+          In everyday practice, a reduced tuple (without D) may be used whenever the dignity module
+          remains deactivated.
+        </p>
+
+        <h3>11.2 Scores A(H) and M(A)</h3>
+        <p>
+          The model defines two auxiliary scores that summarise structural qualities of the tuple:
+        </p>
+
+        <ul>
+          <li>
+            <span class="code-inline">A(H)</span> — maturity in practice of enactment <span class="code-inline">H</span>;
+          </li>
+          <li>
+            <span class="code-inline">M(A)</span> — shared responsibility of actor <span class="code-inline">A</span>.
+          </li>
+        </ul>
+
+        <p><strong>Formal definition:</strong></p>
+        <ul>
+          <li>
+            <strong>A-score</strong>:  
+            <span class="code-inline">A(H) ∈ [0,10]</span>  
+            representing a <strong>band</strong> (range), not a point value, describing how mature an enactment is.
+          </li>
+          <li>
+            <strong>M-score</strong>:  
+            <span class="code-inline">M(A) ∈ [0,10]</span>  
+            representing shared structural responsibility, also as a band.
+          </li>
+        </ul>
+
+        <p>
+          In joint notation (see YAML <span class="code-inline">scores.joint_notation</span>):
+        </p>
+
+        <div class="box small">
+          <span class="code-inline">H ⇒ (A(H), M(A))</span>  
+          <br>Both values are auxiliary, reversible and <strong>always</strong> accompanied by qualitative explanation.
+        </div>
+
+        <p>
+          The purpose of the notation is not quantification but <strong>traceability</strong>:
+          scores must be linked to observable aspects of A–C–R–P–D and justified in language.
+        </p>
+        <div class="pagebreak"></div>
+        <h3>11.3 Extensibility</h3>
+        <p>
+          The formal notation is intentionally minimal.  
+          As specified under
+          <span class="code-inline">model_reference.formal_notation.extensibility</span>,
+          it allows:
+        </p>
+
+        <ul>
+          <li>
+            the addition of domain-specific variables (e.g. legal risk indices, clinical stability markers,
+            organisational KPIs);
+          </li>
+          <li>
+            extension of the tuple with new submodules or contextual parameters;
+          </li>
+          <li>
+            integration with machine-readable formats (YAML, JSON, schema validators).
+          </li>
+        </ul>
+
+        <p>
+          Crucially, extensions must not alter the existing tuple structure.  
+          This guarantees that all valid IA / ACRPD analyses remain compatible over time.
+        </p>
+      </section>
+      <div class="pagebreak"></div>
+      <!-- 12. Case schema overview -->
+      <section id="case-schema">
+        <h2>12. Case schema (<span class="code-inline">case</span>)</h2>
+
+        <h3>12.1 Meta & guardrails</h3>
+        <p>
+          The <span class="code-inline">case.meta</span> and
+          <span class="code-inline">case.guardrails</span> sections document the
+          <strong>framework conditions</strong> under which an analysis is conducted.
+          Their purpose is twofold:
+        </p>
+        <ul>
+          <li>
+            to ensure that every application of the model is <strong>transparent,
+            traceable and ethically compliant</strong>;
+          </li>
+          <li>
+            to prevent misuse (e.g. person-labelling, moralisation, hidden agendas,
+            D-module misuse).
+          </li>
+        </ul>
+
+        <p><strong><span class="code-inline">case.meta</span></strong> records:</p>
+        <ul>
+          <li>a unique <strong>case ID</strong> and a descriptive <strong>case title</strong>,</li>
+          <li>the <strong>documentation date</strong> (ISO 8601),</li>
+          <li><strong>analysts</strong> and their roles,</li>
+          <li>the <strong>language</strong> of the case (e.g. DE, EN),</li>
+          <li>the chosen <strong>confidentiality_level</strong> (e.g. internal, confidential, anonymised_public),</li>
+          <li>
+            an <span class="code-inline">analysis_mode</span> flag (e.g. <em>ultra_short, short, full</em>)
+            indicating the intended depth and level of detail of the application,
+          </li>
+          <li>
+            an <span class="code-inline">interaction_profile</span> for this analysis run, specifying:
+            <ul>
+              <li><strong>reflection_mode</strong> (on/off) — whether the agent should ask reflective questions,</li>
+              <li><strong>d_module_preference</strong> (auto/on/off) — D-module usage preference within the guardrails,</li>
+              <li><strong>output_format</strong> (text/yaml) — preferred output format for this analysis,</li>
+              <li><strong>discipline_profile</strong> — the active domain profile
+                (e.g. <span class="code-inline">"psychology"</span>, <span class="code-inline">"law"</span>,
+                <span class="code-inline">"media_studies"</span> or <span class="code-inline">"generic"</span>),
+                which controls which modules are foregrounded in this case.</li>
+            </ul>
+          </li>
+          <li>
+            the <strong>application_zone</strong> (<em>green, yellow, red_forbidden</em>),
+            documenting whether the planned use is recommended, cautionary or prohibited.
+          </li>
+        </ul>
+
+        <p><strong><span class="code-inline">case.guardrails</span></strong> ensures that:</p>
+        <ul>
+          <li>the analysis focuses on <strong>structures, roles and enactments</strong>, not persons;</li>
+          <li>the <strong>entry condition</strong> (“minimal adulthood”) is met;</li>
+          <li><strong>self-implication</strong> of the analyst is acknowledged;</li>
+          <li>the <strong>information basis</strong> is clearly separated from assumptions;</li>
+          <li><strong>D₀ remains untouched</strong> and no person is labelled via D;</li>
+          <li>the <strong>tragedy clause</strong> is considered (not all pain = IA);</li>
+          <li>
+            language is used with <strong>hygiene</strong> (risk/danger/potential/harm; D-related terms);
+          </li>
+          <li>
+            if the D-module is activated, communication follows explicit <strong>D guardrails</strong>
+            (red zones, trauma caution, publicity differentiation).
+          </li>
+        </ul>
+
+        <p>
+          Guardrails therefore function as the <strong>ethical container</strong>
+          for every ACRPD analysis.
+        </p>
+
+        <h3>12.2 Information basis & snapshot</h3>
+        <p>
+          The model requires precise documentation of the
+          <strong>information basis</strong> to avoid speculation, hindsight bias and the
+          illusion of objectivity.  
+          In the YAML this appears under <span class="code-inline">case.information_basis</span>
+          and <span class="code-inline">case.snapshot</span>.
+        </p>
+
+        <p><strong><span class="code-inline">information_basis</span></strong> distinguishes:</p>
+        <ul>
+          <li><strong>primary material</strong> — direct quotes, events, transcripts, descriptions;</li>
+          <li><strong>secondary material</strong> — reports, rules, laws, policies, prior analyses;</li>
+          <li>
+            <strong>assumptions & inferences</strong> — what the analyst adds beyond explicit evidence.
+            These must be clearly flagged for transparency.
+          </li>
+        </ul>
+
+        <p>
+          <strong><span class="code-inline">snapshot</span></strong> provides:
+        </p>
+        <ul>
+          <li>a neutral 1–5 sentence <strong>short case description</strong>;</li>
+          <li>central actors and their roles (labels only, no personal identifiers);</li>
+          <li>the <strong>guiding question</strong> that frames the entire analysis.</li>
+        </ul>
+
+        <p>
+          These two sections ensure that all subsequent ACRPD, IA and D findings
+          are grounded in <strong>documented material</strong> rather than assumptions.
+        </p>
+
+        <h3>12.3 ACRPD profile & submodules</h3>
+        <p>
+          The ACRPD profile provides the <strong>core structural reading</strong> of the case.
+          It is defined under <span class="code-inline">case.acrpd_profile</span>
+          and describes observable enactments across:
+        </p>
+
+        <ul>
+          <li><strong>A — awareness</strong> (knowledge, blind spots, role confusion),</li>
+          <li><strong>C — coherence</strong> (word–deed fit, narrative consistency),</li>
+          <li><strong>R — responsibility</strong> (carried, shifted, delegated, refused),</li>
+          <li><strong>P — power/agency</strong> (alternatives used or withheld),</li>
+          <li>
+            <strong>D — dignity in practice</strong> (brief note only; full treatment occurs in the D-module).
+          </li>
+        </ul>
+
+        <p>
+          This profile is the <strong>minimal required structure</strong> for every analysis.
+        </p>
+
+        <p>
+          When finer granularity is needed, analysts may use the
+          <strong>submodule matrix</strong> via
+          <span class="code-inline">case.acrpd_submodules_profile</span>.
+          This allows evaluation of A–C–R–P–D across all submodules such as:
+        </p>
+
+        <ul>
+          <li>A-I (inner awareness), A-R (role awareness), A-IM (impact), A-P (public awareness);</li>
+          <li>C-S (social coherence), C-N (narrative), C-I (rule coherence);</li>
+          <li>R-I (individual), R-S (social), R-E (ethical), R-P (public responsibility);</li>
+          <li>P-I (inner agency), P-S (social agency), P-PU (public reach);</li>
+          <li>D-I, D-B, D-R, D-P (self- and relational dignity practices).</li>
+        </ul>
+
+        <p>
+          Use of the submodule matrix is optional but recommended in complex or ambiguous cases.
+          It increases precision without drifting into psychological speculation because each
+          submodule expresses <strong>observable enactment patterns</strong> rather than internal states.
+        </p>
+
+        <h3>12.4 Scores, IA-Box and trajectory</h3>
+        <p>
+          The section <span class="code-inline">case.scores_and_ia</span> summarises the structural
+          quality of the enactment using three elements:  
+          the <strong>A-score</strong> (maturity in practice),  
+          the <strong>M-score</strong> (shared responsibility),  
+          and the <strong>IA-Box</strong> (T–J–TB–R asymmetry evaluation).
+        </p>
+
+        <p><strong>A-score (A(H))</strong> is documented as:</p>
+        <ul>
+          <li>a band on the 0–10 scale: <span class="code-inline">approx_range_0_to_10</span>,</li>
+          <li>3–5 brief justification points referencing observable A–C–R–P–D patterns,</li>
+          <li>a reminder that the score refers to <strong>enactment</strong>, not character.</li>
+        </ul>
+
+        <p><strong>M-score (M(A))</strong> records:</p>
+        <ul>
+          <li>a responsibility band (0–10), shaped by knowledge, predictability, power, alternatives, and integration attempts;</li>
+          <li>explanation via justification bullets keyed to these five factors;</li>
+          <li>the <strong>ceiling rule</strong> (“predictability ≈ 0 or alternatives ≈ 0 ⇒ M ≤ 4”) which prevents structural unfairness.</li>
+        </ul>
+
+        <p><strong>IA-Box</strong> records the four asymmetry criteria:</p>
+        <ul>
+          <li><strong>T — transparency</strong></li>
+          <li><strong>J — justification</strong></li>
+          <li><strong>TB — time-bound</strong></li>
+          <li><strong>R — reversibility</strong></li>
+        </ul>
+        <p>
+          Each criterion is marked as <strong>true</strong>, <strong>false</strong> or
+          <strong>unclear</strong> together with a short justification.  
+          The field <span class="code-inline">ia_summary_label</span> classifies the structure as:
+        </p>
+        <ul>
+          <li><strong>functional_asymmetry</strong></li>
+          <li><strong>IA_risk</strong></li>
+          <li><strong>inadulte_asymmetry</strong></li>
+        </ul>
+
+        <p>
+          <span class="code-inline">case.trajectory</span> documents maturity and responsibility
+          <strong>over time</strong>.  
+          It contains:
+        </p>
+
+        <ul>
+          <li><strong>key_timepoints</strong> (t0, t1, t2 ...): each with A-band, M-band and a 1–2 sentence description;</li>
+          <li><strong>course_in_words</strong>: a compact narrative (2–5 sentences) describing the trajectory, structural shifts, tipping points and stabilisation/deterioration.</li>
+        </ul>
+
+        <p>
+          Trajectory analysis ensures that findings remain <strong>developmental</strong> and
+          <strong>reversible</strong>, rather than static labels.
+        </p>
+
+        <h3>12.5 Optional D-module</h3>
+        <p>
+          The <span class="code-inline">case.d_module_optional</span> section activates and documents
+          the <strong>dignity in practice (D₁/D₂)</strong> analysis, which is <strong>optional</strong>
+          and <strong>default-off</strong> for ethical reasons.  
+          It is used only when there are clear indications of self-devaluation, relational dignity
+          conflict or structural dignity strain.
+        </p>
+
+        <p><strong>Activation requires:</strong></p>
+        <ul>
+          <li>justification (<span class="code-inline">activation_reason</span>),</li>
+          <li>acknowledgement of D guardrails (no person labelling, scenic interpretation, no sanctioning use),</li>
+          <li>red-zone check (trauma, dependency, public exposure),</li>
+          <li>clear selection of <strong>communication space</strong> ("self", "professional_confidential", "aggregated_public", "structural_public").</li>
+        </ul>
+
+        <p><strong>D quick grid (0–3)</strong> provides an intensity estimate:</p>
+        <ul>
+          <li><strong>0 — banal strain</strong></li>
+          <li><strong>1 — repeated pattern</strong></li>
+          <li><strong>2 — chronic difficulty</strong></li>
+          <li><strong>3 — extreme dignity strain</strong></li>
+        </ul>
+
+        <p>
+          The <strong>D-profile</strong> then documents visible dignity enactments across:
+        </p>
+        <ul>
+          <li><strong>D-I</strong> – inner tone and self-treatment,</li>
+          <li><strong>D-B</strong> – bodily and material self-care,</li>
+          <li><strong>D-R</strong> – treatment of others, reciprocity and boundaries,</li>
+          <li><strong>D-P</strong> – public representation and symbolic self-treatment.</li>
+        </ul>
+
+        <p>
+          Red-zone flags (acute trauma, extreme dependency, strong public exposure) may restrict the
+          D-module to <em>strain-only</em> or <em>structure-only</em> readings, or deactivate it entirely.
+        </p>
+
+        <h3>12.6 Open questions, reflection and uniform report</h3>
+        <p>
+          At the end of each case analysis, three elements ensure transparency,
+          self-implication and a clear external communication format.
+        </p>
+
+        <p><strong>1. Open questions & blind spots</strong>  
+        (<span class="code-inline">case.open_questions_and_blind_spots</span>)</p>
+        <ul>
+          <li>documents what remains unclear,</li>
+          <li>lists missing data or missing perspectives,</li>
+          <li>records distortion risks (bias, loyalties, institutional pressures, emotional involvement).</li>
+        </ul>
+
+        <p><strong>2. Analyst reflection</strong>  
+        (<span class="code-inline">case.analyst_reflection</span>)</p>
+        <ul>
+          <li>captures self-implication: how the analyst’s role, power and biography appear in the reading,</li>
+          <li>lists possible next steps (structural or practical recommendations).</li>
+        </ul>
+
+        <p><strong>3. Uniform report</strong>  
+        (<span class="code-inline">case.uniform_report</span>)</p>
+        <ul>
+          <li>a standardised, readable summary of the analysis,</li>
+          <li>4–7 sentence overview,</li>
+          <li>3–7 key finding bullets (A/M, IA, structure, optional D),</li>
+          <li>short maturity, IA-box and — if activated — dignity summary,</li>
+          <li>trajectory summary,</li>
+          <li>a short conclusion with implications for practice.</li>
+        </ul>
+
+        <p>
+          The YAML schema also includes <span class="code-inline">biases_case_level</span>, 
+          which documents the analyst’s initial intuition, explicit bias risks and a mandatory 
+          counter-reading outline. This section supports transparency and prevents premature 
+          convergence in interpretation.
+        </p>
+
+        <p>
+          The uniform report ensures that the analysis can be communicated responsibly
+          to supervisors, teams, institutions or public audiences, depending on the selected
+          <strong>communication space</strong>.
+        </p>
+      </section>
+      <div class="pagebreak"></div>
+      <!-- 13. Implementation & licensing -->
+      <section id="implementation">
+        <h2>13. Implementation notes and licensing</h2>
+
+        <h3>13.1 YAML file and integration</h3>
+        <p>
+          The official YAML specification is provided as:
+        </p>
+        <p>
+          <span class="code-inline">MIPractice_case_v2.0_full_with_model_reference.yaml</span>
+        </p>
+
+        <p>
+          This file constitutes the <strong>single source of truth</strong> for:
+        </p>
+        <ul>
+          <li>the normative IA model (<span class="code-inline">model_reference</span>), and</li>
+          <li>the structured case schema (<span class="code-inline">case</span>).</li>
+        </ul>
+
+        <p>
+          Any implementation — human or machine — should <strong>consume this YAML directly</strong>
+          rather than reproducing parts of it manually.  
+          Its structure makes it suitable for:
+        </p>
+        <ul>
+          <li>validation of cases against guardrails and ethical constraints,</li>
+          <li>automated generation of ACRPD profiles, summaries and uniform reports,</li>
+          <li>AI systems that require transparent reasoning templates,</li>
+          <li>research settings needing reproducible evaluation frameworks,</li>
+          <li>embedding as a governance layer in decision-support systems.</li>
+        </ul>
+
+        <p>
+          Because the YAML separates <strong>model definition</strong> from
+          <strong>case application</strong>, it can be versioned, extended or tested
+          independently of individual analyses.
+        </p>
+
+        <p>
+          Via <span class="code-inline">model_reference.discipline_profiles</span> and
+          <span class="code-inline">case.meta.interaction_profile.discipline_profile</span>,
+          the same core model can be profiled for different fields (e.g. psychology, law, AI governance)
+          without changing the axioms, only the activated modules and guiding questions.
+        </p>
+
+        <h4>13.1.1 Recommended bootstrap for LLM-based agents (non-normative)</h4>
+
+<p>
+  Implementations that use large language models SHOULD, after uploading the YAML, run a short system prompt that<br>
+  (a) loads and parses the YAML,<br>
+  (b) activates the agent_interface,<br>
+  (c) outputs the welcome_message, and<br>
+  (d) subsequently applies all defaults, guardrails and pre-analysis logic defined in the YAML.
+
+</p>
+
+<p>
+A recommended formulation is:<br>
+<blockquote>
+Load the YAML file, parse it, and activate the agent_interface.
+Then output exactly the text stored in agent_interface.welcome_message.message_text.
+Afterwards, use all defaults, guardrails, and pre-analysis logic defined in the YAML.
+</blockquote>
+</p>
+        <h3>13.2 Citation and license</h3>
+        <p>
+          When referencing this model, please cite both the book and this specification:
+        </p>
+
+        <p class="small">
+          <strong>Primary reference:</strong><br>
+          T. Zöller (2025): <em>Maturity in Practice – A Praxeological Anthropology.</em>
+        </p>
+
+        <p class="small">
+          <strong>Technical reference:</strong><br>
+          <em>MIPractice_case v2.0 – Full Schema with Model Reference</em><br>
+          YAML Specification and Case Framework.
+        </p>
+
+        <p>
+          <strong>License:</strong>  
+          Unless otherwise specified on the distribution page, the YAML and this model
+          specification are released under a
+          <strong>Creative Commons Attribution–NonCommercial–ShareAlike (CC BY-NC-SA)</strong> license.
+        </p>
+
+        <ul>
+          <li>Free to use for research, teaching and non-commercial applications.</li>
+          <li>Commercial use requires explicit permission.</li>
+          <li>Derivative works must attribute the original author and share under the same license.</li>
+        </ul>
+
+        <p>
+          This licensing model ensures that the framework remains usable for the scientific,
+          educational and governance communities, while protecting its conceptual integrity
+          during early adoption.
+        </p>
+      </section>
+    </div>
+  </body>
+</html>
