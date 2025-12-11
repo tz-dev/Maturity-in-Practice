@@ -6,6 +6,8 @@
 **Author:** T. Zöller
 **Status:** Public model specification
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17897159.svg)](https://doi.org/10.5281/zenodo.17897159)  
+
 ---
 
 ## 📘 Overview
