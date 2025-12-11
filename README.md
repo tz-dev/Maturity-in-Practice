@@ -1,33 +1,34 @@
-# Maturity in Practice – IA (Inadult Asymmetry) Model Specification  
+# Maturity in Practice – IA (Inadult Asymmetry) Model Specification
+
 ### A praxeological framework for maturity, responsibility, asymmetry & dignity in practice
 
-**Version:** 2.0  
-**Author:** T. Zöller  
-**Status:** Public model specification  
+**Version:** 2.0
+**Author:** T. Zöller
+**Status:** Public model specification
 
 ---
 
 ## 📘 Overview
 
-This repository contains the **official specification** for  
+This repository contains the **official specification** for
 **Maturity in Practice / IA (inadult asymmetry)** — a praxeological framework for analysing
 enactments, maturity, responsibility, structural asymmetry and dignity in practice.
 
 The conceptual foundation of this model is presented in the book:
 
-> **T. Zöller (2025): _Maturity in Practice – A Praxeological Anthropology_**  
-> More information: https://www.maturity-in-practice.com/
+> **T. Zöller (2025): *Maturity in Practice – A Praxeological Anthropology***
+> More information: [https://www.maturity-in-practice.com/](https://www.maturity-in-practice.com/)
 
 This repository includes:
 
-- the **full technical model specification** (HTML & PDF)  
-- the **canonical YAML schema** (model + case structure)  
-- several **worked example cases** (HTML, PDF, YAML)  
-- a **generic case analysis HTML template**  
-- the **license files** for code and model content
-- an optional **AI agent** that can load and apply the model interactively (see below)
+* the **full technical model specification** (HTML & PDF)
+* the **canonical YAML schema** (model + case structure)
+* several **worked example cases** (HTML, PDF, YAML)
+* a **generic case analysis HTML template**
+* the **license files** for code and model content
+* an optional **AI agent** that can load and apply the model interactively (see below)
 
-Together, these files form the authoritative public definition of the IA / ACRPD model.
+Together, these files form the authoritative public definition of the IA / ACRPD (`MIPractice_case`) model.
 
 ---
 
@@ -35,7 +36,7 @@ Together, these files form the authoritative public definition of the IA / ACRPD
 
 ```text
 ├── MIPractice_case_v2.0_full_with_model_reference.yaml                 # Canonical YAML model + case schema
-├── model specificaton/
+├── model specification/
 │   ├── Maturity in Practice - Model Specification.html                 # Human-readable spec
 │   └── Maturity in Practice - Model Specification.pdf                  # Print- & citation-ready spec
 ├── examples/
@@ -49,17 +50,16 @@ Together, these files form the authoritative public definition of the IA / ACRPD
 │   ├── Example - Self-application of the model.html                    # Rendered meta-case (model analyses itself)
 │   ├── Example - Self-application of the model.pdf                     # Print-ready version
 │   └── Example - Self-application of the model.yaml                    # YAML demo case (MIPractice_case)
-└── licenses/
-    ├── LICENSE                                                         # MIT (for code/tools)
-    └── LICENSE-CC-BY-NC-SA                                             # CC BY-NC-SA (for model content)
-````
+├── LICENSE-MIT                                                         # MIT (for code/tools)
+└── LICENSE-CC-BY-4.0                                                   # CC BY 4.0 (for model content)
+```
 
 **Short description:**
 
 * `MIPractice_case_v2.0_full_with_model_reference.yaml`
   → Single source of truth: normative model (`model_reference`) + case schema (`case`) + agent interface.
 
-* `model specificaton/`
+* `model specification/`
   → Human- and print-friendly model specification:
   parameters, guardrails, IA-box, dignity framework, bias/intuition/norm-change modules,
   formal notation, and case schema.
@@ -91,10 +91,11 @@ Together, these files form the authoritative public definition of the IA / ACRPD
   * `… .html` → rendered via the case analysis template
   * `… .pdf` → print- and citation-ready snapshot
 
-* `licenses/`
+* `LICENSE-MIT`
+  – MIT License for code/tooling.
 
-  * `LICENSE` – MIT License for code/tooling.
-  * `LICENSE-CC-BY-NC-SA` – CC BY-NC-SA 4.0 for all model content and documentation.
+* `LICENSE-CC-BY-4.0`
+  – CC BY 4.0 for all model content and documentation.
 
 ---
 
@@ -263,12 +264,12 @@ Defines the structured template for any full analysis:
 
 ## 🤖 Working with AI Agents (LLMs, tools, etc.)
 
-You can either integrate the YAML into your own LLM setup (see below),  
+You can either integrate the YAML into your own LLM setup (see below),
 or use a ready-made **MIPractice / IA agent** in ChatGPT:
 
-> **Start the MIPractice / IA agent in ChatGPT**  
-> 👉 [Open the “Maturity in Action – A Praxeological Anthropology” agent](https://chat.openai.com/g/g-693460d3def48191ad08647301645a2e-maturity-in-action-a-praxeological-anthropology)  
-> *(Requires a ChatGPT account with access to custom GPTs.)*
+> **Start the MIPractice / IA agent in ChatGPT**
+> 👉 [Open the “Maturity in Action – A Praxeological Anthropology” agent](https://chat.openai.com/g/g-693460d3def48191ad08647301645a2e-maturity-in-action-a-praxeological-anthropology)
+> *(Requires a ChatGPT account with access to custom GPTs; the link may change over time.)*
 
 The YAML is designed to be used **directly** with AI systems.
 
@@ -406,7 +407,7 @@ This repository uses a **dual-license model**.
 ### 1. Code (if/where present)
 
 Licensed under the **MIT License**
-→ see `licenses/LICENSE`
+→ see `LICENSE-MIT`
 
 This applies to:
 
@@ -416,42 +417,49 @@ This applies to:
 ### 2. Model content & documentation
 
 Licensed under
-**Creative Commons Attribution–NonCommercial–ShareAlike 4.0 (CC BY-NC-SA 4.0)**
-→ see `licenses/LICENSE-CC-BY-NC-SA`
+**Creative Commons Attribution 4.0 International (CC BY 4.0)**
+→ see `LICENSE-CC-BY-4.0`
+→ Full license text: [https://creativecommons.org/licenses/by/4.0/legalcode.en](https://creativecommons.org/licenses/by/4.0/legalcode.en)
 
 This applies to:
 
 * `MIPractice_case_v2.0_full_with_model_reference.yaml`
 * all conceptual definitions, guardrails & axioms
-* the Model Specification (HTML & PDF in `model specificaton/`)
+* the Model Specification (HTML & PDF in `model specification/`)
 * example analyses and templates in `examples/`
 * any other non-code documentation in this repository
 
+**You are free to:**
+
+* share, copy, redistribute
+* adapt, transform, build upon
+* use commercially
+
+**Under the following condition:**
+
+* **Attribution** — always credit:
+  *“T. Zöller – Maturity in Practice / IA Model (ACRPD / MIPractice_case v2.0)”*
+
 **© 2025 T. Zöller**
-
-**Summary:**
-
-* ✔ Free for **non-commercial**, educational and research use
-* ✔ Derivatives allowed **with attribution** and **same license** (ShareAlike)
-* ✖ No commercial use without **explicit written permission**
-* ✖ No proprietary forks of the model content
-
-This protects the theoretical model while allowing open collaboration and
-MIT-licensed tooling around it.
 
 ---
 
 ## 🤝 Contributing
 
-Contributions (issues, fixes, example tooling, integrations) are welcome —
-as long as they respect the **CC BY-NC-SA** restrictions for model content
-(e.g., no commercial forks, no altered model sold as proprietary framework).
+Contributions (issues, fixes, example tooling, integrations) are welcome.
 
 Before submitting changes, please open an issue to:
 
 * clarify scope
 * ensure compatibility with the YAML schema
 * avoid breaking changes to `model_reference` and `case` structure
+
+Please keep in mind:
+
+* The YAML schema and model are intended as a shared, open, praxeological framework.
+* Extensions (e.g. new discipline profiles, additional examples) are encouraged,
+  as long as they maintain conceptual coherence and include proper attribution
+  under **CC BY 4.0**.
 
 ---
 
@@ -470,7 +478,7 @@ Current schema version:
 
 ## 📬 Contact
 
-For permissions, academic collaboration or commercial licensing:
+For permissions, academic collaboration or commercial use:
 
 * **Email:** [info@maturity-in-practice.com](mailto:info@maturity-in-practice.com)
 * **Website:** [https://www.maturity-in-practice.com](https://www.maturity-in-practice.com)
