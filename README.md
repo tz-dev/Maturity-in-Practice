@@ -19,7 +19,7 @@ enactments, maturity, responsibility, structural asymmetry and dignity in practi
 The conceptual foundation of this model is presented in the book:
 
 > **T. Zöller (2025): *Maturity in Practice – A Praxeological Anthropology***
-> More information: [https://www.maturity-in-practice.com/](https://www.maturity-in-practice.com/)
+> More information: https://www.amazon.com/dp/B0G6G7V38P
 
 This repository includes:
 
@@ -475,12 +475,3 @@ This project follows semantic versioning for the YAML schema and model:
 
 Current schema version:
 **`MIPractice_case_v2.0_full_with_model_reference`**
-
----
-
-## 📬 Contact
-
-For permissions, academic collaboration or commercial use:
-
-* **Email:** [info@maturity-in-practice.com](mailto:info@maturity-in-practice.com)
-* **Website:** [https://www.maturity-in-practice.com](https://www.maturity-in-practice.com)
