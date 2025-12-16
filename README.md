@@ -10,6 +10,70 @@
 
 ---
 
+## 📘 Overview
+
+This repository contains the **official specification** for **Maturity in Practice / IA (inadult asymmetry)** — a praxeological framework for analysing enactments, maturity, responsibility, structural asymmetry and dignity in practice.
+
+The conceptual foundation of this model is presented in the book:  
+
+> **T. Zöller (2025): *Maturity in Practice – A Praxeological Anthropology***  
+> More information: [https://www.amazon.com/dp/B0G6G7V38P](https://www.amazon.com/dp/B0G6G7V38P)
+
+This repository includes:
+
+* the **full technical model specification** (HTML & PDF)
+* the **canonical YAML schema** (model + case structure)
+* several **worked example cases** (HTML, PDF, YAML)
+* a **generic case analysis HTML template**
+* the **license files** for code and model content
+* an **optional addon** for epistemic precision & misuse resistance (AH Precision)
+* an optional **AI agent** that can load and apply the model interactively (see below)
+
+Together, these files form the authoritative public definition of the IA / ACRPD (`MIPractice_case`) model and its optional AH addon.
+
+---
+
+## 🧭 What is this model for?
+
+MIPractice / IA is a **praxeological analysis framework** for situations where
+questions of maturity, responsibility and dignity arise **in action**, not in abstract ideals.
+
+It is designed for cases where:  
+- actions unfold under **real constraints** (time pressure, power asymmetries, role ambiguity),
+- responsibility is **distributed or unclear**,
+- moral language is present but **insufficient** to understand what is actually happening,
+- and outcomes depend on how people act **within structures**, not just on intentions.
+
+The model helps to:  
+- make **enactments** readable instead of judging persons,
+- analyse responsibility **without collapsing into blame or excuse**,
+- detect **asymmetries** that distort agency or accountability,
+- keep **dignity protected** while still enabling critical analysis,
+- and support **learning, repair and improvement**, not verdicts.
+
+Typical application contexts include:  
+- organisational decision-making and leadership situations,
+- professional reflection and supervision,
+- analysis of public discourse and moral critique,
+- AI-assisted analysis, audits and governance settings,
+- research and teaching in praxeological, ethical or social-scientific contexts.
+
+MIPractice / IA is **not** a diagnostic, therapeutic or evaluative scoring system.  
+It does not rank people, assign moral worth, or replace professional judgement.
+
+Its purpose is to provide a **structured, reversible and misuse-resistant way**
+to understand what is happening in complex human action — and what could be done differently.
+
+It is **not** designed for (red zones):  
+
+* clinical diagnosis
+* forensics
+* individual HR decisions
+* child diagnostics
+* public ranking / pillorying
+
+---
+
 ## 🔁 Typical usage workflow (recommended)
 
 MIPractice is designed to be **used iteratively**, ideally with an AI acting as a structured trainer.
@@ -94,48 +158,6 @@ You do **not** need to understand the full specification before your first run.
 
 * Clean, printable HTML / PDF
 * Optional AH section automatically visible if addon output exists
-
----
-
-## 📘 Overview
-
-This repository contains the **official specification** for **Maturity in Practice / IA (inadult asymmetry)** — a praxeological framework for analysing enactments, maturity, responsibility, structural asymmetry and dignity in practice.
-
-The conceptual foundation of this model is presented in the book:  
-
-> **T. Zöller (2025): *Maturity in Practice – A Praxeological Anthropology***  
-> More information: [https://www.amazon.com/dp/B0G6G7V38P](https://www.amazon.com/dp/B0G6G7V38P)
-
-This repository includes:
-
-* the **full technical model specification** (HTML & PDF)
-* the **canonical YAML schema** (model + case structure)
-* several **worked example cases** (HTML, PDF, YAML)
-* a **generic case analysis HTML template**
-* the **license files** for code and model content
-* an **optional addon** for epistemic precision & misuse resistance (AH Precision)
-* an optional **AI agent** that can load and apply the model interactively (see below)
-
-Together, these files form the authoritative public definition of the IA / ACRPD (`MIPractice_case`) model and its optional AH addon.
-
----
-
-## 🧭 What is this model for?
-
-MIPractice / IA is designed for **structural readings** of human action under real conditions:
-
-* maturity **in action** (not self-image)
-* responsibility under uncertainty
-* asymmetry checks (power, dependency, opacity)
-* dignity in practice (D₀ is untouchable)
-
-It is **not** designed for (red zones):
-
-* clinical diagnosis
-* forensics
-* individual HR decisions
-* child diagnostics
-* public ranking / pillorying
 
 ---
 
@@ -315,15 +337,16 @@ T. Zöller (2025). *Maturity in Practice – A Praxeological Anthropology.*
 
 ## 📝 Licenses
 
-This repository uses a **dual-license model** (see `licenses/`).
+This repository uses a **dual-license model**.
 
-* `licenses/LICENSE`
-  MIT License for code/tooling (scripts, helpers, integration glue).
+* `MIT-LICENSE`  
+  MIT License for code and tooling (scripts, helpers, integration glue).
 
-* `licenses/LICENSE-CC-BY-NC-SA`
-  CC BY-NC-SA for model content & documentation (YAML schemas, specifications, examples, templates).
+* `LICENSE-CC-BY-4.0`  
+  Creative Commons Attribution 4.0 International for all model content and documentation  
+  (YAML schemas, specifications, examples, templates).
 
-**© 2025 T. Zöller**
+> “T. Zöller – Maturity in Practice / IA Model (ACRPD / MIPractice_case v2.0)”
 
 ---
 
