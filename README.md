@@ -16,7 +16,7 @@ This repository contains the **official specification** for **Maturity in Practi
 
 The conceptual foundation of this model is presented in the book:
 
-> **T. Zöller (2025): *Maturity in Practice – A Praxeological Anthropology***
+> **T. Zöller (2025): *Maturity in Practice – A Praxeological Anthropology***  
 > More information: [https://www.amazon.com/dp/B0G6G7V38P](https://www.amazon.com/dp/B0G6G7V38P)
 
 This repository includes:
