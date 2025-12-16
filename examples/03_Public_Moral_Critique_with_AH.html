@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MIPractice – 03_Public_Moral_Critique_with_AH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      :root {
+        --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --font-mono: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --color-bg: #f6f6f8;
+        --color-card: #ffffff;
+        --color-border: #dde0e6;
+        --color-muted: #666;
+        --color-strong: #111;
+        --color-tag: #eef0f5;
+        --radius: 10px;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        padding: 32px;
+        background: radial-gradient(circle at top left, #f0f4ff, #f7f7fa);
+        font-family: var(--font-body);
+        color: var(--color-strong);
+      }
+
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+      }
+
+      .logo-line {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--color-muted);
+        margin-bottom: 12px;
+      }
+
+      .card {
+        background: var(--color-card);
+        border-radius: 16px;
+        border: 1px solid var(--color-border);
+        box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+        padding: 22px 24px 20px;
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 10px;
+      }
+
+      .title-block h1 {
+        font-size: 20px;
+        margin: 0 0 4px;
+      }
+
+      .title-block .subtitle {
+        font-size: 13px;
+        color: var(--color-muted);
+      }
+
+      .meta {
+        font-size: 12px;
+        color: var(--color-muted);
+        text-align: right;
+        white-space: nowrap;
+      }
+
+      .meta div { margin-bottom: 2px; }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 12px 0 8px;
+      }
+
+      .pill {
+        padding: 3px 9px;
+        border-radius: 999px;
+        font-size: 11px;
+        border: 1px solid #e0e3ec;
+        background: #f8f9fc;
+      }
+
+      .pill strong {
+        font-weight: 600;
+      }
+
+      .section-row {
+        display: grid;
+        grid-template-columns: minmax(0, 2.3fr) minmax(0, 1.7fr);
+        gap: 20px;
+        margin-top: 14px;
+      }
+
+      .section {
+        border-radius: var(--radius);
+        border: 1px solid var(--color-border);
+        padding: 10px 12px;
+        background: #fbfbfd;
+      }
+
+      .section h2 {
+        margin: 0 0 6px;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.13em;
+        color: var(--color-muted);
+      }
+
+      .section h3 {
+        font-size: 12px;
+        color: var(--color-strong);
+        margin: 10px 0 6px;
+      }
+
+      .section p {
+        margin: 0 0 6px;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .section ul {
+        margin: 4px 0 0 16px;
+        padding: 0;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .section li {
+        margin-bottom: 3px;
+      }
+
+      .mono {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        background: #f3f4f8;
+        padding: 1px 5px;
+        border-radius: 4px;
+      }
+
+      .ia-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+        margin-top: 4px;
+      }
+
+      .ia-chip {
+        border-radius: 8px;
+        border: 1px solid #e1e4ee;
+        padding: 5px 7px;
+        background: #f9f9ff;
+        font-size: 11px;
+      }
+
+      .ia-chip strong {
+        display: block;
+        font-size: 11px;
+        margin-bottom: 1px;
+      }
+
+      .footer-row {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+        gap: 20px;
+        margin-top: 14px;
+      }
+
+      .findings-list {
+        margin: 4px 0 0 16px;
+        padding: 0;
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      .findings-list li {
+        margin-bottom: 3px;
+      }
+
+      .next-step-box {
+        border-radius: var(--radius);
+        border: 1px dashed #cbd0e2;
+        background: #f7f8ff;
+        padding: 8px 10px;
+        font-size: 13px;
+      }
+      
+      .pagebreak {
+        page-break-before:always
+      }
+
+      #ah-precision-addon {
+        margin-top: 14px
+      }
+
+      .brand-line {
+        margin-top: 12px;
+        font-size: 11px;
+        color: var(--color-muted);
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .brand-line a {
+        color: var(--color-muted);
+        text-decoration: none;
+        border-bottom: 1px dotted rgba(148, 163, 184, 0.6);
+      }
+
+      @media (max-width: 720px) {
+        body { padding: 16px; }
+        .card-header { flex-direction: column; align-items: flex-start; }
+        .meta { text-align: left; }
+        .section-row, .footer-row {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .meta { white-space: normal; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="logo-line">
+        MIPractice_case · ACRPD / IA reading
+      </div>
+
+      <div class="card">
+
+        <div class="card-header">
+          <div class="title-block">
+            <h1>Public moral criticism in media or social media</h1>
+            <div class="subtitle">
+              High-stakes public context · moralised labels · media amplification · AH addon active
+            </div>
+          </div>
+
+          <div class="meta">
+            <div><strong>Date:</strong> 2025-12-16</div>
+            <div><strong>Language:</strong> en</div>
+            <div><strong>Confidentiality:</strong> anonymised_public</div>
+            <div><strong>Discipline profile:</strong> media_studies</div>
+            <div><strong>Comm. space (D-module):</strong> off (auto-preference; not activated)</div>
+          </div>
+        </div>
+
+        <div class="pill-row">
+          <div class="pill"><strong>Mode</strong> full</div>
+          <div class="pill"><strong>Reflection</strong> off</div>
+          <div class="pill"><strong>A-band</strong> ≈ 4–6 · mixed</div>
+          <div class="pill"><strong>M-band (Critics / commentators)</strong> ≈ 4–6 · moderate</div>
+          <div class="pill"><strong>IA-Box</strong> → <span class="mono">IA_risk_under_public_pressure</span></div>
+          <div class="pill"><strong>D-module</strong> off · high potential dignity strain noted (no D profile)</div>
+        </div>
+
+        <div class="section">
+          <h2>Input thesis &amp; information basis</h2>
+
+          <p><strong>Thesis (verbatim):</strong><br />
+            <span class="mono">A public figure is morally criticised using global labels (e.g., “toxic”).</span>
+          </p>
+
+          <p><strong>Minimal scene:</strong><br />
+            A public person is morally criticised in media or social media using evaluative labels that frame behaviour as a character flaw.
+          </p>
+
+          <div class="two-col">
+            <div>
+              <p><strong>Observations (descriptive):</strong></p>
+              <ul>
+                <li>Critique is expressed in a public or media-amplified channel.</li>
+                <li>Global moral labels are used (e.g., “toxic”, “irresponsible”).</li>
+                <li>Amplification dynamics can rapidly expand reach and audience heterogeneity.</li>
+                <li>Reputational effects are likely to persist beyond the initial event.</li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Assumptions / uncertainties:</strong></p>
+              <ul>
+                <li>Assumption: high visibility, rapid amplification, and unequal interpretive power.</li>
+                <li>Uncertainty: the exact original behaviour being criticised.</li>
+                <li>Uncertainty: the intent of critics (accountability vs escalation vs instrumentalisation).</li>
+                <li>Bias risks: moral hindsight bias; out-group bias; amplification bias.</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="small-note">
+            <strong>Model note:</strong> This is a structural reading of enactments, roles and conditions — never a global claim about a person.
+          </p>
+        </div>
+
+        <div class="section" style="margin-top: 14px;">
+          <h2>Case snapshot</h2>
+          <p>
+            A public figure is morally criticised in media or social media using evaluative labels that frame behaviour as a character flaw.
+          </p>
+
+          <p><strong>Guiding question:</strong><br />
+            How does public moral criticism shape asymmetry, maturity signals, and dignity risks under conditions of high publicity?
+          </p>
+
+          <div class="two-col">
+            <div>
+              <p><strong>Actors (roles only):</strong></p>
+              <ul>
+                <li><strong>Public figure</strong> – object of criticism</li>
+                <li><strong>Commentators / media actors</strong> – critics</li>
+                <li><strong>Audience</strong> – amplifying public</li>
+                <li><strong>Platform</strong> – amplification infrastructure</li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Context structures:</strong></p>
+              <ul>
+                <li>Media-amplified publicness (heterogeneous audiences, rapid spread).</li>
+                <li>Irreversibility of exposure (persistent traces, reputational memory).</li>
+                <li>Interpretive power asymmetry (collective framing outweighs individual response capacity).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-row">
+          <div class="section">
+            <h2>Roles &amp; enactments</h2>
+            <p><strong>Roles:</strong></p>
+            <ul>
+              <li>Critics / commentators – framers with interpretive and reputational power</li>
+              <li>Public figure – target of critique under constrained response capacity</li>
+              <li>Audience – amplifiers (shares, comments, norm reinforcement)</li>
+              <li>Platform – infrastructural actor shaping reach and salience</li>
+            </ul>
+
+            <p><strong>Observed / proposed enactments:</strong></p>
+            <ul>
+              <li>Observed enactment: moralised critique using global labels detached from specific acts.</li>
+              <li>Observed enactment: responsibility diffused across “the public” / “the discourse”.</li>
+              <li>Viable alternative enactment: behaviour-specific critique with explicit scope exclusions.</li>
+              <li>Repair enactment option: correction/update path when new information emerges.</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2>Structural conditions</h2>
+            <ul>
+              <li>Publicness level: media_amplified (high reach, persistence, remix).</li>
+              <li>Time dynamics: rapid amplification reduces deliberation and correction.</li>
+              <li>Reversibility constraint: reputational effects are hard to undo.</li>
+              <li>Power distribution: interpretive framing power can exceed response capacity.</li>
+            </ul>
+            <p class="small-note">
+              Structures are not “excuses”; they are the action-constraints the model reads against.
+            </p>
+          </div>
+        </div>
+
+        <div class="section-row">
+
+          <div class="section">
+            <h2>ACRPD – structural reading</h2>
+
+            <p>
+              <strong>A – Awareness</strong>
+              <span class="mono">(A ≈ 4–6/10)</span><br />
+              Awareness of the moral framing is present, but scope discipline and context sensitivity are uneven under amplification.
+            </p>
+
+            <p>
+              <strong>C – Coherence</strong>
+              <span class="mono">(mixed)</span><br />
+              Accountability framing conflicts with reifying language: behaviour critique drifts toward person attribution through global labels.
+            </p>
+
+            <p>
+              <strong>R – Responsibility</strong>
+              <span class="mono">(diffused)</span><br />
+              The central responsibility point is choosing a public channel with predictable high impact; responsibility is often shifted to collective discourse dynamics.
+            </p>
+
+            <p>
+              <strong>P – Power / agency</strong>
+              <span class="mono">(high interpretive power)</span><br />
+              No formal authority is required: interpretive and reputational power is high; viable alternatives exist (behaviour-specific critique, bounded framing, private channels).
+            </p>
+
+            <p>
+              <strong>D – Dignity in practice</strong>
+              <span class="mono">(not analysed; module off)</span><br />
+              D-module is not activated. A structural risk note applies: public reification has high potential for dignity strain, without person-level claims.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>IA-Box – asymmetry check</h2>
+
+            <div class="ia-grid">
+              <div class="ia-chip">
+                <strong>T · Tension</strong>
+                <span class="mono">fulfilled: true</span><br />
+                Critique is publicly visible.
+              </div>
+              <div class="ia-chip">
+                <strong>J · Judgment</strong>
+                <span class="mono">fulfilled: unclear</span><br />
+                Moral escalation is not clearly tied to necessity or protected goods (act-level linkage missing).
+              </div>
+              <div class="ia-chip">
+                <strong>TB · Toolbox</strong>
+                <span class="mono">fulfilled: false</span><br />
+                Public labels persist beyond the event (not time-bounded).
+              </div>
+              <div class="ia-chip">
+                <strong>R · Repair</strong>
+                <span class="mono">fulfilled: false</span><br />
+                Reputational effects and framing are hard to undo; no explicit correction path is present.
+              </div>
+            </div>
+
+            <p style="margin-top:8px;">
+              <strong>IA summary:</strong><br />
+              Under media amplification, transparency is high but justification is incomplete and both time-boundedness and reversibility fail. This supports <span class="mono">IA_risk_under_public_pressure</span>.
+            </p>
+          </div>
+        </div>
+
+        <div class="section-row">
+          <div class="section">
+            <h2>Trajectory</h2>
+            <p><strong>As observed:</strong><br />
+              t0 (trigger event) → t1 (viral moral criticism) → t2 (stabilisation/escalation) shows declining controllability and increasing asymmetry once amplification begins.
+            </p>
+            <p><strong>Alternative trajectory:</strong><br />
+              If critique is act-bound, scope-limited, and includes explicit update conditions, the trajectory can remain more reversible and less dignity-risky even under publicity.
+            </p>
+            <p><strong>Pivot point:</strong><br />
+              The pivot is the publication choice: global moral labels in a public channel vs. behaviour-specific critique with bounded scope and correction pathway.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Intervention levers</h2>
+            <ul>
+              <li>Replace global moral labels with behaviour-bound descriptions (scope discipline).</li>
+              <li>State explicit scope exclusions (no person-value claims; no permanence).</li>
+              <li>Add a correction/update clause (reversibility signal).</li>
+              <li>Use proportionality framing: why this must be public (if it must).</li>
+              <li>Prefer lower-publicity channels when accountability can be achieved without amplification.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-row">
+          <div class="section">
+            <h2>Key findings</h2>
+            <ul class="findings-list">
+              <li>Publicity acts as a structural amplifier of asymmetry.</li>
+              <li>Moral labels blur behaviour critique and person attribution.</li>
+              <li>IA risks increase through lack of time-boundedness and reversibility.</li>
+              <li>Precision limits shape confidence in A and M readings.</li>
+            </ul>
+          </div>
+
+          <div class="next-step-box">
+            <strong>Conclusion for practice</strong><br />
+            In high-publicity contexts, analytical precision and scope discipline are key levers to limit asymmetry and dignity risks without deciding substantive moral disputes.
+            <br /><br />
+            <strong>What would change this reading?</strong><br />
+            Concrete act-level evidence, explicit justification for public escalation, and an articulated correction pathway would increase IA decidability and reduce reification risk.
+          </div>
+        </div>
+
+        <div class="pagebreak">
+          <div class="section" id="ah-precision-addon">
+            <h2>AH Precision Overlay (addon)</h2>
+
+            <div class="pill-row" style="margin-top:6px;">
+              <div class="pill">
+                <strong>Addon</strong> AH_precision
+              </div>
+              <div class="pill">
+                <strong>Precision</strong> <span class="mono">3/6 (mixed)</span>
+              </div>
+              <div class="pill">
+                <strong>Primary risks</strong> scope drift · moral loading · missing reversibility
+              </div>
+            </div>
+
+            <div class="two-col" style="margin-top:10px;">
+              <div>
+                <h3 style="margin:0 0 6px 0;">Attack surface map</h3>
+                <ul class="findings-list">
+                  <li>
+                    <strong>AP-0</strong> <span class="mono">(high)</span> – Moral loading without behavioural scope<br />
+                    <span class="small-note">
+                      <strong>Target:</strong> acrpd_profile.coherence.visible_enactments ·
+                      <strong>Type:</strong> term_ambiguity
+                    </span><br />
+                    Global moral labels are used without act-level delimitation.<br />
+                    <span class="small-note"><strong>Hardening:</strong> Define behaviour-specific critique and exclude person-level scope.</span>
+                  </li>
+                  <li>
+                    <strong>AP-1</strong> <span class="mono">(medium)</span> – Irreversibility under amplification<br />
+                    <span class="small-note">
+                      <strong>Target:</strong> scores_and_ia.IA_box.reversible ·
+                      <strong>Type:</strong> missing_reversibility
+                    </span><br />
+                    Public framing lacks exit or correction path.<br />
+                    <span class="small-note"><strong>Hardening:</strong> Add explicit correction or update conditions.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 style="margin:0 0 6px 0;">Hardening actions</h3>
+                <ul>
+                  <li>
+                    <strong>high</strong> – define_terms: Replace global moral labels with behaviour-bound descriptions.<br />
+                    <span class="small-note">
+                      <strong>Linked AP:</strong> 0 ·
+                      <strong>Expected effect:</strong> PH+1; IA.J more decidable; D-P risk down
+                    </span>
+                  </li>
+                  <li>
+                    <strong>medium</strong> – add_reversibility_clause: State conditions under which critique would be revised or withdrawn.<br />
+                    <span class="small-note">
+                      <strong>Linked AP:</strong> 1 ·
+                      <strong>Expected effect:</strong> PH+1; IA.R more decidable; dignity risk reduced
+                    </span>
+                  </li>
+                </ul>
+
+                <h3 style="margin:12px 0 6px 0;">Confidence &amp; risk shifts</h3>
+                <p class="small-note" style="margin:0;">
+                  <strong>C:</strong> mixed<br />
+                  <strong>IA:</strong> partial<br />
+                  <strong>D-R / D-P:</strong> mixed
+                </p>
+              </div>
+            </div>
+
+            <p class="small-note" style="margin-top:10px;">
+              <strong>Addon note:</strong> This overlay evaluates the analysis’ epistemic attack surface (scope, language drift, inference risk),
+              not the ontological value of persons.
+            </p>
+          </div>
+        </div>
+
+        <div class="brand-line">
+          <span>MIPractice_case · example_3_public_moral_critique · ACRPD / IA reading</span>
+          <span>
+            Schema: MIPractice_case_v2.0_full_with_model_reference · stable · Model &amp; schema:
+            <a href="https://www.maturity-in-practice.com" target="_blank">maturity-in-practice.com</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

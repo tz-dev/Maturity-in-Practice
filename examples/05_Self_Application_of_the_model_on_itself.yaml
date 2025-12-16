@@ -1,0 +1,307 @@
+schema_version: "MIPractice_case_v2.0_full_with_model_reference"
+
+case:
+  meta:
+    case_id: "05_Self_Application_of_the_model_on_itself"
+    case_title: "MIPractice model analysed by MIPractice (self-application)"
+    documentation_date: "2025-12-16"
+    analysts:
+      - name: "AI-assisted analyst"
+        role: "model auditor (self-implicated)"
+    language: "en"
+    confidentiality_level: "internal"
+    analysis_mode: "full"
+    interaction_profile:
+      reflection_mode: "off"
+      d_module_preference: "off"
+      output_format: "yaml"
+      discipline_profile: "philosophy_anthropology"
+    application_zone: "green"
+
+  guardrails:
+    focus_on_structures_not_persons: true
+    minimal_adulthood_of_actors_checked: true
+    analyst_self_implication_acknowledged: true
+    use_context:
+      clarified_roles: true
+      clarified_information_basis: true
+      clarified_analysis_purpose: true
+    dignity_protection:
+      ontological_dignity_D0_untouched: true
+      no_person_labels_from_D: true
+      tragedy_clause_considered: true
+      misuse_as_own_finding_acknowledged: true
+    D_module_default: "off"
+    trauma_neurodiversity_caution:
+      high_burden_state_present: false
+      if_true_D_used_only_as_strain_signal: false
+    publicity_and_power:
+      analysis_under_strong_power_asymmetry: false
+      if_true_extra_caution_applied: false
+    language_hygiene:
+      risk_danger_harm_potential_used_precisely: true
+      D_language_rules_applied: true
+    D_public_communication:
+      communication_spaces_differentiated: true
+      red_zones_respected: true
+
+  information_basis:
+    primary_material: "MIPractice_case_v2.0_full_with_model_reference + AH_precision_addon v1.2 (the model text itself)."
+    secondary_material: "None."
+    assumptions_and_inferences: >
+      Treats the model as an analysis artifact and governance instrument; evaluates
+      form, scope, guardrails, and transmission properties rather than truth of any case.
+    quality_and_limits:
+      coverage_estimate: "high"
+      reliability_estimate: "high"
+      known_gaps:
+        - "Empirical field validation across domains"
+        - "User comprehension under time pressure"
+      main_bias_risks_here:
+        - "author_intent_bias"
+        - "coherence_bias"
+
+  snapshot:
+    short_case_description: >
+      The MIPractice model is analysed as an analysis artifact, focusing on its
+      precision, guardrails, reversibility, and governance readiness.
+    central_actors_and_roles:
+      - "Model designers – authors"
+      - "Users (analysts) – operators"
+      - "Affected parties – indirect recipients of use"
+    guiding_question: >
+      Is the MIPractice model structurally critique-ready, bounded, and safe for
+      iterative use across contexts without collapsing into person-level judgement?
+
+  role_mapping:
+    object_of_observation:
+      type: "analysis_framework"
+      label: "MIPractice (ACRPD + IA + D + AH Precision)"
+      description: "Normative praxeological analysis model with guardrails."
+    other_relevant_roles:
+      - role_label: "institutions"
+        function: "potential adopters"
+        typical_asymmetries: "authority, scale, transmission pressure"
+    analyst_role:
+      description: "Self-application with explicit self-implication."
+      power_position_reflection: "Interpretive authority over the model text."
+    publicity_degree: "institutional"
+
+  frame_vs_variability:
+    frame_elements: >
+      Axioms, guardrails, scoring bands, application zones, D default-off.
+    variable_elements: >
+      Discipline profiles, depth, output format, addon activation.
+    unfair_high_M_zones: >
+      Expecting users to prevent all misuse without governance context.
+    misuse_of_system_as_excuse: >
+      Hiding poor practice behind model complexity or jargon.
+
+  acrpd_profile:
+    awareness:
+      real_knowledge_t: >
+        High awareness of roles, contexts, asymmetry risks, and misuse patterns.
+      warning_signals_or_alt_info: >
+        Explicit warnings against red zones and person-level misuse.
+      presumed_blind_spots_or_role_confusion: >
+        Risk of user overload; steep learning curve.
+    coherence:
+      official_narratives: >
+        Toolbox-not-worldview; structures over persons; trajectories over labels.
+      visible_enactments: >
+        Consistent guardrails, defaults, and language hygiene across modules.
+      word_deed_coherence_or_breaks: >
+        High coherence; risk of perceived overengineering.
+    responsibility:
+      central_responsibility_points: >
+        Design of defaults; transmission guidance; addon activation rules.
+      patterns_of_taking_shifting_refusing: >
+        Responsibility shared between designers and users; explicit self-implication.
+      consequences_for_affected_and_third_parties: >
+        Potential protection from shaming; risk of misuse if governance ignored.
+    power:
+      formal_power_distribution: >
+        High interpretive power when institutionalised.
+      factual_power_distribution: >
+        Depends on user competence and governance embedding.
+      used_alternatives: >
+        Bands, trajectories, optional modules, AH Precision overlay.
+      unused_or_blocked_alternatives: >
+        Simplified onboarding paths for novices.
+    dignity_practice:
+      is_D_module_activated: false
+      brief_note_if_visible: >
+        D is structurally protected via defaults and language templates.
+
+  scores_and_ia:
+    A_band:
+      approx_range_0_to_10: "A ≈ 8–9/10"
+      justification_points:
+        - "Explicit axioms and guardrails."
+        - "Clear separation of person vs enactment."
+        - "Documented bias and misuse risks."
+    M_band:
+      approx_range_0_to_10: "M ≈ 7–9/10"
+      justification_points:
+        - "High foreseeability of impact and alternatives provided."
+        - "Strong reversibility and optionality."
+        - "Residual risk under institutional pressure."
+    IA_box:
+      transparent:
+        fulfilled: true
+        justification: "Model logic, defaults, and limits are explicit."
+      justified:
+        fulfilled: true
+        justification: "Use justified as analytical toolbox with zones."
+      time_bound:
+        fulfilled: "unclear"
+        justification: "No built-in sunset for versions beyond updates."
+      reversible:
+        fulfilled: true
+        justification: "Readings are provisional; versioning supported."
+      ia_summary_label: "functional_asymmetry_with_guardrails"
+
+  trajectory:
+    key_timepoints:
+      - label: "t0"
+        short_description: "Model design."
+        A_band_at_t: "≈8–9/10"
+        M_band_at_t: "≈8/10"
+      - label: "t1"
+        short_description: "Early adoption by trained users."
+        A_band_at_t: "≈8/10"
+        M_band_at_t: "≈8–9/10"
+      - label: "t2"
+        short_description: "Institutional scaling."
+        A_band_at_t: "≈7–8/10"
+        M_band_at_t: "≈7–8/10"
+    course_in_words: >
+      Maturity remains high if governance and training accompany scaling; risks
+      rise under pressure without review gates.
+    responsibility_viability_range: >
+      High at design and deployment; shared at scale.
+
+  ia_protection:
+    transparency_measures: >
+      Extensive documentation; explicit defaults; language templates.
+    time_bound_measures: >
+      Versioning and update cadence recommended (not enforced).
+    reversibility_measures: >
+      Bands, trajectories, optional modules, AH Precision backlog.
+    participation_of_affected:
+      level: "consulted"
+      examples: >
+        Feedback loops via counter-readings and addon hardening actions.
+
+  ah_precision:
+    enabled: true
+    mode: "on"
+    PH_points_0_to_6: 6
+    PH_band: "high"
+    PH_checklist:
+      PD-1_term_definition: true
+      PD-2_scope_boundaries: true
+      PD-3_conditions_and_thresholds: true
+      PD-4_evidence_linking: true
+      PD-5_reversibility_clause: true
+      PD-6_language_hygiene: true
+
+    attack_surface_annotations:
+      - severity: "medium"
+        title: "Learning curve risk"
+        target_path: "model_reference"
+        note_type: "scope_leakage"
+        message: "Model complexity may deter correct use by novices."
+        suggested_action: "Provide staged onboarding and minimal templates."
+      - severity: "low"
+        title: "Time-bounded governance not enforced"
+        target_path: "scores_and_ia.IA_box.time_bound"
+        note_type: "missing_reversibility"
+        message: "Update cadence is recommended but not mandatory."
+        suggested_action: "Add optional review reminders or sunset flags."
+
+    hardening_actions:
+      - severity: "medium"
+        action_type: "add_scope_statement"
+        instruction: "Publish a novice onboarding path with reduced fields."
+        linked_attack_ref: 0
+        expected_effect: "PH stable/high; misuse risk down"
+      - severity: "low"
+        action_type: "add_reversibility_clause"
+        instruction: "Introduce optional version review reminders."
+        linked_attack_ref: 1
+        expected_effect: "PH stable/high; governance clarity up"
+
+  open_questions_and_blind_spots:
+    unclear_points: >
+      How users operationalise the model under time pressure.
+    missing_data_or_perspectives: >
+      Longitudinal studies of real-world misuse and correction.
+    distortion_risks: >
+      Overreliance on structure; neglect of facilitation quality.
+
+  biases_case_level:
+    initial_intuition: >
+      The model is robust and self-aware but demanding.
+    named_bias_risks:
+      - "coherence_bias"
+      - "designer_bias"
+    counter_reading_outline: >
+      A leaner model could achieve similar protection with fewer fields, at the
+      cost of explicitness.
+
+  transmission_check:
+    ready_for_structural_decisions: true
+    reasons_if_not: ""
+
+  uniform_report:
+    title: "Praxeological self-analysis of MIPractice"
+    one_paragraph_overview: >
+      This self-application reads MIPractice as an analysis artifact and governance
+      tool. It evaluates clarity, guardrails, reversibility, and transmission
+      safety rather than any substantive case outcome.
+    key_findings_bullets:
+      - "High awareness and coherence with explicit guardrails."
+      - "Reversibility and dignity protection are structurally embedded."
+      - "Primary risks lie in complexity and scaling."
+      - "AH Precision effectively exposes residual attack surfaces."
+    maturity_summary: >
+      The model exhibits high maturity in practice as a framework, with remaining
+      risks concentrated in adoption and governance rather than design.
+    ia_box_summary: >
+      Asymmetry is functional and justified, with strong transparency and
+      reversibility; time-bounded governance remains optional.
+    trajectory_summary: >
+      Maturity remains high if scaling is paired with training and review gates.
+    open_questions_summary: >
+      Evidence from longitudinal use will further test robustness.
+    conclusion: >
+      MIPractice is structurally critique-ready and dignity-protective; continued
+      hardening should focus on onboarding and governance at scale.
+
+    precision_score_summary: |
+      **Precision (PH):** high (6/6)
+      - Satisfied dimensions: 6/6
+      - Expected overlay: A up, C up, IA more decidable, D-R/D-P risk down
+
+    attack_surface_summary: |
+      **Attack Points (analysis vulnerabilities):**
+      - [medium (relevant uncertainty / visible leverage)] Learning curve risk
+        - Target: model_reference
+        - Type: scope_leakage
+        - Note: Model complexity may deter correct use by novices.
+        - Suggested patch: Provide staged onboarding and minimal templates.
+      - [low (minor noise / easy patch)] Time-bounded governance not enforced
+        - Target: scores_and_ia.IA_box.time_bound
+        - Type: missing_reversibility
+        - Note: Update cadence is recommended but not mandatory.
+        - Suggested patch: Add optional review reminders or sunset flags.
+
+    hardening_actions_summary: |
+      **Hardening Backlog (next iteration):**
+      - [medium (relevant uncertainty / visible leverage)] add_scope_statement: Publish a novice onboarding path with reduced fields.
+        - Linked to attack point: 0
+        - Expected effect: PH stable/high; misuse risk down
+      - [low (minor noise / easy patch)] add_reversibility_clause: Introduce optional version review reminders.
+        - Linked to attack point: 1
+        - Expected effect: PH stable/high; governance clarity up

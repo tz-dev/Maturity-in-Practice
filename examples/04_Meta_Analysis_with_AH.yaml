@@ -1,0 +1,387 @@
+schema_version: "MIPractice_case_v2.0_full_with_model_reference"
+
+case:
+  meta:
+    case_id: "04_Meta_Analysis_with_AH"
+    case_title: "Analysis of an analysis (meta / expert case)"
+    documentation_date: "2025-12-16"
+    analysts:
+      - name: "AI-assisted analyst"
+        role: "method auditor"
+    language: "en"
+    confidentiality_level: "internal"
+    analysis_mode: "full"
+    interaction_profile:
+      reflection_mode: "off"
+      d_module_preference: "off"
+      output_format: "yaml"
+      discipline_profile: "ai_governance"
+    application_zone: "green"
+
+  guardrails:
+    focus_on_structures_not_persons: true
+    minimal_adulthood_of_actors_checked: true
+    analyst_self_implication_acknowledged: true
+    use_context:
+      clarified_roles: true
+      clarified_information_basis: true
+      clarified_analysis_purpose: true
+    dignity_protection:
+      ontological_dignity_D0_untouched: true
+      no_person_labels_from_D: true
+      tragedy_clause_considered: true
+      misuse_as_own_finding_acknowledged: true
+    D_module_default: "off"
+    trauma_neurodiversity_caution:
+      high_burden_state_present: false
+      if_true_D_used_only_as_strain_signal: false
+    publicity_and_power:
+      analysis_under_strong_power_asymmetry: false
+      if_true_extra_caution_applied: false
+    language_hygiene:
+      risk_danger_harm_potential_used_precisely: true
+      D_language_rules_applied: true
+    D_public_communication:
+      communication_spaces_differentiated: true
+      red_zones_respected: true
+
+  information_basis:
+    primary_material: >
+      A pre-existing analysis artifact (e.g., an internal report, ethics memo,
+      or media commentary) that evaluates a contested decision.
+    secondary_material: >
+      None required for the meta-read; optional access to referenced sources is
+      treated as missing unless explicitly provided.
+    assumptions_and_inferences: >
+      The artifact contains claims, recommendations, and justificatory language,
+      but the underlying case materials are only partially available.
+    quality_and_limits:
+      coverage_estimate: "medium"
+      reliability_estimate: "medium"
+      known_gaps:
+        - "Access to the full underlying evidence base cited by the artifact"
+        - "Author incentives, commissioning context, and decision-use pathway"
+      main_bias_risks_here:
+        - "document_authority_bias"
+        - "framing_bias"
+        - "selection_bias"
+
+  snapshot:
+    short_case_description: >
+      An existing report is treated as an analysis artifact and assessed for
+      precision, scope discipline, evidence linking, reversibility and governance
+      readiness—without deciding whether its substantive conclusion is correct.
+    central_actors_and_roles:
+      - "Artifact author(s) – analyst role"
+      - "Commissioner / decision body – governance role"
+      - "Affected parties – recipients of consequences"
+    guiding_question: >
+      Is the analysis artifact structurally critique-ready, reversible, and safe
+      to transmit into decision-making under MIPractice guardrails?
+
+  role_mapping:
+    object_of_observation:
+      type: "analysis_artifact"
+      label: "Report / memo / commentary (meta object)"
+      description: "The artifact’s form, claims, and governance interface."
+    other_relevant_roles:
+      - role_label: "reviewers"
+        function: "quality control / counter-reading"
+        typical_asymmetries: "time, access, and mandate differences"
+      - role_label: "affected_parties"
+        function: "stakeholders under impact"
+        typical_asymmetries: "limited voice, delayed feedback loops"
+    analyst_role:
+      description: "Method auditor focusing on analysis quality, not verdict."
+      power_position_reflection: >
+        Interpretive power over the artifact; duty to avoid person-level
+        attributions about authors.
+    publicity_degree: "institutional"
+
+  frame_vs_variability:
+    frame_elements: >
+      Governance setting, decision timeline, accountability requirements,
+      confidentiality constraints.
+    variable_elements: >
+      Definitions, scope boundaries, evidence linking, thresholds, reversibility
+      clauses, and presentation of uncertainty.
+    unfair_high_M_zones: >
+      Expecting the artifact to prove what its evidence base cannot support;
+      expecting affected parties to correct methodological gaps post hoc.
+    misuse_of_system_as_excuse: >
+      Using “this is just a draft” to avoid adding reversibility or decision-use
+      disclaimers when the artifact is already being circulated.
+
+  acrpd_profile:
+    awareness:
+      real_knowledge_t: >
+        The artifact shows awareness of the topic area, but it is unclear which
+        parts are evidence-based vs. interpretive synthesis.
+      warning_signals_or_alt_info: >
+        Missing explicit uncertainty statements suggests a risk of over-closure.
+      presumed_blind_spots_or_role_confusion: >
+        Potential role confusion between descriptive analysis and normative
+        recommendation without clear thresholds.
+    coherence:
+      official_narratives: >
+        The artifact presents a coherent narrative of the problem and solution.
+      visible_enactments: >
+        Claims, definitions, and recommendations are presented as a linear chain.
+      word_deed_coherence_or_breaks: >
+        Coherence may be rhetorical if key terms and conditions are not defined.
+    responsibility:
+      central_responsibility_points: >
+        (1) Claim formulation; (2) recommendation framing; (3) transmission to
+        governance channels.
+      patterns_of_taking_shifting_refusing: >
+        Responsibility may be shifted to “the evidence” or “common sense” if
+        inference steps are not marked.
+      consequences_for_affected_and_third_parties: >
+        Risk of policy lock-in or reputational harm if the artifact is treated as
+        final without review.
+    power:
+      formal_power_distribution: >
+        The artifact can influence decisions through institutional authority.
+      factual_power_distribution: >
+        Readers often treat the artifact as a proxy for the full evidence base.
+      used_alternatives: >
+        Single narrative and recommendation path.
+      unused_or_blocked_alternatives: >
+        Counter-reading section, explicit if/then criteria, or staged decision gates.
+    dignity_practice:
+      is_D_module_activated: false
+      brief_note_if_visible: >
+        Dignity risks are treated structurally (language and transmission), not as
+        person-level dignity readings.
+
+  scores_and_ia:
+    A_band:
+      approx_range_0_to_10: "A ≈ 6–8/10"
+      justification_points:
+        - "High topic awareness and structured presentation."
+        - "Potential blind spot in marking inference vs. observation."
+        - "Scope discipline varies depending on term definitions."
+    M_band:
+      approx_range_0_to_10: "M ≈ 7–9/10"
+      justification_points:
+        - "High influence and predictability of downstream impact."
+        - "Clear alternatives exist (review gate, counter-reading, reversibility clause)."
+        - "Responsibility viability is high at the artifact design stage."
+    IA_box:
+      transparent:
+        fulfilled: "unclear"
+        justification: "Transparency of conclusions is high; transparency of inference steps is partial."
+      justified:
+        fulfilled: "unclear"
+        justification: "Justification strength depends on missing thresholds and evidence linking."
+      time_bound:
+        fulfilled: false
+        justification: "No explicit review date or sunset for recommendations is stated."
+      reversible:
+        fulfilled: "unclear"
+        justification: "Reversal path is not specified; corrections may be informal only."
+      ia_summary_label: "IA_risk_via_transmission_pressure"
+
+  trajectory:
+    key_timepoints:
+      - label: "t0"
+        short_description: "Artifact drafted (internal circulation)."
+        A_band_at_t: "≈7/10"
+        M_band_at_t: "≈8/10"
+      - label: "t1"
+        short_description: "Artifact cited as basis for action."
+        A_band_at_t: "≈6–7/10"
+        M_band_at_t: "≈8–9/10"
+      - label: "t2"
+        short_description: "Post-decision critique or revision opportunity."
+        A_band_at_t: "≈6–8/10 (if correction loop exists)"
+        M_band_at_t: "≈7–9/10"
+    course_in_words: >
+      The key shift is from “analysis draft” to “decision proxy”. M increases when
+      the artifact becomes authoritative; maturity depends on whether governance
+      adds review gates and correction channels.
+    responsibility_viability_range: >
+      High viability at drafting and transmission points; lower viability after
+      policy lock-in.
+
+  ia_protection:
+    transparency_measures: >
+      (Recommended) Mark observation vs. inference; publish definitions and scope
+      exclusions; add “what this report does not claim”.
+    time_bound_measures: >
+      (Recommended) Add explicit review date, staged rollout, and re-check triggers.
+    reversibility_measures: >
+      (Recommended) Define correction channel, versioning, and withdrawal criteria.
+    participation_of_affected:
+      level: "consulted"
+      examples: >
+        (Recommended) Structured feedback window with documented responses; include
+        at least one affected-party perspective as a counter-reading input.
+
+  ah_precision:
+    enabled: true
+    mode: "on"
+
+    PH_points_0_to_6: 5
+    PH_band: "high"
+    PH_checklist:
+      PD-1_term_definition: true
+      PD-2_scope_boundaries: true
+      PD-3_conditions_and_thresholds: false
+      PD-4_evidence_linking: true
+      PD-5_reversibility_clause: true
+      PD-6_language_hygiene: true
+
+    attack_surface_annotations:
+      - severity: "high"
+        title: "Threshold gap between analysis and recommendation"
+        target_path: "information_basis.assumptions_and_inferences"
+        note_type: "missing_conditions"
+        message: "Normative recommendations lack explicit if/then criteria or decision thresholds."
+        suggested_action: "Add explicit thresholds (what evidence/conditions would change the recommendation)."
+      - severity: "medium"
+        title: "Evidence chain partly implicit"
+        target_path: "acrpd_profile.coherence.visible_enactments"
+        note_type: "evidence_gap"
+        message: "Some claims read as settled without linking to cited sources or stating uncertainty."
+        suggested_action: "Separate observation from interpretation and cite/flag uncertainty per claim cluster."
+      - severity: "medium"
+        title: "Transmission pressure risk"
+        target_path: "transmission_check"
+        note_type: "scope_leakage"
+        message: "Artifact may be used as a proxy for the full case file in governance discussions."
+        suggested_action: "Add a decision-use disclaimer and require a review gate before binding action."
+      - severity: "low"
+        title: "Counter-reading not institutionalised"
+        target_path: "biases_case_level.counter_reading_outline"
+        note_type: "counter_reading_missing"
+        message: "No formal counter-reading section or reviewer mandate is evident."
+        suggested_action: "Add a compact counter-reading paragraph and name reviewer roles."
+
+    hardening_actions:
+      - severity: "high"
+        action_type: "add_if_then_criteria"
+        instruction: "Define decision thresholds and update triggers for each recommendation."
+        linked_attack_ref: 0
+        expected_effect: "PH+1; IA.J more decidable; governance readiness up"
+      - severity: "medium"
+        action_type: "separate_observation_vs_evaluation"
+        instruction: "For each key claim, mark observation vs inference and attach evidence/uncertainty flag."
+        linked_attack_ref: 1
+        expected_effect: "PH stable/high; A/C confidence up; IA.T more decidable"
+      - severity: "medium"
+        action_type: "add_scope_statement"
+        instruction: "Add a front-matter decision-use disclaimer and a required review gate."
+        linked_attack_ref: 2
+        expected_effect: "PH stable/high; IA.R less risky; transmission safer"
+      - severity: "low"
+        action_type: "add_counter_reading"
+        instruction: "Insert a compact counter-reading section and name reviewer responsibilities."
+        linked_attack_ref: 3
+        expected_effect: "PH stable/high; bias risks reduced; critique-readiness up"
+
+  open_questions_and_blind_spots:
+    unclear_points: >
+      Whether the artifact’s key claims are supported by direct evidence or
+      interpretive synthesis; whether dissenting views were considered.
+    missing_data_or_perspectives: >
+      Underlying source documents; affected-party perspectives; commissioning
+      constraints and incentives.
+    distortion_risks: >
+      Authority bias, framing bias, and selection bias if the artifact is treated
+      as “the evidence” rather than “an interpretation”.
+
+  biases_case_level:
+    initial_intuition: >
+      The artifact looks coherent and well-intentioned, but risks over-closure if
+      it does not make thresholds and reversibility explicit.
+    named_bias_risks:
+      - "document_authority_bias"
+      - "framing_bias"
+      - "selection_bias"
+    counter_reading_outline: >
+      A plausible counter-reading is that the artifact’s recommendations are
+      directionally sound but prematurely specific given missing case data; a
+      governance-safe version would be staged and conditional.
+
+  transmission_check:
+    ready_for_structural_decisions: false
+    reasons_if_not: >
+      Not ready without explicit thresholds and a formal review/correction loop;
+      otherwise it risks becoming a binding proxy under institutional pressure.
+
+  uniform_report:
+    title: "Praxeological analysis of analysis_artifact: Report / memo / commentary (meta object)"
+    one_paragraph_overview: >
+      This meta case treats an existing report as an analysis artifact and checks
+      its precision, scope discipline, evidence linking, reversibility and
+      governance readiness. The goal is not to decide whether the report’s
+      substantive conclusion is correct, but whether the artifact is safe to
+      transmit into decisions under institutional pressure.
+    key_findings_bullets:
+      - "Coherent narrative can mask missing thresholds between analysis and recommendations."
+      - "Transmission turns the artifact into a decision proxy, raising responsibility stakes."
+      - "Reversibility and time-boundedness must be made explicit to avoid lock-in."
+      - "AH Precision is primary: attack points and hardening steps are concrete and minimal."
+    maturity_summary: >
+      In terms of maturity in practice, the artifact shows high competence in
+      presentation, with remaining maturity risks concentrated in governance
+      interface design (thresholds, review, correction paths).
+    ia_box_summary: >
+      The main asymmetry risk stems from institutional transmission pressure: if
+      inference steps, review windows and correction paths are not explicit,
+      the artifact becomes hard to justify and hard to reverse.
+    trajectory_summary: >
+      Once the artifact is cited as a basis for action, responsibility and
+      asymmetry risks rise; adding decision gates can restore an iterative path.
+    open_questions_summary: >
+      Key open questions concern the completeness of the evidence base, whether
+      dissenting perspectives were integrated, and how the artifact will be used
+      in governance.
+    conclusion: >
+      The model suggests treating the artifact as a versioned, conditional input
+      with explicit thresholds, review timing and correction channels, so that it
+      remains critique-ready rather than becoming an irreversible proxy.
+
+    precision_score_summary: |
+      **Precision (PH):** high (5/6)
+      - Satisfied dimensions: 5/6
+      - Expected overlay: A up, C up, IA more decidable, D-R/D-P risk down
+
+    attack_surface_summary: |
+      **Attack Points (analysis vulnerabilities):**
+      - [high (structural vulnerability / likely misread)] Threshold gap between analysis and recommendation
+        - Target: information_basis.assumptions_and_inferences
+        - Type: missing_conditions
+        - Note: Normative recommendations lack explicit if/then criteria or decision thresholds.
+        - Suggested patch: Add explicit thresholds (what evidence/conditions would change the recommendation).
+      - [medium (relevant uncertainty / visible leverage)] Evidence chain partly implicit
+        - Target: acrpd_profile.coherence.visible_enactments
+        - Type: evidence_gap
+        - Note: Some claims read as settled without linking to cited sources or stating uncertainty.
+        - Suggested patch: Separate observation from interpretation and cite/flag uncertainty per claim cluster.
+      - [medium (relevant uncertainty / visible leverage)] Transmission pressure risk
+        - Target: transmission_check
+        - Type: scope_leakage
+        - Note: Artifact may be used as a proxy for the full case file in governance discussions.
+        - Suggested patch: Add a decision-use disclaimer and require a review gate before binding action.
+      - [low (minor noise / easy patch)] Counter-reading not institutionalised
+        - Target: biases_case_level.counter_reading_outline
+        - Type: counter_reading_missing
+        - Note: No formal counter-reading section or reviewer mandate is evident.
+        - Suggested patch: Add a compact counter-reading paragraph and name reviewer roles.
+
+    hardening_actions_summary: |
+      **Hardening Backlog (next iteration):**
+      - [high (structural vulnerability / likely misread)] add_if_then_criteria: Define decision thresholds and update triggers for each recommendation.
+        - Linked to attack point: 0
+        - Expected effect: PH+1; IA.J more decidable; governance readiness up
+      - [medium (relevant uncertainty / visible leverage)] separate_observation_vs_evaluation: For each key claim, mark observation vs inference and attach evidence/uncertainty flag.
+        - Linked to attack point: 1
+        - Expected effect: PH stable/high; A/C confidence up; IA.T more decidable
+      - [medium (relevant uncertainty / visible leverage)] add_scope_statement: Add a front-matter decision-use disclaimer and a required review gate.
+        - Linked to attack point: 2
+        - Expected effect: PH stable/high; IA.R less risky; transmission safer
+      - [low (minor noise / easy patch)] add_counter_reading: Insert a compact counter-reading section and name reviewer responsibilities.
+        - Linked to attack point: 3
+        - Expected effect: PH stable/high; bias risks reduced; critique-readiness up

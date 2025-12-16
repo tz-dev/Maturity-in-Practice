@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MIPractice – 05_Self_Application_of_the_model</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      :root {
+        --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --font-mono: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --color-bg: #f6f6f8;
+        --color-card: #ffffff;
+        --color-border: #dde0e6;
+        --color-muted: #666;
+        --color-strong: #111;
+        --color-tag: #eef0f5;
+        --radius: 10px;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        padding: 32px;
+        background: radial-gradient(circle at top left, #f0f4ff, #f7f7fa);
+        font-family: var(--font-body);
+        color: var(--color-strong);
+      }
+
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+      }
+
+      .logo-line {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--color-muted);
+        margin-bottom: 12px;
+      }
+
+      .card {
+        background: var(--color-card);
+        border-radius: 16px;
+        border: 1px solid var(--color-border);
+        box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+        padding: 22px 24px 20px;
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 10px;
+      }
+
+      .title-block h1 {
+        font-size: 20px;
+        margin: 0 0 4px;
+      }
+
+      .title-block .subtitle {
+        font-size: 13px;
+        color: var(--color-muted);
+      }
+
+      .meta {
+        font-size: 12px;
+        color: var(--color-muted);
+        text-align: right;
+        white-space: nowrap;
+      }
+
+      .meta div { margin-bottom: 2px; }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 12px 0 8px;
+      }
+
+      .pill {
+        padding: 3px 9px;
+        border-radius: 999px;
+        font-size: 11px;
+        border: 1px solid #e0e3ec;
+        background: #f8f9fc;
+      }
+
+      .pill strong {
+        font-weight: 600;
+      }
+
+      .section-row {
+        display: grid;
+        grid-template-columns: minmax(0, 2.3fr) minmax(0, 1.7fr);
+        gap: 20px;
+        margin-top: 14px;
+      }
+
+      .section {
+        border-radius: var(--radius);
+        border: 1px solid var(--color-border);
+        padding: 10px 12px;
+        background: #fbfbfd;
+      }
+
+      .section h2 {
+        margin: 0 0 6px;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.13em;
+        color: var(--color-muted);
+      }
+
+      .section h3 {
+        font-size: 12px;
+        color: var(--color-strong);
+        margin: 10px 0 6px;
+      }
+
+      .section p {
+        margin: 0 0 6px;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .section ul {
+        margin: 4px 0 0 16px;
+        padding: 0;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .section li {
+        margin-bottom: 3px;
+      }
+
+      .mono {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        background: #f3f4f8;
+        padding: 1px 5px;
+        border-radius: 4px;
+      }
+
+      .ia-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+        margin-top: 4px;
+      }
+
+      .ia-chip {
+        border-radius: 8px;
+        border: 1px solid #e1e4ee;
+        padding: 5px 7px;
+        background: #f9f9ff;
+        font-size: 11px;
+      }
+
+      .ia-chip strong {
+        display: block;
+        font-size: 11px;
+        margin-bottom: 1px;
+      }
+
+      .footer-row {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+        gap: 20px;
+        margin-top: 14px;
+      }
+
+      .findings-list {
+        margin: 4px 0 0 16px;
+        padding: 0;
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      .findings-list li {
+        margin-bottom: 3px;
+      }
+
+      .next-step-box {
+        border-radius: var(--radius);
+        border: 1px dashed #cbd0e2;
+        background: #f7f8ff;
+        padding: 8px 10px;
+        font-size: 13px;
+      }
+      
+      .pagebreak {
+        page-break-before:always
+      }
+
+      #ah-precision-addon {
+        margin-top: 14px
+      }
+
+      .brand-line {
+        margin-top: 12px;
+        font-size: 11px;
+        color: var(--color-muted);
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .brand-line a {
+        color: var(--color-muted);
+        text-decoration: none;
+        border-bottom: 1px dotted rgba(148, 163, 184, 0.6);
+      }
+
+      @media (max-width: 720px) {
+        body { padding: 16px; }
+        .card-header { flex-direction: column; align-items: flex-start; }
+        .meta { text-align: left; }
+        .section-row, .footer-row {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .meta { white-space: normal; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="logo-line">
+        MIPractice_case · ACRPD / IA reading
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="title-block">
+            <h1>MIPractice model analysed by MIPractice (self-application)</h1>
+            <div class="subtitle">
+              Self-audit of the framework as an analysis artifact · axiomatic + governance lens · AH addon on
+            </div>
+          </div>
+
+          <div class="meta">
+            <div><strong>Date:</strong> 2025-12-16</div>
+            <div><strong>Language:</strong> en</div>
+            <div><strong>Confidentiality:</strong> internal</div>
+            <div><strong>Discipline profile:</strong> philosophy_anthropology</div>
+            <div><strong>Comm. space (D-module):</strong> off</div>
+          </div>
+        </div>
+
+        <div class="pill-row">
+          <div class="pill"><strong>Mode</strong> full</div>
+          <div class="pill"><strong>Reflection</strong> off</div>
+          <div class="pill"><strong>A-band</strong> ≈ 8–9 · high</div>
+          <div class="pill"><strong>M-band (Designers + Operators)</strong> ≈ 7–9 · high</div>
+          <div class="pill"><strong>IA-Box</strong> → <span class="mono">functional_asymmetry_with_guardrails</span></div>
+          <div class="pill"><strong>D-module</strong> off · dignity protected structurally (defaults + language hygiene)</div>
+        </div>
+
+        <div class="section">
+          <h2>Input thesis &amp; information basis</h2>
+
+          <p><strong>Thesis (verbatim):</strong><br />
+            <span class="mono">MIPractice is assessed as an analysis framework and governance instrument for critique-readiness, boundedness, and safety.</span>
+          </p>
+
+          <p><strong>Minimal scene:</strong><br />
+            The MIPractice model text (MIPractice_case_v2.0 + AH_precision_addon v1.2) is treated as an analysis artifact and evaluated for guardrails, reversibility, transmission properties, and scalability risks.
+          </p>
+
+          <div class="two-col">
+            <div>
+              <p><strong>Observations (descriptive):</strong></p>
+              <ul>
+                <li>The model defines explicit axioms (incl. D0 untouchable) and strict person/enactment separation.</li>
+                <li>It operationalises maturity as bands + trajectories, not fixed labels.</li>
+                <li>It embeds application zones (green/yellow/red) and explicit misuse patterns.</li>
+                <li>It offers optionality (D default off; add-ons optional; discipline profiles selectable).</li>
+                <li>It includes a second-order overlay (AH Precision) to surface attack surfaces and hardening steps.</li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Assumptions / uncertainties:</strong></p>
+              <ul>
+                <li>Assumption: the model may be adopted institutionally, increasing transmission pressure.</li>
+                <li>Uncertainty: empirical validation across domains and longitudinal misuse/correction data.</li>
+                <li>Uncertainty: user comprehension and correct use under time pressure.</li>
+                <li>Bias risks: designer bias; coherence bias (over-trusting internal consistency).</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="small-note">
+            <strong>Model note:</strong> This is a structural reading of enactments, roles and conditions — never a global claim about a person.
+          </p>
+        </div>
+
+        <div class="section" style="margin-top: 14px;">
+          <h2>Case snapshot</h2>
+          <p>
+            The MIPractice model is analysed as an analysis artifact, focusing on its precision, guardrails, reversibility, and governance readiness.
+          </p>
+
+          <p><strong>Guiding question:</strong><br />
+            Is the MIPractice model structurally critique-ready, bounded, and safe for iterative use across contexts without collapsing into person-level judgement?
+          </p>
+
+          <div class="two-col">
+            <div>
+              <p><strong>Actors (roles only):</strong></p>
+              <ul>
+                <li><strong>Model designers</strong> – authors / stewards</li>
+                <li><strong>Users (analysts)</strong> – operators</li>
+                <li><strong>Affected parties</strong> – indirect recipients of use</li>
+                <li><strong>Institutions</strong> – potential adopters (scale + authority)</li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Context structures:</strong></p>
+              <ul>
+                <li>Institutional adoption can create interpretive authority and scale effects.</li>
+                <li>Time pressure and competence variance can distort use quality.</li>
+                <li>Governance embedding (training, review gates) determines real-world safety.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-row">
+          <div class="section">
+            <h2>Roles &amp; enactments</h2>
+            <p><strong>Roles:</strong></p>
+            <ul>
+              <li>Designers – set axioms, guardrails, defaults; anticipate misuse</li>
+              <li>Operators – apply model to cases; hold language hygiene and documentation standards</li>
+              <li>Institutions – decide transmission pathways (HR/legal/public contexts) and embed governance</li>
+              <li>Affected parties – experience downstream effects; need participation channels in yellow zones</li>
+            </ul>
+
+            <p><strong>Observed / proposed enactments:</strong></p>
+            <ul>
+              <li>Observed enactment: heavy emphasis on structures, roles, enactments; explicit red-zone prohibitions.</li>
+              <li>Observed enactment: maturity as reversible bands with trajectory focus.</li>
+              <li>Proposed enactment: staged onboarding/minimal templates for novices (to reduce misuse via overload).</li>
+              <li>Proposed enactment: optional review reminders / sunset flags to strengthen time-bounded governance.</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2>Structural conditions</h2>
+            <ul>
+              <li>“Toolbox-not-worldview” positioning reduces ideological capture risk (if upheld in practice).</li>
+              <li>Defaults (reflection off, D auto/off, bands) reduce harm potential in casual use.</li>
+              <li>Complexity increases entry friction and may shift errors to “scope leakage” and selective use.</li>
+              <li>At scale, the framework’s power depends on institutional governance, not only on text quality.</li>
+            </ul>
+            <p class="small-note">
+              Structures are not “excuses”; they are the action-constraints the model reads against.
+            </p>
+          </div>
+        </div>
+
+        <div class="section-row">
+
+          <div class="section">
+            <h2>ACRPD – structural reading</h2>
+
+            <p>
+              <strong>A – Awareness</strong>
+              <span class="mono">(A ≈ 8–9/10)</span><br />
+              High awareness of role/context dependence, asymmetry risks, bias risks, and misuse pathways; residual blind spot risk is user overload and partial uptake under pressure.
+            </p>
+
+            <p>
+              <strong>C – Coherence</strong>
+              <span class="mono">(high)</span><br />
+              Strong internal coherence across axioms, guardrails, bands/trajectories, and application zones; the main coherence risk is perceived “overengineering” that can trigger selective shortcutting.
+            </p>
+
+            <p>
+              <strong>R – Responsibility</strong>
+              <span class="mono">(shared; explicit)</span><br />
+              Responsibility is explicitly split: designers provide guardrails and defaults; operators must document information basis and apply language hygiene; institutions must prevent red-zone misuse through governance.
+            </p>
+
+            <p>
+              <strong>P – Power / agency</strong>
+              <span class="mono">(high if institutionalised)</span><br />
+              The model has high interpretive power when adopted by institutions; agency is moderated by optionality (D off by default, discipline profiles, add-ons) but scaling increases transmission stakes.
+            </p>
+
+            <p>
+              <strong>D – Dignity in practice</strong>
+              <span class="mono">(not analysed; module off)</span><br />
+              D-module stays off; dignity protection is embedded structurally (D0 untouchable, no person labels, red-zone limits, language templates).
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>IA-Box – asymmetry check</h2>
+
+            <div class="ia-grid">
+              <div class="ia-chip">
+                <strong>T · Tension</strong>
+                <span class="mono">fulfilled: true</span><br />
+                Model logic, guardrails, and defaults are explicit and critique-ready.
+              </div>
+              <div class="ia-chip">
+                <strong>J · Judgment</strong>
+                <span class="mono">fulfilled: true</span><br />
+                Use is justified as a bounded toolbox with application zones and prohibitions.
+              </div>
+              <div class="ia-chip">
+                <strong>TB · Toolbox</strong>
+                <span class="mono">fulfilled: unclear</span><br />
+                Updates are noted via versioning, but no built-in sunset/review requirement is enforced.
+              </div>
+              <div class="ia-chip">
+                <strong>R · Repair</strong>
+                <span class="mono">fulfilled: true</span><br />
+                Bands, trajectories, documentation, and AH hardening support correction and revision.
+              </div>
+            </div>
+
+            <p style="margin-top:8px;">
+              <strong>IA summary:</strong><br />
+              The framework constitutes a functional asymmetry with strong transparency, justification, and reversibility; the main residual risk is time-bounded governance at scale remaining optional (<span class="mono">functional_asymmetry_with_guardrails</span>).
+            </p>
+          </div>
+        </div>
+
+        <div class="section-row">
+          <div class="section">
+            <h2>Trajectory</h2>
+            <p><strong>As observed:</strong><br />
+              t0 (design) → t1 (trained adoption) keeps maturity high; t2 (institutional scaling) raises risk if training and review gates are missing.
+            </p>
+            <p><strong>Alternative trajectory:</strong><br />
+              Pair scaling with staged onboarding, review reminders, and governance gates; maturity remains high while reducing scope leakage and misuse under pressure.
+            </p>
+            <p><strong>Pivot point:</strong><br />
+              The pivot is institutional scaling without governance (training, review/correction loops, red-zone enforcement).
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Intervention levers</h2>
+            <ul>
+              <li>Publish a novice onboarding path (minimal templates, staged depth).</li>
+              <li>Add optional review reminders / sunset flags for model versions in institutional deployments.</li>
+              <li>Provide “decision-use disclaimers” for yellow-zone and governance contexts.</li>
+              <li>Keep AH Precision as a standard appendix for transmissible reports.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-row">
+          <div class="section">
+            <h2>Key findings</h2>
+            <ul class="findings-list">
+              <li>High awareness and coherence with explicit guardrails and red-zone prohibitions.</li>
+              <li>Dignity protection is structurally embedded (D0 untouchable; no person labels; language hygiene).</li>
+              <li>Main risks shift from design to adoption: complexity and scaling under institutional pressure.</li>
+              <li>AH Precision effectively exposes residual attack surfaces and actionable hardening steps.</li>
+            </ul>
+          </div>
+
+          <div class="next-step-box">
+            <strong>Conclusion for practice</strong><br />
+            MIPractice is structurally critique-ready and dignity-protective as a framework; continued hardening should focus on onboarding and time-bounded governance mechanisms for scaled use.
+            <br /><br />
+            <strong>What would change this reading?</strong><br />
+            Empirical longitudinal data on real-world usage (including misuse patterns and correction outcomes) would calibrate the complexity risk and validate whether the guardrails hold under institutional pressure.
+          </div>
+        </div>
+
+        <div class="pagebreak">
+        <div class="section" id="ah-precision-addon">
+          <h2>AH Precision Overlay (addon)</h2>
+
+          <div class="pill-row" style="margin-top:6px;">
+            <div class="pill">
+              <strong>Addon</strong> AH_precision
+            </div>
+            <div class="pill">
+              <strong>Precision</strong> <span class="mono">6/6 (high)</span>
+            </div>
+            <div class="pill">
+              <strong>Primary risks</strong> learning curve · time-bounded governance optional
+            </div>
+          </div>
+
+          <div class="two-col" style="margin-top:10px;">
+            <div>
+              <h3 style="margin:0 0 6px 0;">Attack surface map</h3>
+              <ul class="findings-list">
+                <li>
+                  <strong>AP-0</strong> <span class="mono">(medium)</span> – Learning curve risk<br />
+                  <span class="small-note">
+                    <strong>Target:</strong> model_reference ·
+                    <strong>Type:</strong> scope_leakage
+                  </span><br />
+                  Model complexity may deter correct use by novices.<br />
+                  <span class="small-note"><strong>Hardening:</strong> Provide staged onboarding and minimal templates.</span>
+                </li>
+                <li>
+                  <strong>AP-1</strong> <span class="mono">(low)</span> – Time-bounded governance not enforced<br />
+                  <span class="small-note">
+                    <strong>Target:</strong> scores_and_ia.IA_box.time_bound ·
+                    <strong>Type:</strong> missing_reversibility
+                  </span><br />
+                  Update cadence is recommended but not mandatory.<br />
+                  <span class="small-note"><strong>Hardening:</strong> Add optional review reminders or sunset flags.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 style="margin:0 0 6px 0;">Hardening actions</h3>
+              <ul>
+                <li>
+                  <strong>medium</strong> – add_scope_statement: Publish a novice onboarding path with reduced fields.<br />
+                  <span class="small-note">
+                    <strong>Linked AP:</strong> 0 ·
+                    <strong>Expected effect:</strong> PH stable/high; misuse risk down
+                  </span>
+                </li>
+                <li>
+                  <strong>low</strong> – add_reversibility_clause: Introduce optional version review reminders.<br />
+                  <span class="small-note">
+                    <strong>Linked AP:</strong> 1 ·
+                    <strong>Expected effect:</strong> PH stable/high; governance clarity up
+                  </span>
+                </li>
+              </ul>
+
+              <h3 style="margin:12px 0 6px 0;">Confidence &amp; risk shifts</h3>
+              <p class="small-note" style="margin:0;">
+                <strong>C:</strong> up<br />
+                <strong>IA:</strong> more_decidable<br />
+                <strong>D-R / D-P:</strong> down
+              </p>
+            </div>
+          </div>
+
+          <p class="small-note" style="margin-top:10px;">
+            <strong>Addon note:</strong> This overlay evaluates the analysis’ epistemic attack surface (scope, language drift, inference risk),
+            not the ontological value of persons.
+          </p>
+        </div>
+
+        <div class="brand-line">
+          <span>MIPractice_case · example_5_meta_self_application_model_on_itself · ACRPD / IA reading</span>
+          <span>
+            Schema: MIPractice_case_v2.0_full_with_model_reference · stable · Model &amp; schema:
+            <a href="https://www.maturity-in-practice.com" target="_blank">maturity-in-practice.com</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,214 @@
+schema_version: "MIPractice_case_v2.0_full_with_model_reference"
+
+case:
+  meta:
+    case_id: "02_Blurry_Responsibility_Org"
+    case_title: "Blurry responsibility after a decision"
+    documentation_date: "2025-12-16"
+    analysts:
+      - name: "AI-assisted analyst"
+        role: "organisational observer"
+    language: "en"
+    confidentiality_level: "internal"
+    analysis_mode: "full"
+    interaction_profile:
+      reflection_mode: "off"
+      d_module_preference: "off"
+      output_format: "yaml"
+      discipline_profile: "organisation_leadership"
+    application_zone: "green"
+
+  guardrails:
+    focus_on_structures_not_persons: true
+    minimal_adulthood_of_actors_checked: true
+    analyst_self_implication_acknowledged: true
+    use_context:
+      clarified_roles: true
+      clarified_information_basis: true
+      clarified_analysis_purpose: true
+    dignity_protection:
+      ontological_dignity_D0_untouched: true
+      no_person_labels_from_D: true
+      tragedy_clause_considered: true
+      misuse_as_own_finding_acknowledged: true
+    D_module_default: "off"
+    trauma_neurodiversity_caution:
+      high_burden_state_present: false
+      if_true_D_used_only_as_strain_signal: false
+    publicity_and_power:
+      analysis_under_strong_power_asymmetry: true
+      if_true_extra_caution_applied: true
+    language_hygiene:
+      risk_danger_harm_potential_used_precisely: true
+      D_language_rules_applied: true
+    D_public_communication:
+      communication_spaces_differentiated: true
+      red_zones_respected: true
+
+  information_basis:
+    primary_material: "Organisational scenario: decision made in leadership circle, unclear follow-up."
+    secondary_material: "Generic organisational practices."
+    assumptions_and_inferences: >
+      Assumes a mid-sized organisation with distributed leadership and formal
+      decision-making bodies.
+    quality_and_limits:
+      coverage_estimate: "medium"
+      reliability_estimate: "medium"
+      known_gaps:
+        - "Exact decision protocol"
+        - "Written responsibility assignments"
+      main_bias_risks_here:
+        - "retrospective_blame_bias"
+        - "role_loyalty_bias"
+
+  snapshot:
+    short_case_description: >
+      A strategic decision is formally approved. In the aftermath, it becomes
+      unclear who is responsible for communication, implementation and follow-up.
+    central_actors_and_roles:
+      - "Leadership group – decision authority"
+      - "Operational managers – implementation role"
+    guiding_question: >
+      How does blurred responsibility after a decision affect maturity in
+      practice and structural asymmetry?
+
+  role_mapping:
+    object_of_observation:
+      type: "process"
+      label: "Post-decision responsibility diffusion"
+      description: "Decision-to-implementation transition in an organisation."
+    other_relevant_roles:
+      - role_label: "staff"
+        function: "affected recipients"
+        typical_asymmetries: "dependency on clear guidance"
+    analyst_role:
+      description: "External analytical lens for learning purposes."
+      power_position_reflection: "No operational authority."
+    publicity_degree: "institutional"
+
+  frame_vs_variability:
+    frame_elements: >
+      Organisational hierarchy, formal decision-making bodies, existing reporting lines.
+    variable_elements: >
+      Responsibility assignment, communication clarity, follow-up mechanisms.
+    unfair_high_M_zones: >
+      Expecting operational staff to compensate for missing leadership clarity.
+    misuse_of_system_as_excuse: >
+      Referring to ‘collective decisions’ to avoid individual responsibility.
+
+  acrpd_profile:
+    awareness:
+      real_knowledge_t: >
+        Decision-makers know the content of the decision and its strategic intent.
+      warning_signals_or_alt_info: >
+        Early signs of confusion about ownership and next steps.
+      presumed_blind_spots_or_role_confusion: >
+        Limited awareness of how ambiguity propagates downstream.
+    coherence:
+      official_narratives: >
+        Narrative of shared leadership and collective ownership.
+      visible_enactments: >
+        Lack of concrete task assignment and timelines.
+      word_deed_coherence_or_breaks: >
+        Gap between declared accountability and enacted diffusion.
+    responsibility:
+      central_responsibility_points: >
+        Moment of decision closure and handover to implementation.
+      patterns_of_taking_shifting_refusing: >
+        Responsibility is rhetorically shared but practically shifted.
+      consequences_for_affected_and_third_parties: >
+        Delays, frustration, and risk of inconsistent execution.
+    power:
+      formal_power_distribution: >
+        Leadership holds decision power; managers hold execution power.
+      factual_power_distribution: >
+        Implementation depends on informal initiative.
+      used_alternatives: >
+        Collective approval without explicit owner.
+      unused_or_blocked_alternatives: >
+        Naming a responsible lead with mandate and resources.
+    dignity_practice:
+      is_D_module_activated: false
+      brief_note_if_visible: >
+        Indirect dignity strain via uncertainty and exposure, not analysed here.
+
+  scores_and_ia:
+    A_band:
+      approx_range_0_to_10: "A ≈ 5–7/10"
+      justification_points:
+        - "High awareness at decision level."
+        - "Reduced awareness of downstream effects."
+        - "Partial recognition of responsibility gaps."
+    M_band:
+      approx_range_0_to_10: "M ≈ 6–8/10"
+      justification_points:
+        - "Decision-makers had power to assign responsibility."
+        - "Predictability of confusion was moderate to high."
+        - "Viable alternatives for clear ownership existed."
+    IA_box:
+      transparent:
+        fulfilled: "unclear"
+        justification: "Decision outcome clear, responsibility pathways not."
+      justified:
+        fulfilled: false
+        justification: "No justification for leaving responsibility diffuse."
+      time_bound:
+        fulfilled: false
+        justification: "Ambiguity persists beyond initial phase."
+      reversible:
+        fulfilled: true
+        justification: "Responsibility can still be clarified retroactively."
+      ia_summary_label: "inadult_asymmetry"
+
+  trajectory:
+    key_timepoints:
+      - label: "t0"
+        short_description: "Decision is made."
+        A_band_at_t: "≈6–7/10"
+        M_band_at_t: "≈7–8/10"
+      - label: "t1"
+        short_description: "Implementation phase begins with unclear ownership."
+        A_band_at_t: "≈5–6/10"
+        M_band_at_t: "≈6–7/10"
+      - label: "t2"
+        short_description: "Delays and confusion emerge."
+        A_band_at_t: "≈4–5/10"
+        M_band_at_t: "≈6/10"
+    course_in_words: >
+      The trajectory shows a decline in effective maturity after the decision,
+      driven by responsibility diffusion rather than lack of intent.
+    responsibility_viability_range: >
+      Responsibility remains viable at leadership level throughout the process.
+
+  transmission_check:
+    ready_for_structural_decisions: true
+    reasons_if_not: ""
+
+  uniform_report:
+    title: "Praxeological analysis of process: Blurry responsibility after a decision"
+    one_paragraph_overview: >
+      This case analyses an organisational process where a formal decision is
+      followed by diffuse responsibility for communication and implementation.
+      While awareness and authority are present at the decision point, the lack
+      of explicit ownership creates downstream asymmetries and coordination
+      problems.
+    key_findings_bullets:
+      - "Clear decision does not equal clear responsibility."
+      - "Awareness remains relatively high, while maturity declines through diffusion."
+      - "Asymmetry is not illegitimate per se, but becomes problematic over time."
+      - "Structural levers exist to restore clarity."
+    maturity_summary: >
+      In terms of maturity in practice, the case shows an initial adult enactment
+      that degrades into mixed maturity due to missing responsibility assignment.
+    ia_box_summary: >
+      The asymmetry lacks justification and time-boundedness, qualifying as an
+      inadult asymmetry that remains reversible.
+    trajectory_summary: >
+      Over time, the case moves from a high-maturity decision moment to a lower
+      maturity implementation phase marked by responsibility drift.
+    open_questions_summary: >
+      It remains unclear whether the diffusion was intentional, contested, or a
+      recurring organisational pattern.
+    conclusion: >
+      The model highlights that organisational maturity depends less on decision
+      quality alone than on sustained responsibility clarity across time.

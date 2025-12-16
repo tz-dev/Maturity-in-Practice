@@ -1,0 +1,199 @@
+schema_version: "MIPractice_case_v2.0_full_with_model_reference"
+
+case:
+  meta:
+    case_id: "01_Minimal_Public_Criticism"
+    case_title: "Public criticism in a team meeting"
+    documentation_date: "2025-12-16"
+    analysts:
+      - name: "AI-assisted analyst"
+        role: "facilitator"
+    language: "en"
+    confidentiality_level: "internal"
+    analysis_mode: "short"
+    interaction_profile:
+      reflection_mode: "off"
+      d_module_preference: "off"
+      output_format: "yaml"
+      discipline_profile: "organisation_leadership"
+    application_zone: "green"
+
+  guardrails:
+    focus_on_structures_not_persons: true
+    minimal_adulthood_of_actors_checked: true
+    analyst_self_implication_acknowledged: true
+    use_context:
+      clarified_roles: true
+      clarified_information_basis: true
+      clarified_analysis_purpose: true
+    dignity_protection:
+      ontological_dignity_D0_untouched: true
+      no_person_labels_from_D: true
+      tragedy_clause_considered: true
+      misuse_as_own_finding_acknowledged: true
+    D_module_default: "off"
+    trauma_neurodiversity_caution:
+      high_burden_state_present: false
+      if_true_D_used_only_as_strain_signal: false
+    publicity_and_power:
+      analysis_under_strong_power_asymmetry: true
+      if_true_extra_caution_applied: true
+    language_hygiene:
+      risk_danger_harm_potential_used_precisely: true
+      D_language_rules_applied: true
+    D_public_communication:
+      communication_spaces_differentiated: true
+      red_zones_respected: true
+
+  information_basis:
+    primary_material: "Short scenario description provided by user."
+    secondary_material: "None."
+    assumptions_and_inferences: "Assumes a regular internal team meeting with a manager–employee role asymmetry."
+    quality_and_limits:
+      coverage_estimate: "medium"
+      reliability_estimate: "medium"
+      known_gaps:
+        - "Exact wording of the criticism"
+        - "Prior feedback history"
+      main_bias_risks_here:
+        - "single_scene_bias"
+
+  snapshot:
+    short_case_description: >
+      During a team meeting, Person B publicly criticises Person A’s performance
+      in front of colleagues. The situation allows for alternative ways of giving
+      feedback.
+    central_actors_and_roles:
+      - "Person A – team member"
+      - "Person B – manager"
+    guiding_question: >
+      How does public criticism in this setting affect maturity in practice and
+      asymmetry legitimacy?
+
+  role_mapping:
+    object_of_observation:
+      type: "scene"
+      label: "Public criticism in team meeting"
+      description: "One feedback interaction in a routine organisational setting."
+    other_relevant_roles:
+      - role_label: "team"
+        function: "audience / indirect affected"
+        typical_asymmetries: "informational and reputational exposure"
+    analyst_role:
+      description: "External observer using a learning example."
+      power_position_reflection: "No decision power over actors."
+    publicity_degree: "institutional"
+
+  frame_vs_variability:
+    frame_elements: >
+      Organisational hierarchy, manager authority, meeting as a semi-public space.
+    variable_elements: >
+      Tone, timing, wording of feedback; choice between public vs. private setting.
+    unfair_high_M_zones: >
+      Expecting Person A to fully neutralise public criticism in the moment.
+    misuse_of_system_as_excuse: >
+      Using 'that’s how we do meetings here' to avoid reflecting on feedback style.
+
+  acrpd_profile:
+    awareness:
+      real_knowledge_t: "Manager knows criticism content and audience presence."
+      warning_signals_or_alt_info: "Possible awareness of reputational impact."
+      presumed_blind_spots_or_role_confusion: "Underestimation of public exposure effects."
+    coherence:
+      official_narratives: "Feedback is framed as performance improvement."
+      visible_enactments: "Direct public criticism during meeting."
+      word_deed_coherence_or_breaks: "Improvement goal vs. shaming risk tension."
+    responsibility:
+      central_responsibility_points: "Decision to criticise publicly."
+      patterns_of_taking_shifting_refusing: "Responsibility partially shifted to 'transparency'."
+      consequences_for_affected_and_third_parties: "Stress for Person A; signal to team."
+    power:
+      formal_power_distribution: "Manager holds evaluative authority."
+      factual_power_distribution: "Manager controls agenda and speaking turn."
+      used_alternatives: "Immediate public feedback."
+      unused_or_blocked_alternatives: "Private conversation after meeting."
+    dignity_practice:
+      is_D_module_activated: false
+      brief_note_if_visible: "Potential dignity strain implied, not analysed here."
+
+  scores_and_ia:
+    A_band:
+      approx_range_0_to_10: "A ≈ 4–6/10"
+      justification_points:
+        - "Awareness of content but limited awareness of public impact."
+        - "Role clarity present, context sensitivity partial."
+    M_band:
+      approx_range_0_to_10: "M ≈ 5–7/10"
+      justification_points:
+        - "Manager has knowledge and power to choose alternatives."
+        - "Predictability of reputational impact is moderate."
+        - "Alternative private feedback was available."
+    IA_box:
+      transparent:
+        fulfilled: true
+        justification: "Criticism is openly stated."
+      justified:
+        fulfilled: "unclear"
+        justification: "Justification for public setting not explicit."
+      time_bound:
+        fulfilled: true
+        justification: "Single meeting intervention."
+      reversible:
+        fulfilled: true
+        justification: "Feedback can be reframed or followed up privately."
+      ia_summary_label: "IA_risk"
+
+  trajectory:
+    key_timepoints:
+      - label: "t0"
+        short_description: "Before meeting."
+        A_band_at_t: "≈5/10"
+        M_band_at_t: "≈6/10"
+      - label: "t1"
+        short_description: "Public criticism occurs."
+        A_band_at_t: "≈4–5/10"
+        M_band_at_t: "≈5–6/10"
+      - label: "t2"
+        short_description: "Possible follow-up (private clarification)."
+        A_band_at_t: "≈6–7/10 (if chosen)"
+        M_band_at_t: "≈6–7/10"
+    course_in_words: >
+      The case hinges on a single decision point. A follow-up choice determines
+      whether the trajectory stabilises or escalates tension.
+    responsibility_viability_range: >
+      Responsibility is viable for the manager given available alternatives.
+
+  transmission_check:
+    ready_for_structural_decisions: false
+    reasons_if_not: "Didactic minimal example; not intended for policy change."
+
+  uniform_report:
+    title: "Praxeological analysis of scene: Public criticism in a team meeting"
+    one_paragraph_overview: >
+      This example examines a single feedback interaction in a team meeting where
+      a manager publicly criticises a team member. The focus lies on how awareness,
+      responsibility and power interact in a semi-public organisational setting.
+      The situation contains a clear decision point with available alternatives,
+      making it suitable for illustrating maturity in practice without judging
+      persons.
+    key_findings_bullets:
+      - "Moderate awareness with a blind spot regarding public impact."
+      - "Legitimate hierarchy combined with an avoidable exposure risk."
+      - "Asymmetry shows a manageable IA risk rather than a clear violation."
+      - "Trajectory depends on whether a corrective follow-up occurs."
+    maturity_summary: >
+      In terms of maturity in practice, the enactment is mixed and situational,
+      not fixed, with room for improvement through context-sensitive choices.
+    ia_box_summary: >
+      Structurally, the asymmetry is transparent and reversible, but only partially
+      justified in its public form, indicating an IA risk.
+    trajectory_summary: >
+      The case shifts from a neutral baseline to a tension point at the moment of
+      public criticism, with a potential recovery path through private clarification.
+    open_questions_summary: >
+      It remains open how the criticised person experienced the feedback and
+      whether similar patterns occur repeatedly.
+    conclusion: >
+      As a minimal entry case, this scene demonstrates how small choices in power
+      use and context can shift maturity trajectories without invoking deeper
+      diagnostic or dignity modules.

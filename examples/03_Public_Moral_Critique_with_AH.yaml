@@ -1,0 +1,288 @@
+schema_version: "MIPractice_case_v2.0_full_with_model_reference"
+
+case:
+  meta:
+    case_id: "03_Public_Moral_Critique_with_AH"
+    case_title: "Public moral criticism in media or social media"
+    documentation_date: "2025-12-16"
+    analysts:
+      - name: "AI-assisted analyst"
+        role: "public-communication observer"
+    language: "en"
+    confidentiality_level: "anonymised_public"
+    analysis_mode: "full"
+    interaction_profile:
+      reflection_mode: "off"
+      d_module_preference: "auto"
+      output_format: "yaml"
+      discipline_profile: "media_studies"
+    application_zone: "yellow"
+
+  guardrails:
+    focus_on_structures_not_persons: true
+    minimal_adulthood_of_actors_checked: true
+    analyst_self_implication_acknowledged: true
+    use_context:
+      clarified_roles: true
+      clarified_information_basis: true
+      clarified_analysis_purpose: true
+    dignity_protection:
+      ontological_dignity_D0_untouched: true
+      no_person_labels_from_D: true
+      tragedy_clause_considered: true
+      misuse_as_own_finding_acknowledged: true
+    D_module_default: "off"
+    trauma_neurodiversity_caution:
+      high_burden_state_present: false
+      if_true_D_used_only_as_strain_signal: false
+    publicity_and_power:
+      analysis_under_strong_power_asymmetry: true
+      if_true_extra_caution_applied: true
+    language_hygiene:
+      risk_danger_harm_potential_used_precisely: true
+      D_language_rules_applied: true
+    D_public_communication:
+      communication_spaces_differentiated: true
+      red_zones_respected: true
+
+  information_basis:
+    primary_material: >
+      Generic example of a public post or article criticising a public figure
+      using moralised labels (e.g. “toxic”, “irresponsible”).
+    secondary_material: >
+      Public discourse norms and typical social-media dynamics.
+    assumptions_and_inferences: >
+      Assumes high visibility, rapid amplification, and mixed audiences with
+      unequal interpretive power.
+    quality_and_limits:
+      coverage_estimate: "medium"
+      reliability_estimate: "medium"
+      known_gaps:
+        - "Exact original behaviour criticised"
+        - "Intent of critics"
+      main_bias_risks_here:
+        - "moral_hindsight_bias"
+        - "out_group_bias"
+        - "amplification_bias"
+
+  snapshot:
+    short_case_description: >
+      A public figure is morally criticised in media or social media using
+      evaluative labels that frame behaviour as a character flaw.
+    central_actors_and_roles:
+      - "Public figure – object of criticism"
+      - "Commentators / media actors – critics"
+      - "Audience – amplifying public"
+    guiding_question: >
+      How does public moral criticism shape asymmetry, maturity signals, and
+      dignity risks under conditions of high publicity?
+
+  role_mapping:
+    object_of_observation:
+      type: "public_discourse_event"
+      label: "Moralised public criticism"
+      description: "Media or social-media critique with moral loading."
+    other_relevant_roles:
+      - role_label: "platform"
+        function: "amplification infrastructure"
+        typical_asymmetries: "algorithmic reach, virality"
+    analyst_role:
+      description: "Analytical observer of public communication dynamics."
+      power_position_reflection: "Interpretive power without sanction authority."
+    publicity_degree: "media_amplified"
+
+  frame_vs_variability:
+    frame_elements: >
+      Platform logic, public visibility, irreversibility of exposure, audience
+      heterogeneity.
+    variable_elements: >
+      Choice of language, framing, proportionality, contextualisation.
+    unfair_high_M_zones: >
+      Expecting the criticised person to fully control narrative under viral spread.
+    misuse_of_system_as_excuse: >
+      Invoking “public interest” to justify unlimited moral escalation.
+
+  acrpd_profile:
+    awareness:
+      real_knowledge_t: >
+        Critics know the label used and its moral charge.
+      warning_signals_or_alt_info: >
+        Awareness of reputational impact is often implicit.
+      presumed_blind_spots_or_role_confusion: >
+        Confusion between behaviour critique and person-level attribution.
+    coherence:
+      official_narratives: >
+        Framed as holding someone accountable.
+      visible_enactments: >
+        Use of global moral labels detached from specific acts.
+      word_deed_coherence_or_breaks: >
+        Tension between accountability claim and reifying language.
+    responsibility:
+      central_responsibility_points: >
+        Decision to publish moralised critique in a public channel.
+      patterns_of_taking_shifting_refusing: >
+        Responsibility diffused across “the public” or “the discourse”.
+      consequences_for_affected_and_third_parties: >
+        Stigma risk for the individual; norm-setting effect for audience.
+    power:
+      formal_power_distribution: >
+        No formal authority, but high interpretive and reputational power.
+      factual_power_distribution: >
+        Collective amplification outweighs individual response capacity.
+      used_alternatives: >
+        Moralised public framing.
+      unused_or_blocked_alternatives: >
+        Behaviour-specific critique, contextual or private channels.
+    dignity_practice:
+      is_D_module_activated: false
+      brief_note_if_visible: >
+        High potential for dignity strain through public reification.
+
+  scores_and_ia:
+    A_band:
+      approx_range_0_to_10: "A ≈ 4–6/10"
+      justification_points:
+        - "Awareness of moral framing but limited scope discipline."
+        - "Context sensitivity uneven under amplification."
+    M_band:
+      approx_range_0_to_10: "M ≈ 4–6/10"
+      justification_points:
+        - "High impact with limited responsibility ownership."
+        - "Predictability of harm is moderate to high."
+        - "Alternatives exist but are often not used."
+    IA_box:
+      transparent:
+        fulfilled: true
+        justification: "Critique is publicly visible."
+      justified:
+        fulfilled: "unclear"
+        justification: "Moral escalation not clearly tied to necessity."
+      time_bound:
+        fulfilled: false
+        justification: "Public labels persist beyond the event."
+      reversible:
+        fulfilled: false
+        justification: "Reputational effects are hard to undo."
+      ia_summary_label: "IA_risk_under_public_pressure"
+
+  trajectory:
+    key_timepoints:
+      - label: "t0"
+        short_description: "Triggering behaviour or event."
+        A_band_at_t: "≈6/10"
+        M_band_at_t: "≈6/10"
+      - label: "t1"
+        short_description: "Public moral criticism goes viral."
+        A_band_at_t: "≈4–5/10"
+        M_band_at_t: "≈4–5/10"
+      - label: "t2"
+        short_description: "Stabilisation or escalation of discourse."
+        A_band_at_t: "≈4/10"
+        M_band_at_t: "≈4/10"
+    course_in_words: >
+      The trajectory shows rapid amplification that reduces controllability and
+      increases asymmetry, with limited recovery options once labels stabilise.
+    responsibility_viability_range: >
+      Individual responsibility is viable at publication, sharply reduced after
+      amplification.
+
+  ah_precision:
+    enabled: true
+    mode: "on"
+    PH_points_0_to_6: 3
+    PH_band: "mixed"
+    PH_checklist:
+      PD-1_term_definition: false
+      PD-2_scope_boundaries: true
+      PD-3_conditions_and_thresholds: false
+      PD-4_evidence_linking: true
+      PD-5_reversibility_clause: false
+      PD-6_language_hygiene: true
+
+    attack_surface_annotations:
+      - severity: "high"
+        title: "Moral loading without behavioural scope"
+        target_path: "acrpd_profile.coherence.visible_enactments"
+        note_type: "term_ambiguity"
+        message: "Global moral labels are used without act-level delimitation."
+        suggested_action: "Define behaviour-specific critique and exclude person-level scope."
+      - severity: "medium"
+        title: "Irreversibility under amplification"
+        target_path: "scores_and_ia.IA_box.reversible"
+        note_type: "missing_reversibility"
+        message: "Public framing lacks exit or correction path."
+        suggested_action: "Add explicit correction or update conditions."
+
+    hardening_actions:
+      - severity: "high"
+        action_type: "define_terms"
+        instruction: "Replace global moral labels with behaviour-bound descriptions."
+        linked_attack_ref: 0
+        expected_effect: "PH+1; IA.J more decidable; D-P risk down"
+      - severity: "medium"
+        action_type: "add_reversibility_clause"
+        instruction: "State conditions under which critique would be revised or withdrawn."
+        linked_attack_ref: 1
+        expected_effect: "PH+1; IA.R more decidable; dignity risk reduced"
+
+  transmission_check:
+    ready_for_structural_decisions: false
+    reasons_if_not: >
+      High publicity and unresolved precision risks; suitable for reflective
+      learning, not direct intervention.
+
+  uniform_report:
+    title: "Praxeological analysis of public discourse event: Moralised public criticism"
+    one_paragraph_overview: >
+      This case examines moralised public criticism of a public figure under
+      conditions of media amplification. The analysis focuses on how publicity
+      restructures power, responsibility and reversibility, increasing asymmetry
+      risks without resolving factual or ethical questions.
+    key_findings_bullets:
+      - "Publicity acts as a structural amplifier of asymmetry."
+      - "Moral labels blur behaviour critique and person attribution."
+      - "IA risks increase through lack of time-boundedness and reversibility."
+      - "Precision limits shape confidence in A and M readings."
+    maturity_summary: >
+      In terms of maturity in practice, the enactments show mixed awareness and
+      constrained responsibility under high-impact conditions.
+    ia_box_summary: >
+      The asymmetry is transparent but weakly justified and largely irreversible,
+      indicating elevated IA risk in public discourse.
+    trajectory_summary: >
+      The trajectory shifts rapidly once criticism becomes amplified, reducing
+      corrective options and stabilising moral frames.
+    open_questions_summary: >
+      It remains open how alternative framings would have altered the discourse
+      and whether de-escalation mechanisms were available.
+    conclusion: >
+      The case illustrates that in high-publicity contexts, analytical precision
+      and scope discipline are key structural levers to limit asymmetry and
+      dignity risks without deciding substantive moral disputes.
+
+    precision_score_summary: |
+      **Precision (PH):** mixed (3/6)
+      - Satisfied dimensions: 3/6
+      - Expected overlay: A mixed, C mixed, IA partial, D-R/D-P risk mixed
+
+    attack_surface_summary: |
+      **Attack Points (analysis vulnerabilities):**
+      - [high (structural vulnerability / likely misread)] Moral loading without behavioural scope
+        - Target: acrpd_profile.coherence.visible_enactments
+        - Type: term_ambiguity
+        - Note: Global moral labels are used without act-level delimitation.
+        - Suggested patch: Define behaviour-specific critique and exclude person-level scope.
+      - [medium (relevant uncertainty / visible leverage)] Irreversibility under amplification
+        - Target: scores_and_ia.IA_box.reversible
+        - Type: missing_reversibility
+        - Note: Public framing lacks exit or correction path.
+        - Suggested patch: Add explicit correction or update conditions.
+
+    hardening_actions_summary: |
+      **Hardening Backlog (next iteration):**
+      - [high (structural vulnerability / likely misread)] define_terms: Replace global moral labels with behaviour-bound descriptions.
+        - Linked to attack point: 0
+        - Expected effect: PH+1; IA.J more decidable; D-P risk down
+      - [medium (relevant uncertainty / visible leverage)] add_reversibility_clause: State conditions under which critique would be revised or withdrawn.
+        - Linked to attack point: 1
+        - Expected effect: PH+1; IA.R more decidable; dignity risk reduced

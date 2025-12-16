@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MIPractice – 04_Meta_Analysis_with_AH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      :root {
+        --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --font-mono: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --color-bg: #f6f6f8;
+        --color-card: #ffffff;
+        --color-border: #dde0e6;
+        --color-muted: #666;
+        --color-strong: #111;
+        --color-tag: #eef0f5;
+        --radius: 10px;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        padding: 32px;
+        background: radial-gradient(circle at top left, #f0f4ff, #f7f7fa);
+        font-family: var(--font-body);
+        color: var(--color-strong);
+      }
+
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+      }
+
+      .logo-line {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--color-muted);
+        margin-bottom: 12px;
+      }
+
+      .card {
+        background: var(--color-card);
+        border-radius: 16px;
+        border: 1px solid var(--color-border);
+        box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+        padding: 22px 24px 20px;
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 10px;
+      }
+
+      .title-block h1 {
+        font-size: 20px;
+        margin: 0 0 4px;
+      }
+
+      .title-block .subtitle {
+        font-size: 13px;
+        color: var(--color-muted);
+      }
+
+      .meta {
+        font-size: 12px;
+        color: var(--color-muted);
+        text-align: right;
+        white-space: nowrap;
+      }
+
+      .meta div { margin-bottom: 2px; }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 12px 0 8px;
+      }
+
+      .pill {
+        padding: 3px 9px;
+        border-radius: 999px;
+        font-size: 11px;
+        border: 1px solid #e0e3ec;
+        background: #f8f9fc;
+      }
+
+      .pill strong {
+        font-weight: 600;
+      }
+
+      .section-row {
+        display: grid;
+        grid-template-columns: minmax(0, 2.3fr) minmax(0, 1.7fr);
+        gap: 20px;
+        margin-top: 14px;
+      }
+
+      .section {
+        border-radius: var(--radius);
+        border: 1px solid var(--color-border);
+        padding: 10px 12px;
+        background: #fbfbfd;
+      }
+
+      .section h2 {
+        margin: 0 0 6px;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.13em;
+        color: var(--color-muted);
+      }
+
+      .section h3 {
+        font-size: 12px;
+        color: var(--color-strong);
+        margin: 10px 0 6px;
+      }
+
+      .section p {
+        margin: 0 0 6px;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .section ul {
+        margin: 4px 0 0 16px;
+        padding: 0;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .section li {
+        margin-bottom: 3px;
+      }
+
+      .mono {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        background: #f3f4f8;
+        padding: 1px 5px;
+        border-radius: 4px;
+      }
+
+      .ia-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+        margin-top: 4px;
+      }
+
+      .ia-chip {
+        border-radius: 8px;
+        border: 1px solid #e1e4ee;
+        padding: 5px 7px;
+        background: #f9f9ff;
+        font-size: 11px;
+      }
+
+      .ia-chip strong {
+        display: block;
+        font-size: 11px;
+        margin-bottom: 1px;
+      }
+
+      .footer-row {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+        gap: 20px;
+        margin-top: 14px;
+      }
+
+      .findings-list {
+        margin: 4px 0 0 16px;
+        padding: 0;
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      .findings-list li {
+        margin-bottom: 3px;
+      }
+
+      .next-step-box {
+        border-radius: var(--radius);
+        border: 1px dashed #cbd0e2;
+        background: #f7f8ff;
+        padding: 8px 10px;
+        font-size: 13px;
+      }
+      
+      .pagebreak {
+        page-break-before:always
+      }
+
+      #ah-precision-addon {
+        margin-top: 14px
+      }
+
+      .brand-line {
+        margin-top: 12px;
+        font-size: 11px;
+        color: var(--color-muted);
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .brand-line a {
+        color: var(--color-muted);
+        text-decoration: none;
+        border-bottom: 1px dotted rgba(148, 163, 184, 0.6);
+      }
+
+      @media (max-width: 720px) {
+        body { padding: 16px; }
+        .card-header { flex-direction: column; align-items: flex-start; }
+        .meta { text-align: left; }
+        .section-row, .footer-row {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .meta { white-space: normal; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="logo-line">
+        MIPractice_case · ACRPD / IA reading
+      </div>
+
+      <div class="card">
+
+        <div class="card-header">
+          <div class="title-block">
+            <h1>Analysis of an analysis (meta / expert case)</h1>
+            <div class="subtitle">
+              Meta case · analysis artifact as object · governance / transmission focus · AH addon primary
+            </div>
+          </div>
+
+          <div class="meta">
+            <div><strong>Date:</strong> 2025-12-16</div>
+            <div><strong>Language:</strong> en</div>
+            <div><strong>Confidentiality:</strong> internal</div>
+            <div><strong>Discipline profile:</strong> ai_governance</div>
+            <div><strong>Comm. space (D-module):</strong> off</div>
+          </div>
+        </div>
+
+        <div class="pill-row">
+          <div class="pill"><strong>Mode</strong> full</div>
+          <div class="pill"><strong>Reflection</strong> off</div>
+          <div class="pill"><strong>A-band</strong> ≈ 6–8 · adult-leaning</div>
+          <div class="pill"><strong>M-band (Artifact author(s) / commissioner interface)</strong> ≈ 7–9 · high</div>
+          <div class="pill"><strong>IA-Box</strong> → <span class="mono">IA_risk_via_transmission_pressure</span></div>
+          <div class="pill"><strong>D-module</strong> off · dignity handled structurally (language/transmission)</div>
+        </div>
+
+        <div class="section">
+          <h2>Input thesis &amp; information basis</h2>
+
+          <p><strong>Thesis (verbatim):</strong><br />
+            <span class="mono">A report/memo/commentary is assessed as an analysis artifact for governance safety.</span>
+          </p>
+
+          <p><strong>Minimal scene:</strong><br />
+            An existing report is treated as an analysis artifact and assessed for precision, scope discipline, evidence linking, reversibility and governance readiness—without deciding whether its substantive conclusion is correct.
+          </p>
+
+          <div class="two-col">
+            <div>
+              <p><strong>Observations (descriptive):</strong></p>
+              <ul>
+                <li>An analysis artifact contains claims, recommendations, and justificatory language.</li>
+                <li>Underlying case materials are only partially available to the meta-reader.</li>
+                <li>Institutional settings can treat the artifact as a proxy for the full evidence base.</li>
+                <li>Decision-use pathways can turn drafts into authoritative inputs (transmission pressure).</li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Assumptions / uncertainties:</strong></p>
+              <ul>
+                <li>Assumption: the artifact is being circulated in a governance context with real downstream impact.</li>
+                <li>Uncertainty: access to the full evidence base cited by the artifact is missing.</li>
+                <li>Uncertainty: author incentives, commissioning context, and decision-use pathway are not fully known.</li>
+                <li>Bias risks: document authority bias; framing bias; selection bias.</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="small-note">
+            <strong>Model note:</strong> This is a structural reading of enactments, roles and conditions — never a global claim about a person.
+          </p>
+        </div>
+
+        <div class="section" style="margin-top: 14px;">
+          <h2>Case snapshot</h2>
+          <p>
+            An existing report is treated as an analysis artifact and assessed for precision, scope discipline, evidence linking, reversibility and governance readiness—without deciding whether its substantive conclusion is correct.
+          </p>
+
+          <p><strong>Guiding question:</strong><br />
+            Is the analysis artifact structurally critique-ready, reversible, and safe to transmit into decision-making under MIPractice guardrails?
+          </p>
+
+          <div class="two-col">
+            <div>
+              <p><strong>Actors (roles only):</strong></p>
+              <ul>
+                <li><strong>Artifact author(s)</strong> – analyst role</li>
+                <li><strong>Commissioner / decision body</strong> – governance role</li>
+                <li><strong>Affected parties</strong> – recipients of consequences</li>
+                <li><strong>Reviewers</strong> – quality control / counter-reading</li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Context structures:</strong></p>
+              <ul>
+                <li>Governance setting with accountability requirements and decision timelines.</li>
+                <li>Confidentiality constraints limiting external critique.</li>
+                <li>Institutional tendency to compress “analysis” into “decision proxy”.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-row">
+          <div class="section">
+            <h2>Roles &amp; enactments</h2>
+            <p><strong>Roles:</strong></p>
+            <ul>
+              <li>Author(s) – produce claims and recommendations; shape interpretive frame</li>
+              <li>Commissioner / decision body – decides if/when the artifact becomes binding</li>
+              <li>Reviewers – provide counter-reading and critique (often time/mandate constrained)</li>
+              <li>Affected parties – bear consequences; often limited voice and delayed feedback loops</li>
+              <li>Method auditor (this analysis) – evaluates form and governance interface, not verdict</li>
+            </ul>
+
+            <p><strong>Observed / proposed enactments:</strong></p>
+            <ul>
+              <li>Observed enactment: linear narrative chain from problem to recommendation.</li>
+              <li>Observed enactment: some inference steps and uncertainty markings are implicit.</li>
+              <li>Viable alternative enactment: explicit scope boundaries, definitions, thresholds, and versioning.</li>
+              <li>Repair enactment option: review gate + correction loop before binding action.</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2>Structural conditions</h2>
+            <ul>
+              <li>Institutional authority increases perceived definitiveness of the artifact.</li>
+              <li>Readers may lack access to underlying sources and rely on the artifact as proxy.</li>
+              <li>Decision timeline pressures can reduce critique time and raise lock-in risk.</li>
+              <li>Accountability requirements demand explicit reversibility and review timing.</li>
+            </ul>
+            <p class="small-note">
+              Structures are not “excuses”; they are the action-constraints the model reads against.
+            </p>
+          </div>
+        </div>
+
+        <div class="section-row">
+
+          <div class="section">
+            <h2>ACRPD – structural reading</h2>
+
+            <p>
+              <strong>A – Awareness</strong>
+              <span class="mono">(A ≈ 6–8/10)</span><br />
+              High topic awareness and structured presentation; remaining risk: insufficient marking of observation vs inference and variable scope discipline depending on term definitions.
+            </p>
+
+            <p>
+              <strong>C – Coherence</strong>
+              <span class="mono">(high, with a rhetorical-risk note)</span><br />
+              Narrative is coherent, but coherence may become rhetorical if key terms, conditions, and uncertainty markings are not explicit.
+            </p>
+
+            <p>
+              <strong>R – Responsibility</strong>
+              <span class="mono">(high at transmission points)</span><br />
+              Central responsibility points: claim formulation, recommendation framing, and transmission into governance channels. Responsibility can be shifted to “the evidence” if inference steps are not documented.
+            </p>
+
+            <p>
+              <strong>P – Power / agency</strong>
+              <span class="mono">(high institutional influence)</span><br />
+              The artifact carries institutional decision influence; alternatives exist (review gates, counter-reading, explicit criteria, versioning), so responsibility viability is high at design and transmission stages.
+            </p>
+
+            <p>
+              <strong>D – Dignity in practice</strong>
+              <span class="mono">(not analysed; module off)</span><br />
+              D-module is not activated. Dignity risks are handled structurally via language hygiene and transmission safeguards (no person-level dignity readings).
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>IA-Box – asymmetry check</h2>
+
+            <div class="ia-grid">
+              <div class="ia-chip">
+                <strong>T · Tension</strong>
+                <span class="mono">fulfilled: unclear</span><br />
+                Conclusions are transparent, but inference steps are only partially transparent.
+              </div>
+              <div class="ia-chip">
+                <strong>J · Judgment</strong>
+                <span class="mono">fulfilled: unclear</span><br />
+                Justification strength depends on missing thresholds and incomplete evidence-linking visibility.
+              </div>
+              <div class="ia-chip">
+                <strong>TB · Toolbox</strong>
+                <span class="mono">fulfilled: false</span><br />
+                No explicit review date or sunset clause is stated for recommendations (not time-bounded).
+              </div>
+              <div class="ia-chip">
+                <strong>R · Repair</strong>
+                <span class="mono">fulfilled: unclear</span><br />
+                No specified reversal path; correction may rely on informal, ad hoc mechanisms.
+              </div>
+            </div>
+
+            <p style="margin-top:8px;">
+              <strong>IA summary:</strong><br />
+              The main asymmetry risk arises from transmission pressure: if inference transparency, review windows, and correction paths remain implicit, the artifact can become hard to justify and hard to reverse (<span class="mono">IA_risk_via_transmission_pressure</span>).
+            </p>
+          </div>
+        </div>
+
+        <div class="section-row">
+          <div class="section">
+            <h2>Trajectory</h2>
+            <p><strong>As observed:</strong><br />
+              t0 (draft circulation) → t1 (cited as basis for action) increases M sharply as the artifact becomes authoritative; maturity depends on whether governance adds review gates and correction channels.
+            </p>
+            <p><strong>Alternative trajectory:</strong><br />
+              If the artifact is treated as versioned and conditional (thresholds + review date + correction loop), t1 becomes a staged decision rather than lock-in, enabling a controlled t2 revision path.
+            </p>
+            <p><strong>Pivot point:</strong><br />
+              The pivot is the shift from “analysis draft” to “decision proxy” and whether a formal review/correction mechanism is installed at that transition.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Intervention levers</h2>
+            <ul>
+              <li>Add explicit definitions and scope exclusions (“what this report does not claim”).</li>
+              <li>Introduce if/then criteria and thresholds for recommendations (update triggers).</li>
+              <li>Separate observation vs inference per key claim cluster; attach evidence/uncertainty flags.</li>
+              <li>Implement review gate(s): time-bounded decision windows and re-check triggers.</li>
+              <li>Specify reversibility: correction channel, versioning, and withdrawal criteria.</li>
+              <li>Institutionalise counter-reading: reviewer roles, mandate, and a compact counter-reading section.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-row">
+          <div class="section">
+            <h2>Key findings</h2>
+            <ul class="findings-list">
+              <li>Coherent narrative can mask missing thresholds between analysis and recommendations.</li>
+              <li>Transmission turns the artifact into a decision proxy, raising responsibility stakes.</li>
+              <li>Reversibility and time-boundedness must be explicit to avoid lock-in.</li>
+              <li>AH Precision is primary: attack points and hardening steps are concrete and minimal.</li>
+            </ul>
+          </div>
+
+          <div class="next-step-box">
+            <strong>Conclusion for practice</strong><br />
+            Treat the artifact as a versioned, conditional governance input with explicit thresholds, review timing and correction channels, so it remains critique-ready rather than becoming an irreversible proxy.
+            <br /><br />
+            <strong>What would change this reading?</strong><br />
+            Full access to the underlying evidence base, commissioning context, and decision-use pathway (including reviewer mandate) would tighten evidence-linking judgments and reduce uncertainty about transmission risk.
+          </div>
+        </div>
+
+        <div class="pagebreak">
+        <div class="section" id="ah-precision-addon">
+          <h2>AH Precision Overlay (addon)</h2>
+
+          <div class="pill-row" style="margin-top:6px;">
+            <div class="pill">
+              <strong>Addon</strong> AH_precision
+            </div>
+            <div class="pill">
+              <strong>Precision</strong> <span class="mono">5/6 (high)</span>
+            </div>
+            <div class="pill">
+              <strong>Primary risks</strong> missing thresholds · implicit evidence chain · transmission pressure · missing counter-reading
+            </div>
+          </div>
+
+          <div class="two-col" style="margin-top:10px;">
+            <div>
+              <h3 style="margin:0 0 6px 0;">Attack surface map</h3>
+              <ul class="findings-list">
+                <li>
+                  <strong>AP-0</strong> <span class="mono">(high)</span> – Threshold gap between analysis and recommendation<br />
+                  <span class="small-note">
+                    <strong>Target:</strong> information_basis.assumptions_and_inferences ·
+                    <strong>Type:</strong> missing_conditions
+                  </span><br />
+                  Normative recommendations lack explicit if/then criteria or decision thresholds.<br />
+                  <span class="small-note"><strong>Hardening:</strong> Add explicit thresholds (what evidence/conditions would change the recommendation).</span>
+                </li>
+
+                <li>
+                  <strong>AP-1</strong> <span class="mono">(medium)</span> – Evidence chain partly implicit<br />
+                  <span class="small-note">
+                    <strong>Target:</strong> acrpd_profile.coherence.visible_enactments ·
+                    <strong>Type:</strong> evidence_gap
+                  </span><br />
+                  Some claims read as settled without linking to cited sources or stating uncertainty.<br />
+                  <span class="small-note"><strong>Hardening:</strong> Separate observation from interpretation and cite/flag uncertainty per claim cluster.</span>
+                </li>
+
+                <li>
+                  <strong>AP-2</strong> <span class="mono">(medium)</span> – Transmission pressure risk<br />
+                  <span class="small-note">
+                    <strong>Target:</strong> transmission_check ·
+                    <strong>Type:</strong> scope_leakage
+                  </span><br />
+                  Artifact may be used as a proxy for the full case file in governance discussions.<br />
+                  <span class="small-note"><strong>Hardening:</strong> Add a decision-use disclaimer and require a review gate before binding action.</span>
+                </li>
+
+                <li>
+                  <strong>AP-3</strong> <span class="mono">(low)</span> – Counter-reading not institutionalised<br />
+                  <span class="small-note">
+                    <strong>Target:</strong> biases_case_level.counter_reading_outline ·
+                    <strong>Type:</strong> counter_reading_missing
+                  </span><br />
+                  No formal counter-reading section or reviewer mandate is evident.<br />
+                  <span class="small-note"><strong>Hardening:</strong> Add a compact counter-reading paragraph and name reviewer roles.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 style="margin:0 0 6px 0;">Hardening actions</h3>
+              <ul>
+                <li>
+                  <strong>high</strong> – add_if_then_criteria: Define decision thresholds and update triggers for each recommendation.<br />
+                  <span class="small-note">
+                    <strong>Linked AP:</strong> 0 ·
+                    <strong>Expected effect:</strong> PH+1; IA.J more decidable; governance readiness up
+                  </span>
+                </li>
+
+                <li>
+                  <strong>medium</strong> – separate_observation_vs_evaluation: For each key claim, mark observation vs inference and attach evidence/uncertainty flag.<br />
+                  <span class="small-note">
+                    <strong>Linked AP:</strong> 1 ·
+                    <strong>Expected effect:</strong> PH stable/high; A/C confidence up; IA.T more decidable
+                  </span>
+                </li>
+
+                <li>
+                  <strong>medium</strong> – add_scope_statement: Add a front-matter decision-use disclaimer and a required review gate.<br />
+                  <span class="small-note">
+                    <strong>Linked AP:</strong> 2 ·
+                    <strong>Expected effect:</strong> PH stable/high; IA.R less risky; transmission safer
+                  </span>
+                </li>
+
+                <li>
+                  <strong>low</strong> – add_counter_reading: Insert a compact counter-reading section and name reviewer responsibilities.<br />
+                  <span class="small-note">
+                    <strong>Linked AP:</strong> 3 ·
+                    <strong>Expected effect:</strong> PH stable/high; bias risks reduced; critique-readiness up
+                  </span>
+                </li>
+              </ul>
+
+              <h3 style="margin:12px 0 6px 0;">Confidence &amp; risk shifts</h3>
+              <p class="small-note" style="margin:0;">
+                <strong>C:</strong> up<br />
+                <strong>IA:</strong> more_decidable<br />
+                <strong>D-R / D-P:</strong> down
+              </p>
+            </div>
+          </div>
+
+          <p class="small-note" style="margin-top:10px;">
+            <strong>Addon note:</strong> This overlay evaluates the analysis’ epistemic attack surface (scope, language drift, inference risk),
+            not the ontological value of persons.
+          </p>
+        </div>
+
+        <div class="brand-line">
+          <span>MIPractice_case · example_4_meta_analysis_of_analysis · ACRPD / IA reading</span>
+          <span>
+            Schema: MIPractice_case_v2.0_full_with_model_reference · stable · Model &amp; schema:
+            <a href="https://www.maturity-in-practice.com" target="_blank">maturity-in-practice.com</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
