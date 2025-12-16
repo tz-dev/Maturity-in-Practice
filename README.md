@@ -101,9 +101,9 @@ You do **not** need to understand the full specification before your first run.
 
 This repository contains the **official specification** for **Maturity in Practice / IA (inadult asymmetry)** — a praxeological framework for analysing enactments, maturity, responsibility, structural asymmetry and dignity in practice.
 
-The conceptual foundation of this model is presented in the book:
+The conceptual foundation of this model is presented in the book:  
 
-> **T. Zöller (2025): *Maturity in Practice – A Praxeological Anthropology***
+> **T. Zöller (2025): *Maturity in Practice – A Praxeological Anthropology***  
 > More information: [https://www.amazon.com/dp/B0G6G7V38P](https://www.amazon.com/dp/B0G6G7V38P)
 
 This repository includes:
@@ -213,7 +213,7 @@ All examples are available as **YAML + HTML + PDF**.
 
 This repository includes an optional addon:
 
-* **YAML addon contract:** `MIPractice_addon_AH_precision.yaml`
+* **YAML addon contract:** `MIPractice_addon_AH_precision.yaml`  
 * **Human spec (HTML/PDF):** `model specification/Maturity in Practice - AH Addon Specification.*`
 
 **AH = Attack Surface / Hardening**
