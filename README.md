@@ -10,18 +10,6 @@
 
 ---
 
-## Start here (10 minutes)
-
-If you want to *use* the model (not study it), start with the minimal example:
-
-1. Open: `examples/01_Minimal_Public_Criticism.html`
-2. Compare with its structured source: `examples/01_Minimal_Public_Criticism.yaml`
-3. To render your own case: copy `examples/00_Case Analysis Template.html` and replace placeholders (`{{…}}`) using a completed MIPractice case.
-
-**Tip (learning-by-doing):** run your first cases with an AI as a trainer: *reflection_mode off* → then *on*.
-
----
-
 ## 🔁 Typical usage workflow (recommended)
 
 MIPractice is designed to be **used iteratively**, ideally with an AI acting as a structured trainer.
