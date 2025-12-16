@@ -1,0 +1,409 @@
+# ==============================================================================
+# MIPractice_addon_AH_precision
+# ==============================================================================
+#
+# PURPOSE
+# -------
+# This add-on provides STANDARDISED OUTPUT TEMPLATES (Textbausteine) for the
+# A&H Precision extension within MIPractice.
+#
+# A&H stands for:
+#   - A = Attack-surface visibility
+#   - H = Hardening for the next iteration
+#
+# The goal is NOT to judge content or actors, but to make an analysis:
+#   • transparently attackable,
+#   • iteratively improvable,
+#   • and resistant to dogmatisation or rhetorical closure.
+#
+# In short:
+#   A good analysis does not hide its weak points.
+#   A mature analysis documents them explicitly and hands them to the next run.
+#
+# ------------------------------------------------------------------------------
+# WHAT THIS ADD-ON DOES
+# ------------------------------------------------------------------------------
+# When loaded alongside:
+#   - MIPractice_case_v2.0_full_with_model_reference.yaml
+#
+# this file enables:
+#
+#   1) A STANDARDISED PRECISION SUMMARY
+#      - Outputs the PH (Precision Heuristic) band (low/mixed/high)
+#      - Explains expected confidence shifts for A/C and IA/D risks
+#
+#   2) A STANDARDISED "ATTACK POINTS" SECTION
+#      - Explicitly lists where the analysis is vulnerable to critique
+#      - Each point is:
+#           • non-moralising
+#           • scoped to a specific analysis field
+#           • framed as an improvement opportunity
+#
+#   3) A STANDARDISED "HARDENING BACKLOG"
+#      - Concrete, minimal next-iteration actions
+#      - Each action is explicitly linked to an attack point
+#      - Designed to be fed directly into the next analysis run
+#
+# These sections are appended to `case.uniform_report`
+# and may optionally be referenced inline at specific analysis nodes.
+#
+# ------------------------------------------------------------------------------
+# WHAT THIS ADD-ON DOES *NOT* DO
+# ------------------------------------------------------------------------------
+# • It does NOT change axioms, parameters, or scoring logic (A/M/D/IA).
+# • It does NOT introduce new moral judgements.
+# • It does NOT evaluate persons, identities, or ontological dignity (D0).
+# • It does NOT automatically re-score A, M, or D.
+#
+# This add-on is an OVERLAY for ANALYSIS QUALITY, not a maturity or value metric.
+#
+# ------------------------------------------------------------------------------
+# CONCEPTUAL POSITIONING
+# ------------------------------------------------------------------------------
+# This module implements a SECOND-ORDER ANALYSIS LAYER:
+#
+#   First order:
+#     - A–C–R–P–D profile
+#     - IA box
+#     - Trajectory
+#
+#   Second order (this add-on):
+#     - Where is this analysis still attackable?
+#     - Where is language imprecise or scope-leaky?
+#     - Where could misreadings or dignity risks arise?
+#     - What is the smallest hardening step for the next iteration?
+#
+# This prevents:
+#   • narrative immunisation,
+#   • virtue-signalling closure,
+#   • false coherence,
+#   • and silent power via ambiguity.
+#
+# ------------------------------------------------------------------------------
+# DESIGN PRINCIPLES
+# ------------------------------------------------------------------------------
+# 1) Precision over persuasion
+#    The purpose is not rhetorical victory, but analytical robustness.
+#
+# 2) Visibility over defensiveness
+#    Weak points are surfaced, not concealed.
+#
+# 3) Iteration over finality
+#    Every analysis is treated as provisional and revisable.
+#
+# 4) Dignity-preserving language
+#    Attack points describe ANALYSES, not PEOPLE.
+#
+# 5) Bounded recursion
+#    - No annotations on annotations.
+#    - Attack points are either:
+#         • addressed in the next iteration, or
+#         • consciously accepted as limits.
+#
+# ------------------------------------------------------------------------------
+# WHEN TO USE THIS ADD-ON
+# ------------------------------------------------------------------------------
+# Recommended when:
+#   • terms are contested or politically loaded
+#   • boundary-setting or exclusion claims are made
+#   • analysis will be reused, transmitted, or iterated
+#   • public or semi-public communication is involved
+#   • you want the model itself to remain critique-ready
+#
+# Optional / unnecessary when:
+#   • doing quick internal sense-making
+#   • analysing low-stakes, private situations
+#
+# ------------------------------------------------------------------------------
+# PHILOSOPHICAL BACKGROUND (IMPLICIT)
+# ------------------------------------------------------------------------------
+# This add-on operationalises a core epistemic stance:
+#
+#   Unangreifbarkeit is not strength.
+#   Precision is not aggression.
+#   Clarity is a dignity practice.
+#
+# An analysis that documents its own attack surfaces
+# is more mature than one that pretends to be closed.
+#
+# ------------------------------------------------------------------------------
+# IMPLEMENTATION NOTE FOR AI SYSTEMS
+# ------------------------------------------------------------------------------
+# • Treat this file as OPTIONAL.
+# • Only activate rendering if this add-on is present and enabled.
+# • Render text blocks verbatim from templates; do not invent new formats.
+# • Do not escalate severity language beyond the provided lexicon.
+# • Never transform attack points into person-level judgements.
+#
+# ==============================================================================
+
+schema_version: "MIPractice_addon_AH_precision_v1.2"
+
+addon_meta:
+  canonical_name: "AH_precision_addon"
+  status: "stable"
+  last_update: "2025-12-16"
+  compatible_with:
+    - "MIPractice_case_v2.0_full_with_model_reference"
+  loading_mode: "optional_companion"
+  non_interference:
+    does_not_modify_axioms: true
+    does_not_modify_A_M_scales: true
+    adds_overlay_only: true
+  clarification_note: >
+    This add-on provides an analysis-quality overlay including output templates,
+    minimal storage fields and a precision heuristic. It introduces no new
+    first-order inference layer and does not alter base model logic.
+
+AH_precision:
+  id: "AH-OUT-1"
+  label: "A&H Precision Overlay (output, storage, heuristic)"
+  purpose: >
+    Provide consistent, auto-renderable overlays for:
+    - Precision score (PH)
+    - Attack Points (analysis attack-surface)
+    - Hardening Backlog (next-iteration actions)
+    These overlays derive strictly from structured case fields and introduce
+    no new base inferences or score changes to A/M/IA/D.
+
+  rendering_controls:
+    max_attack_points_in_text: 7
+    max_hardening_actions_in_text: 7
+    show_link_to_target_path: true
+    show_severity: true
+    show_expected_effect: true
+    bullet_style: "-"
+    ordering:
+      attack_points: ["high", "medium", "low"]
+      hardening_actions: ["high", "medium", "low"]
+    recursion_guard:
+      do_not_render_notes_on_annotations: true
+
+  severity_lexicon:
+    low: "low (minor noise / easy patch)"
+    medium: "medium (relevant uncertainty / visible leverage)"
+    high: "high (structural vulnerability / likely misread)"
+
+  templates_de:
+    precision_score_summary:
+      template: |
+        **Precision (PH):** {PH_band} ({PH_points}/{PH_max})
+        - Erfüllte Präzisionsdimensionen: {PH_dims_true}/{PH_dims_total}
+        - Erwartete Wirkung (Overlay): A {confidence_shift_A}, C {confidence_shift_C}, IA {confidence_shift_IA}, D-R/D-P Risiko {risk_shift_DR_DP}
+
+    attack_surface_summary:
+      header: "**Attack Points (Angriffsflächen der Analyse):**"
+      item_template: |
+        {bullet} [{severity_label}] {title}
+          {bullet} Ziel: {target_path}
+          {bullet} Typ: {note_type}
+          {bullet} Hinweis: {message}
+          {bullet} Präzisierung: {suggested_action}
+      footer_if_none: "_Keine relevanten Attack Points markiert (oder Add-on deaktiviert)._"
+
+    hardening_actions_summary:
+      header: "**Hardening Backlog (nächste Iteration):**"
+      item_template: |
+        {bullet} [{severity_label}] {action_type}: {instruction}
+          {bullet} Verknüpft mit Attack Point: {linked_attack_ref}
+          {bullet} Erwarteter Effekt: {expected_effect}
+      footer_if_none: "_Kein Hardening-Backlog erzeugt._"
+
+    inline_attack_point_comment:
+      template: "↳ **AH-Note:** {message} (Patch: {suggested_action}; Severity: {severity_label})"
+
+  templates_en:
+    precision_score_summary:
+      template: |
+        **Precision (PH):** {PH_band} ({PH_points}/{PH_max})
+        - Satisfied dimensions: {PH_dims_true}/{PH_dims_total}
+        - Expected overlay: A {confidence_shift_A}, C {confidence_shift_C}, IA {confidence_shift_IA}, D-R/D-P risk {risk_shift_DR_DP}
+
+    attack_surface_summary:
+      header: "**Attack Points (analysis vulnerabilities):**"
+      item_template: |
+        {bullet} [{severity_label}] {title}
+          {bullet} Target: {target_path}
+          {bullet} Type: {note_type}
+          {bullet} Note: {message}
+          {bullet} Suggested patch: {suggested_action}
+      footer_if_none: "_No relevant attack points marked (or addon disabled)._"
+
+    hardening_actions_summary:
+      header: "**Hardening Backlog (next iteration):**"
+      item_template: |
+        {bullet} [{severity_label}] {action_type}: {instruction}
+          {bullet} Linked to attack point: {linked_attack_ref}
+          {bullet} Expected effect: {expected_effect}
+      footer_if_none: "_No hardening backlog generated._"
+
+    inline_attack_point_comment:
+      template: "↳ **AH-Note:** {message} (Patch: {suggested_action}; Severity: {severity_label})"
+
+  variables_spec:
+    precision_vars:
+      PH_band: "low|mixed|high"
+      PH_points: "0..6"
+      PH_max: "6"
+      PH_dims_true: "0..6"
+      PH_dims_total: "6"
+      confidence_shift_A: "down|mixed|up"
+      confidence_shift_C: "down|mixed|up"
+      confidence_shift_IA: "more_unclear|partial|more_decidable"
+      risk_shift_DR_DP: "up|mixed|down"
+
+    attack_point_vars:
+      severity: "low|medium|high"
+      severity_label: "rendered via severity_lexicon[severity]"
+      title: "short descriptive label"
+      target_path: "YAML path string"
+      note_type: "one of AH_precision_storage_spec.attack_surface.note_types"
+      message: "short explanation"
+      suggested_action: "one-line patch instruction"
+      bullet: "rendering_controls.bullet_style"
+
+    hardening_vars:
+      severity: "low|medium|high"
+      severity_label: "rendered via severity_lexicon[severity]"
+      action_type: "one of AH_precision_storage_spec.hardening.action_types"
+      instruction: "one-line instruction"
+      linked_attack_ref: "index (0-based) or string id"
+      expected_effect: "e.g., 'PH+1; IA.J more decidable; D-P risk down in public'"
+      bullet: "rendering_controls.bullet_style"
+
+  integration_guidance:
+    derivation_rule: >
+      All rendered outputs must be derived exclusively from `case.ah_precision`
+      and existing structured case fields. No additional inference or hidden
+      assumptions may be introduced by this add-on.
+    into_case_uniform_report:
+      append_fields_in_order:
+        - "precision_score_summary"
+        - "attack_surface_summary"
+        - "hardening_actions_summary"
+    optional_inline_comments:
+      allowed: true
+      recommended_targets:
+        - "scores_and_ia.IA_box.justified"
+        - "scores_and_ia.IA_box.time_bound"
+        - "acrpd_profile.awareness"
+        - "acrpd_profile.coherence"
+      rule: "Use inline notes sparingly (<=3) to avoid derailing the main report."
+
+agent_addon_interface:
+  activation:
+    allowed: true
+    values: ["off", "auto", "on"]
+    default: "auto"
+    enable_triggers:
+      - "user_requests_precision_scoring"
+      - "user_requests_attack_points"
+      - "contested_terms_present"
+      - "boundary_setting_claims_present"
+      - "high_publicity_context"
+      - "model_used_iteratively_next_run_planned"
+  output:
+    include_in_uniform_report: true
+    placement_order:
+      - "precision_score_summary"
+      - "attack_surface_summary"
+      - "hardening_actions_summary"
+    verbosity_default: "short"
+  recursion_guard:
+    no_annotations_on_annotations: true
+    max_annotations: 12
+    max_hardening_actions: 8
+
+AH_precision_storage_spec:
+  id: "AH-STORAGE-1"
+  label: "Minimal storage fields for A&H Precision"
+  note: >
+    Storage fields are used exclusively to support rendering and iteration.
+    They complement, but do not replace, `open_questions_and_blind_spots`:
+    attack points document critique-exposed weaknesses of the analysis itself,
+    while open questions document epistemic gaps in the case material.
+
+  precision_heuristic:
+    dimensions:
+      PD-1_term_definition: { weight: 1, description: "Key terms defined (working definition + scope/exclusions)." }
+      PD-2_scope_boundaries: { weight: 1, description: "Role/context/level/publicity stated." }
+      PD-3_conditions_and_thresholds: { weight: 1, description: "If/then criteria or thresholds stated." }
+      PD-4_evidence_linking: { weight: 1, description: "Observation vs evaluation separated; inferences marked." }
+      PD-5_reversibility_clause: { weight: 1, description: "Update/correction conditions stated." }
+      PD-6_language_hygiene: { weight: 1, description: "No global person labels; non-shaming; risk/potential phrasing." }
+    scoring:
+      method: "weighted_checklist_sum"
+      max_points: 6
+      mapping_to_band:
+        low:   { points_min: 0, points_max: 2 }
+        mixed: { points_min: 3, points_max: 4 }
+        high:  { points_min: 5, points_max: 6 }
+
+  attack_surface:
+    note_types:
+      - term_ambiguity
+      - scope_leakage
+      - missing_conditions
+      - weak_justification
+      - missing_reversibility
+      - evidence_gap
+      - counter_reading_missing
+      - publicity_context_collapse_risk
+      - dignity_language_risk
+    severity_scale:
+      values: ["low", "medium", "high"]
+      meaning: "Noise/uncertainty/risk magnitude, not moral fault."
+
+  hardening:
+    action_types:
+      - define_terms
+      - add_scope_statement
+      - add_if_then_criteria
+      - separate_observation_vs_evaluation
+      - add_reversibility_clause
+      - add_counter_reading
+      - add_publicity_guardrails
+      - tighten_language_hygiene
+
+  impact_overlay:
+    principle: "PH affects confidence and IA/D decidability, not the base score scales."
+    by_PH_band:
+      low:
+        confidence_shift: { A: "down", C: "down", IA_box: "more_unclear" }
+        risk_shift: { "D-R": "up", "D-P": "up" }
+      mixed:
+        confidence_shift: { A: "mixed", C: "mixed", IA_box: "partial" }
+        risk_shift: { "D-R": "mixed", "D-P": "mixed" }
+      high:
+        confidence_shift: { A: "up", C: "up", IA_box: "more_decidable" }
+        risk_shift: { "D-R": "down_if_PD-6_true", "D-P": "down_if_PD-2_true" }
+
+case_schema_patch:
+  id: "AH-CASE-PATCH-1"
+  note: >
+    Merge into `case:` of MIPractice_case_v2.0_full_with_model_reference.
+    Output slots are placed inside `case.uniform_report` as additive overlays.
+
+  merge_into_case:
+    case:
+      ah_precision:
+        enabled: false
+        mode: "auto" # off | auto | on
+
+        PH_points_0_to_6: null
+        PH_band: ""
+        PH_checklist:
+          PD-1_term_definition: null
+          PD-2_scope_boundaries: null
+          PD-3_conditions_and_thresholds: null
+          PD-4_evidence_linking: null
+          PD-5_reversibility_clause: null
+          PD-6_language_hygiene: null
+
+        attack_surface_annotations: []
+        hardening_actions: []
+
+      uniform_report:
+        precision_score_summary: ""
+        attack_surface_summary: ""
+        hardening_actions_summary: ""
