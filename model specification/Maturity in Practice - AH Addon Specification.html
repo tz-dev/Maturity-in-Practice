@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Maturity in Practice - Attack Surface/Hardening Addon Specification</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      :root {
+        --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --font-mono: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --color-text: #111;
+        --color-muted: #555;
+        --color-accent: #333;
+        --color-border: #ddd;
+        --color-bg: #fafafa;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: var(--font-body);
+        color: var(--color-text);
+        background: white;
+        line-height: 1.5;
+        font-size: 14px;
+      }
+
+      blockquote {
+        margin: 0 0 16px;
+        padding: 0 1em;
+        color: #57606a;
+        border-left: 0.25em solid #d0d7de;
+      }
+
+      .page {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 32px 24px 64px;
+        background: white;
+      }
+
+      header {
+        border-bottom: 1px solid var(--color-border);
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+      }
+
+      header h1 {
+        font-size: 1.9rem;
+        margin: 0 0 8px;
+        letter-spacing: 0.02em;
+      }
+
+      header .subtitle {
+        font-size: 0.95rem;
+        color: var(--color-muted);
+        margin-bottom: 8px;
+      }
+
+      header .meta {
+        font-size: 0.8rem;
+        color: var(--color-muted);
+      }
+
+      h2 {
+        margin-top: 20px;
+        margin-bottom: 4px;
+        font-size: 1.15rem;
+        border-bottom: 1px solid var(--color-border);
+        padding-bottom: 4px;
+      }
+
+      h3 {
+        margin-top: 18px;
+        margin-bottom: 4px;
+        font-size: 1rem;
+        color: var(--color-accent);
+      }
+
+      p {
+        margin: 4px 0 8px;
+      }
+
+      ul {
+        margin: 4px 0 10px 1.2rem;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 3px;
+      }
+
+      .code-inline {
+        font-family: var(--font-mono);
+        font-size: 0.9em;
+        background: #f5f5f5;
+        padding: 1px 4px;
+        border-radius: 3px;
+      }
+
+      .box {
+        border: 1px solid var(--color-border);
+        border-radius: 4px;
+        padding: 8px 10px;
+        background: #fcfcfc;
+        margin: 8px 0 12px;
+        line-height: 1.05em;
+      }
+
+      .box-title {
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 4px;
+      }
+
+      .small {
+        font-size: 0.85rem;
+        color: var(--color-muted);
+      }
+
+      .two-column {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .two-column > div {
+        flex: 1 1 260px;
+        min-width: 0;
+      }
+
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 8px 0 12px;
+        font-size: 0.77rem;
+        line-height: 1.2em;
+      }
+
+      .table th,
+      .table td {
+        border: 1px solid var(--color-border);
+        padding: 4px 6px;
+        vertical-align: top;
+      }
+
+      .table th {
+        background: #f5f5f5;
+        font-weight: 600;
+      }
+
+      .tag {
+        display: inline-block;
+        border-radius: 999px;
+        border: 1px solid var(--color-border);
+        padding: 1px 8px;
+        font-size: 0.75rem;
+        margin-right: 4px;
+        margin-bottom: 3px;
+      }
+
+      .placeholder {
+        font-style: italic;
+        color: var(--color-muted);
+      }
+
+      .pagebreak{
+        page-break-before:always
+      }
+
+      @media print {
+        body {
+          background: white;
+        }
+        .page {
+          box-shadow: none;
+          padding: 24px 18px;
+        }
+        a[href]:after {
+          content: "";
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+
+      <header>
+        <h1>MIPractice – Attack Surface/Hardening Precision Addon Specification</h1>
+        <div class="subtitle">
+          Epistemic attack-surface analysis for MIPractice case outputs
+        </div>
+        <div class="meta">
+          Version: 1.0 · Status: Optional addon (default off)<br/>
+          Spec basis: <span class="code-inline">MIPractice_addon_AH_precision.yaml</span><br/>
+          Relation: Secondary overlay for <span class="code-inline">MIPractice_case_v2.0</span><br/>
+          Author: T. Zöller · Language: EN · Governance-aligned
+        </div>
+      </header>
+
+      <!-- 1. Purpose & Scope -->
+      <section>
+        <h2>1. Purpose and scope</h2>
+        <p>
+          The <strong>AH Precision Addon</strong> (Attack Surface/Hardening) is an <em>optional epistemic overlay</em> for
+          MIPractice case analyses.  
+          Its sole purpose is to evaluate the <strong>analysis itself</strong> for
+          precision risks, overreach, ambiguity and misuse potential.
+        </p>
+
+        <ul>
+          <li>It does <strong>not</strong> analyse persons.</li>
+          <li>It does <strong>not</strong> analyse enactments.</li>
+          <li>It does <strong>not</strong> modify A-, M-, IA- or D-results.</li>
+          <li>It analyses the <strong>language, scope and inference structure</strong> of an existing analysis.</li>
+        </ul>
+
+        <div class="box">
+          <div class="box-title">Core idea</div>
+          <p class="small">
+            The AH addon treats an analysis as an artefact with its own
+            <em>attack surface</em>.  
+            It makes visible where an otherwise valid MIPractice analysis
+            may become vulnerable to misinterpretation, moral drift,
+            reification or instrumental misuse.
+          </p>
+        </div>
+      </section>
+
+      <!-- 2. Conceptual position -->
+      <section>
+        <h2>2. Conceptual position within MIPractice</h2>
+
+        <p>
+          The AH Precision Addon is <strong>not a model extension</strong>.
+          It is a <strong>meta-analytic discipline layer</strong>.
+        </p>
+
+        <div class="two-column">
+          <div class="box">
+            <div class="box-title">MIPractice core model</div>
+            <ul class="small">
+              <li>Reads enactments, roles and structures</li>
+              <li>Produces A–C–R–P–D profiles</li>
+              <li>Evaluates asymmetry via IA-box</li>
+              <li>Documents trajectories and practice conclusions</li>
+            </ul>
+          </div>
+
+          <div class="box">
+            <div class="box-title">AH Precision addon</div>
+            <ul class="small">
+              <li>Reads wording, scope and inference</li>
+              <li>Flags epistemic risk points</li>
+              <li>Suggests hardening actions</li>
+              <li>Protects reversibility and dignity of interpretation</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="small">
+          A MIPractice analysis remains <strong>fully valid</strong> without the addon.
+          The addon only adds <em>precision transparency</em>.
+        </p>
+      </section>
+
+      <!-- 3. Activation & integration -->
+      <section>
+        <h2>3. Activation and integration</h2>
+
+        <h3>3.1 Default state</h3>
+        <p>
+          The AH Precision Addon is <strong>default off</strong>.
+          It may only be used <em>after</em> a complete MIPractice analysis exists.
+        </p>
+
+        <h3>3.2 Integration points</h3>
+        <ul>
+          <li><span class="code-inline">case.addons.ah_precision</span></li>
+          <li><span class="code-inline">uniform_report.addons.ah_precision</span></li>
+        </ul>
+
+        <p>
+          Integration rules:
+        </p>
+        <ul>
+          <li>additive only (no overwrite)</li>
+          <li>no mutation of scores or IA labels</li>
+          <li>removable without loss of analytical validity</li>
+        </ul>
+      </section>
+
+      <!-- 4. Core concepts -->
+      <section>
+        <h2>4. Core concepts</h2>
+
+        <h3>4.1 Attack surface</h3>
+        <p>
+          The <strong>attack surface</strong> of an analysis is the set of points
+          where its interpretation may be distorted, misused or overextended.
+        </p>
+
+        <h3>4.2 Attack point (AP)</h3>
+        <p>
+          An <strong>attack point</strong> marks a concrete risk location in the analysis,
+          such as:
+        </p>
+        <ul>
+          <li>scope drift (overgeneralisation)</li>
+          <li>moral loading (normative phrasing)</li>
+          <li>trigger ambiguity</li>
+          <li>evidence gaps</li>
+          <li>reification risk</li>
+        </ul>
+
+        <h3>4.3 Hardening action</h3>
+        <p>
+          A <strong>hardening action</strong> is a suggested modification that
+          increases epistemic robustness without changing the substantive finding.
+        </p>
+      </section>
+
+      <!-- 5. Output contract -->
+      <section>
+        <h2>5. Output contract</h2>
+
+        <p>
+          When the addon is active, the following outputs are required:
+        </p>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>precision_score</td>
+              <td>Approximate epistemic robustness (band or qualitative)</td>
+            </tr>
+            <tr>
+              <td>attack_points[]</td>
+              <td>Structured list of identified attack points</td>
+            </tr>
+            <tr>
+              <td>hardening_actions[]</td>
+              <td>Linked mitigation or clarification suggestions</td>
+            </tr>
+            <tr>
+              <td>confidence_and_risk_shifts</td>
+              <td>Observed stability shifts in C / IA / D-risk</td>
+            </tr>
+            <tr>
+              <td>addon_note</td>
+              <td>Mandatory disclaimer clarifying addon scope</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 6. Guardrails -->
+      <section>
+        <h2>6. Guardrails for the AH addon</h2>
+
+        <ul>
+          <li>AH findings are never judgments of persons or actions.</li>
+          <li>AH may not be used standalone.</li>
+          <li>AH may not reinterpret A/M/IA scores.</li>
+          <li>AH must preserve reversibility of all readings.</li>
+          <li>AH may not be used for ranking, sanctioning or shaming.</li>
+        </ul>
+
+        <div class="box">
+          <div class="box-title">Meta-guardrail</div>
+          <p class="small">
+            If the AH addon itself becomes a source of authority,
+            moralisation or closure, its use constitutes an epistemic
+            violation within MIPractice logic.
+          </p>
+        </div>
+      </section>
+
+      <!-- 7. Relationship to dignity -->
+      <section>
+        <h2>7. Relationship to dignity</h2>
+
+        <p>
+          The AH Precision Addon does not assess dignity.
+          Its function is <strong>preventive</strong>:
+        </p>
+
+        <ul>
+          <li>to reduce dignity-risk by avoiding overreach,</li>
+          <li>to keep interpretations contextual and reversible,</li>
+          <li>to prevent analytic language from turning into implicit verdicts.</li>
+        </ul>
+
+        <p class="small">
+          In this sense, AH acts as an epistemic analogue
+          to D₀-guardrails — protecting persons by disciplining analysis.
+        </p>
+      </section>
+
+      <!-- 8. Intended use & misuse -->
+      <section>
+        <h2>8. Intended use and misuse</h2>
+
+        <p><strong>Intended use:</strong></p>
+        <ul>
+          <li>research transparency</li>
+          <li>AI governance and auditing</li>
+          <li>high-stakes organisational analysis</li>
+          <li>publication-ready MIPractice cases</li>
+        </ul>
+
+        <p><strong>Not intended for:</strong></p>
+        <ul>
+          <li>case evaluation without core analysis</li>
+          <li>grading or scoring persons</li>
+          <li>weaponised critique of analysts</li>
+          <li>automated decision enforcement</li>
+        </ul>
+      </section>
+
+      <!-- 9. Closing -->
+      <section>
+        <h2>9. Closing note</h2>
+
+        <p>
+          The AH Precision Addon formalises a simple principle:
+        </p>
+
+        <blockquote>
+          The more powerful an analysis becomes,
+          the more disciplined its language must be.
+        </blockquote>
+
+        <p class="small">
+          Used correctly, the addon does not weaken MIPractice analyses —
+          it makes them safer, clearer and more defensible.
+        </p>
+      </section>
+
+    </div>
+  </body>
+
+</html>
