@@ -2,9 +2,9 @@
 
 ### A praxeological framework for maturity, responsibility, asymmetry & dignity in practice
 
-**Version:** 2.0
-**Author:** T. Zöller
-**Status:** Public model specification
+**Version:** 2.0  
+**Author:** T. Zöller  
+**Status:** Public model specification  
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17897159.svg)](https://doi.org/10.5281/zenodo.17897159)
 
@@ -14,20 +14,20 @@
 
 This repository contains the **official specification** for **Maturity in Practice / IA (inadult asymmetry)** — a praxeological framework for analysing enactments, maturity, responsibility, structural asymmetry and dignity in practice.
 
-The conceptual foundation of this model is presented in the book:  
+The conceptual foundation of this model is presented in the book:
 
 > **T. Zöller (2025): *Maturity in Practice – A Praxeological Anthropology***  
-> More information: [https://www.amazon.com/dp/B0G6G7V38P](https://www.amazon.com/dp/B0G6G7V38P)
+> (See **Links & Resources** below.)
 
 This repository includes:
 
-* the **full technical model specification** (HTML & PDF)
-* the **canonical YAML schema** (model + case structure)
-* several **worked example cases** (HTML, PDF, YAML)
-* a **generic case analysis HTML template**
-* the **license files** for code and model content
-* an **optional addon** for epistemic precision & misuse resistance (AH Precision)
-* an optional **AI agent** that can load and apply the model interactively (see below)
+- the **full technical model specification** (HTML & PDF)
+- the **canonical YAML schema** (model + case structure)
+- several **worked example cases** (HTML, PDF, YAML)
+- a **generic case analysis HTML template**
+- the **license files** for code and model content
+- an **optional addon** for epistemic precision & misuse resistance (AH Precision)
+- an optional **AI agent** that can load and apply the model interactively (see below)
 
 Together, these files form the authoritative public definition of the IA / ACRPD (`MIPractice_case`) model and its optional AH addon.
 
@@ -35,23 +35,22 @@ Together, these files form the authoritative public definition of the IA / ACRPD
 
 ## 🧭 What is this model for?
 
-MIPractice / IA is a **praxeological analysis framework** for situations where
-questions of maturity, responsibility and dignity arise **in action**, not in abstract ideals.
+MIPractice / IA is a **praxeological analysis framework** for situations where questions of maturity, responsibility and dignity arise **in action**, not in abstract ideals.
 
-It is designed for cases where:  
+It is designed for cases where:
 - actions unfold under **real constraints** (time pressure, power asymmetries, role ambiguity),
 - responsibility is **distributed or unclear**,
 - moral language is present but **insufficient** to understand what is actually happening,
 - and outcomes depend on how people act **within structures**, not just on intentions.
 
-The model helps to:  
+The model helps to:
 - make **enactments** readable instead of judging persons,
 - analyse responsibility **without collapsing into blame or excuse**,
 - detect **asymmetries** that distort agency or accountability,
 - keep **dignity protected** while still enabling critical analysis,
 - and support **learning, repair and improvement**, not verdicts.
 
-Typical application contexts include:  
+Typical application contexts include:
 - organisational decision-making and leadership situations,
 - professional reflection and supervision,
 - analysis of public discourse and moral critique,
@@ -61,103 +60,86 @@ Typical application contexts include:
 MIPractice / IA is **not** a diagnostic, therapeutic or evaluative scoring system.  
 It does not rank people, assign moral worth, or replace professional judgement.
 
-Its purpose is to provide a **structured, reversible and misuse-resistant way**
-to understand what is happening in complex human action — and what could be done differently.
+Its purpose is to provide a **structured, reversible and misuse-resistant way** to understand what is happening in complex human action — and what could be done differently.
 
-It is **not** designed for (red zones):  
-
-* clinical diagnosis
-* forensics
-* individual HR decisions
-* child diagnostics
-* public ranking / pillorying
+It is **not** designed for (red zones):
+- clinical diagnosis
+- forensics
+- individual HR decisions
+- child diagnostics
+- public ranking / pillorying
 
 ---
 
 ## 🔁 Typical usage workflow (recommended)
 
-MIPractice is designed to be **used iteratively**, ideally with an AI acting as a structured trainer.
-You do **not** need to understand the full specification before your first run.
+MIPractice is designed to be **used iteratively**, ideally with an AI acting as a structured trainer. You do **not** need to understand the full specification before your first run.
 
 ### Step 1 – First structural pass (core model)
 
 **Input:**
-
-* Upload `MIPractice_case_v2.0_full_with_model_reference.yaml`
-* Provide a short thesis or scenario (plain text is sufficient)
+- Upload `MIPractice_case_v2.0_full_with_model_reference.yaml`
+- Provide a short thesis or scenario (plain text is sufficient)
 
 **Recommended settings:**
-
-* `reflection_mode: off`
-* `analysis_mode: full` (or `short` for quick orientation; `ultra_short` for a first glance)
-* `output_format: text`
+- `reflection_mode: off`
+- `analysis_mode: full` (or `short` for quick orientation; `ultra_short` for a first glance)
+- `output_format: text`
 
 **Goal:**
-
-* Get a clear structural reading (A–C–R–P–D, IA-box, trajectory)
-* Identify roles, asymmetries and responsibility patterns
+- Get a clear structural reading (A–C–R–P–D, IA-box, trajectory)
+- Identify roles, asymmetries and responsibility patterns
 
 ### Step 2 – Guided refinement (learning & clarification)
 
 **Action:**
-
-* Re-run the case with `reflection_mode: on`
+- Re-run the case with `reflection_mode: on`
 
 **What happens:**
-
-* The AI asks clarifying questions
-* Assumptions, blind spots and scope limits become explicit
+- The AI asks clarifying questions
+- Assumptions, blind spots and scope limits become explicit
 
 **Goal:**
-
-* Improve the quality of the case description
-* Learn the model by doing, not by reading theory
+- Improve the quality of the case description
+- Learn the model by doing, not by reading theory
 
 ### Step 3 – Precision & hardening (optional, recommended for publication)
 
 **Additional input:**
-
-* Also upload `MIPractice_addon_AH_precision.yaml`
+- Also upload `MIPractice_addon_AH_precision.yaml`
 
 **Action:**
-
-* Run the AH Precision addon on the completed analysis
+- Run the AH Precision addon on the completed analysis
 
 **What AH does:**
-
-* Evaluates the **analysis artefact itself**, not the case
-* Flags scope drift, moral loading, trigger ambiguity, evidence gaps, and reification/misuse risks
+- Evaluates the **analysis artefact itself**, not the case
+- Flags scope drift, moral loading, trigger ambiguity, evidence gaps, and reification/misuse risks
 
 **Goal:**
-
-* Increase epistemic robustness
-* Make the analysis safer for external use
+- Increase epistemic robustness
+- Make the analysis safer for external use
 
 ### Step 4 – Re-run with a refined thesis (recommended)
 
 **Action:**
-
-* Adjust thesis wording, scene description and scope limitations based on AH output
-* Re-run the **core MIPractice analysis** with the refined input
+- Adjust thesis wording, scene description and scope limitations based on AH output
+- Re-run the **core MIPractice analysis** with the refined input
 
 **Result:**
+- More precise findings
+- Clearer boundaries and better justifications
 
-* More precise findings
-* Clearer boundaries and better justifications
-
-> **Important:** AH is not a verdict.
+> **Important:** AH is not a verdict.  
 > It is a **development and precision layer** that supports re-runs and refinement cycles.
 
 ### Step 5 – Rendering & sharing
 
 **Action:**
-
-* Insert the final case output into `examples/00_Case Analysis Template.html`
+- Insert the final case output into `examples/00_Case Analysis Template.html`
 
 **Result:**
-
-* Clean, printable HTML / PDF
-* Optional AH section automatically visible if addon output exists
+- Clean, printable HTML / PDF
+- Optional AH section automatically visible if addon output exists
 
 ---
 
@@ -192,7 +174,7 @@ You do **not** need to understand the full specification before your first run.
 ├── MIPractice_case_v2.0_full_with_model_reference.yaml
 ├── MIPractice_addon_AH_precision.yaml
 └── README.md
-```
+````
 
 ### What each top-level file does (short)
 
@@ -235,7 +217,7 @@ All examples are available as **YAML + HTML + PDF**.
 
 This repository includes an optional addon:
 
-* **YAML addon contract:** `MIPractice_addon_AH_precision.yaml`  
+* **YAML addon contract:** `MIPractice_addon_AH_precision.yaml`
 * **Human spec (HTML/PDF):** `model specification/Maturity in Practice - AH Addon Specification.*`
 
 **AH = Attack Surface / Hardening**
@@ -281,11 +263,7 @@ AH is intentionally designed to support **re-runs and refinement cycles**, not t
 
 ## 🤖 Using AI as a trainer (recommended)
 
-You can integrate the YAML into your own LLM setup, or use a ready-made MIPractice/IA agent in ChatGPT:
-
-> Start the MIPractice / IA agent in ChatGPT
-> [https://chat.openai.com/g/g-693460d3def48191ad08647301645a2e-maturity-in-action-a-praxeological-anthropology](https://chat.openai.com/g/g-693460d3def48191ad08647301645a2e-maturity-in-action-a-praxeological-anthropology)
-> *(Requires a ChatGPT account with access to custom GPTs; the link may change over time.)*
+You can integrate the YAML into your own LLM setup, or use a ready-made MIPractice/IA agent in ChatGPT (see **Links & Resources** above).
 
 ### Minimal loader instruction (English)
 
@@ -320,6 +298,29 @@ If AH addon output exists, make the AH section visible and fill the AH fields.
 
 ---
 
+## 🔗 Links & Resources
+
+*Maturity in Practice* is situated within a broader **praxeological ecosystem** that connects anthropological theory, formal operator models, applied analyses, and executable specifications.
+
+The resources below provide different **points of access** into that ecosystem: from the book and its conceptual foundations, to related model architectures, reference implementations, and interactive tools. Together, they form a coherent field of inquiry rather than a collection of isolated artifacts.
+
+| Category | Resource | Description |
+| --- | --- | --- |
+| Model website | https://pms-theory.com | PMS theory reference |
+| Book websites | https://maturity-in-practice.com | Praxeological Anthropology — English edition (website) |
+|  | https://reife-im-vollzug.de | Praxeologische Anthropologie — Deutsche Ausgabe |
+|  | https://pms-stack.com | PMS-STACK reference architecture |
+| Amazon | https://www.amazon.com/dp/B0G6G7V38P | Book — English edition (Maturity in Practice) |
+|  | https://www.amazon.de/dp/B0G4SPBDQD | Buch — Deutsche Ausgabe (Reife im Vollzug) |
+|  | https://www.amazon.com/dp/B0G6G7V38P | Book — PMS-STACK reference architecture |
+| GitHub | https://github.com/tz-dev/Praxeological-Meta-Structure-Theory | Canonical PMS grammar, theory & YAML definitions |
+|  | https://github.com/tz-dev/Maturity-in-Practice | Book sources, applied praxeological anthropology |
+|  | https://github.com/tz-dev/PMS-QC | Quantum computing paper using PMS operators |
+| Custom GPTs | https://chatgpt.com/g/g-69358a2a4980819183da6a97893389cf-pms-model-assistant | Interactive PMS.yaml exploration & validation |
+|  | https://chat.openai.com/g/g-693460d3def48191ad08647301645a2e-maturity-in-action-a-praxeological-anthropology | Applied praxeological anthropology assistant |
+
+---
+
 ## 📚 Citation
 
 If you reference the model, please cite both the book and this specification:
@@ -339,11 +340,11 @@ T. Zöller (2025). *Maturity in Practice – A Praxeological Anthropology.*
 
 This repository uses a **dual-license model**.
 
-* `MIT-LICENSE`  
+* `MIT-LICENSE`
   MIT License for code and tooling (scripts, helpers, integration glue).
 
-* `LICENSE-CC-BY-4.0`  
-  Creative Commons Attribution 4.0 International for all model content and documentation  
+* `LICENSE-CC-BY-4.0`
+  Creative Commons Attribution 4.0 International for all model content and documentation
   (YAML schemas, specifications, examples, templates).
 
 > “T. Zöller – Maturity in Practice / IA Model (ACRPD / MIPractice_case v2.0)”
